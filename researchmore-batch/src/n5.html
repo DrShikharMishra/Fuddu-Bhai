@@ -1,0 +1,57 @@
+<section class="chap">
+<div class="opener"><div class="no">5</div><div class="kick">Day 5 · Analysis</div><h1>Stress-test it.</h1>
+<p>A pooled number that has never been attacked is a pooled number you don't understand. Today you try to break your own result, then grade how much you trust it.</p>
+<div class="meta"><span>Subgroups</span><span>Sensitivity</span><span>Publication bias</span><span>GRADE</span></div>
+<span class="hand">if it survives your attack, it earns the conclusion.</span></div>
+
+<h2>5.1 Explaining heterogeneity</h2>
+<table><tr><th>Tool</th><th>Question</th><th>Rules</th></tr>
+<tr><td><b>Subgroup analysis</b></td><td>Does the effect differ between categories (e.g. adults vs children)?</td><td>Pre-specify (≤ 3–5), test the <b>difference between subgroups</b> (not "significant here, not there"), few studies per subgroup → low power</td></tr>
+<tr><td><b>Meta-regression</b></td><td>Does effect change with a continuous covariate (age, dose, year)?</td><td>Rule of thumb ≥ 10 studies per covariate; observational by nature</td></tr>
+<tr><td><b>Sensitivity analysis</b></td><td>Does the conclusion survive different choices?</td><td>Pre-specified list; report all results</td></tr></table>
+<div class="box trap"><span class="t">Reviewer trap</span><ul><li><b>"Significant in men, not in women, therefore different."</b> Wrong. Only a formal interaction (subgroup difference) test answers that.</li><li>Dredging 12 subgroups after seeing the data → false positives. Label post-hoc as exploratory.</li><li>Between-study comparisons are confounded; subgroup findings do not prove causation.</li></ul></div>
+
+<h3>Standard sensitivity checks</h3>
+<ul><li><b>Leave-one-out</b>: drop each study in turn; does the estimate or I² collapse? (Trial C in Day 4's example.)</li><li><b>Exclude high-RoB studies</b>.</li><li><b>Fixed vs random</b>; DL vs REML; with/without HKSJ.</li><li>Exclude studies with imputed SDs or extreme sizes.</li><li><b>Alternative effect measure</b> (RR vs OR vs RD).</li></ul>
+<div class="box hy"><span class="t">High-yield</span><p>If the conclusion flips under reasonable alternatives, <b>say so and downgrade certainty</b> (inconsistency / risk of bias). A robust result survives; a fragile one is reported as fragile.</p></div>
+
+<h2>5.2 Publication bias and small-study effects</h2>
+<div class="two"><div class="fig">{{FUNNEL_SYM}}<div class="cap">Symmetric: no obvious asymmetry</div></div><div class="fig">{{FUNNEL_ASYM}}<div class="cap">Asymmetric: small "negative" studies missing?</div></div></div>
+<ul><li><b>Funnel plot</b>: effect (x) vs precision/SE (y, inverted). Big precise studies at the top; small noisy ones spread at the bottom.</li><li><b>Egger's regression</b> tests asymmetry. Use funnel/Egger/Begg only when there are <b>≥ 10 studies</b>; fewer gives too little power to tell chance from asymmetry.</li><li><b>Trim-and-fill</b>: estimates how many studies are "missing" and adjusts. Use as sensitivity, not truth.</li><li>Contour-enhanced funnels mark significance zones, helping to separate publication bias from other causes.</li></ul>
+<div class="box mn"><span class="t">Mnemonic</span><p class="big">HERO</p><p>Asymmetry has causes besides publication bias: <b>H</b>eterogeneity · <b>E</b>ffect differs with study size (true) · <b>R</b>eporting bias · <b>O</b>ther (chance, artefacts of the effect measure, poor methodological quality in small trials).</p></div>
+<div class="box trap"><span class="t">Reviewer trap</span><p><b>"Funnel looks symmetric, so no publication bias"</b> with k = 6. You can't conclude that. Say the test is not interpretable; then rely on registry searches (are there registered but unpublished trials?) and grey literature.</p></div>
+
+<h2>5.3 GRADE: how much do you trust the pooled number?</h2>
+<p>GRADE rates <b>certainty of evidence for each outcome</b> — not each study. Start from the design, then move down for problems and up for strengths.</p>
+<table><tr><th>Start</th><th>Level</th></tr><tr><td>Randomised trials</td><td class="r">High ⊕⊕⊕⊕</td></tr><tr><td>Observational (non-randomised)</td><td class="r">Low ⊕⊕○○ (ROBINS-I-based reviews can start high)</td></tr></table>
+<div class="two"><div><h3>Downgrade (5)</h3><ol><li><b>Risk of bias</b></li><li><b>Inconsistency</b> (heterogeneity unexplained)</li><li><b>Indirectness</b> (P/I/C/O differ from your question)</li><li><b>Imprecision</b> (wide CI, small total N / events)</li><li><b>Publication bias</b></li></ol><p class="small">Each: not serious (0), serious (−1), very serious (−2).</p></div>
+<div><h3>Upgrade (3) — mainly observational</h3><ol><li><b>Large effect</b> (e.g. RR &gt; 2 or &lt; 0.5)</li><li><b>Dose–response gradient</b></li><li><b>All plausible confounding</b> would <i>reduce</i> the effect (or suggest a spurious effect when none is seen)</li></ol><p class="small">Don't upgrade if you already downgraded for serious bias.</p></div></div>
+<div class="box mn"><span class="t">Mnemonic</span><p class="big">RIIPP ↓ &nbsp; LDC ↑</p><p><b>Down:</b> <b>R</b>isk of bias · <b>I</b>nconsistency · <b>I</b>ndirectness · <b>I</b>mprecision (+) <b>P</b>ublication bias. <b>Up:</b> <b>L</b>arge effect · <b>D</b>ose-response · <b>C</b>onfounding works against effect.</p></div>
+<table><tr><th>Final certainty</th><th>Plain-language meaning</th></tr>
+<tr><td><b>High</b></td><td>We are very confident the true effect is close to the estimate.</td></tr>
+<tr><td><b>Moderate</b></td><td>True effect is probably close, but may be substantially different.</td></tr>
+<tr><td><b>Low</b></td><td>Our confidence is limited; the true effect may be substantially different.</td></tr>
+<tr><td><b>Very low</b></td><td>We have very little confidence; the true effect is likely substantially different.</td></tr></table>
+<h3>Summary of Findings (SoF) table: the page clinicians read</h3>
+<p>One row per important outcome: relative effect + CI, <b>absolute</b> effect per 1,000, no. of participants (studies), certainty rating with footnotes explaining each downgrade. Build it free in GRADEpro GDT.</p>
+<div class="box pearl"><span class="t">Clinical pearl</span><p><b>Worked thinking, Day 4 example:</b> RCTs start High. Some trials unblinded with subjective outcomes? −1 RoB. I² 45% with trials pointing opposite directions and a wide prediction interval? −1 inconsistency. CI crossing 1 plus possible harm? −1 imprecision. Final: Low, and you must say <i>why</i>.</p></div>
+<div class="box trap"><span class="t">Reviewer trap</span><ul><li>Calling a "significant" p-value "high-quality evidence". Different questions.</li><li>Rating down without writing the reason in a footnote.</li><li>Applying GRADE to the whole review instead of outcome by outcome.</li></ul></div>
+
+<div class="box task"><span class="t">Hands-on · Day 5 deliverable</span><ol><li>On the Day 4 dataset, run leave-one-out. Which study moves the estimate most?</li><li>Write 2 pre-specified subgroup analyses for your own protocol with the <i>reason</i> for each.</li><li>Grade one outcome using the 5 downgrade domains, with a one-line justification per domain.</li><li>Draft your protocol's <i>Heterogeneity, sensitivity, publication bias and certainty</i> sections.</li></ol></div>
+
+<div class="rev"><h2>⚡ Day 5 · Rapid Revision</h2><div class="cols">
+<h3>Explain it</h3><ul><li>Subgroup: test difference, pre-specify</li><li>Meta-regression: ≥10 studies</li><li>Sensitivity: leave-one-out, RoB, models</li></ul>
+<h3>Bias</h3><ul><li>Funnel/Egger: <b>≥10</b> studies</li><li>Asymmetry ≠ always publication bias (HERO)</li><li>Trim-and-fill = sensitivity only</li></ul>
+<h3>GRADE</h3><ul><li><b>5</b> down: RIIPP</li><li><b>3</b> up: LDC</li><li>RCT start High; observational start Low</li><li>Per outcome, with footnotes</li></ul>
+</div></div>
+
+<h2>Practice MCQs</h2>
+<div class="mcq"><div class="q">1. Minimum number of studies usually advised for funnel plot / Egger's test:</div><div class="o">A. 3  B. 5  C. 10  D. 30</div><div class="a"><b>Answer C.</b> Below ~10 the tests have too little power.</div></div>
+<div class="mcq"><div class="q">2. Number of reasons to downgrade / upgrade in GRADE:</div><div class="o">A. 5 / 3  B. 3 / 5  C. 4 / 4  D. 6 / 2</div><div class="a"><b>Answer A.</b></div></div>
+<div class="mcq"><div class="q">3. Starting certainty for RCTs in GRADE:</div><div class="o">A. Low  B. Moderate  C. High  D. Very low</div><div class="a"><b>Answer C.</b></div></div>
+<div class="mcq"><div class="q">4. Effect is significant in men and not in women. To claim a subgroup difference you need:</div><div class="o">A. Nothing more  B. A test for subgroup differences  C. A funnel plot  D. Fixed-effect model</div><div class="a"><b>Answer B.</b></div></div>
+<div class="mcq"><div class="q">5. Which is NOT a cause of funnel asymmetry?</div><div class="o">A. Publication bias  B. True heterogeneity  C. Chance  D. Using a forest plot</div><div class="a"><b>Answer D.</b></div></div>
+<div class="mcq"><div class="q">6. CI 0.45–1.60 around the pooled RR (benefit possible, harm possible). GRADE domain:</div><div class="o">A. Indirectness  B. Imprecision  C. Publication bias  D. Risk of bias</div><div class="a"><b>Answer B.</b></div></div>
+<div class="mcq"><div class="q">7. Which can justify upgrading observational evidence?</div><div class="o">A. Large effect  B. Single study  C. Industry funding  D. Wide CI</div><div class="a"><b>Answer A.</b></div></div>
+<div class="mcq"><div class="q">8. GRADE certainty is assigned to:</div><div class="o">A. Each study  B. Each outcome across the body of evidence  C. The journal  D. The author</div><div class="a"><b>Answer B.</b></div></div>
+</section>

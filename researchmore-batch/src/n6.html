@@ -1,0 +1,86 @@
+<section class="chap">
+<div class="opener"><div class="no">6</div><div class="kick">Day 6 · Analysis</div><h1>Go network.</h1>
+<p>Pairwise MA answers "A vs B". Real clinicians face A, B, C, D and a placebo, with trials that never met each other. NMA uses the web of comparisons to rank them, if the web is honest.</p>
+<div class="meta"><span>Geometry</span><span>Transitivity</span><span>Consistency</span><span>League table</span><span>CINeMA</span></div>
+<span class="hand">rankings never walk alone.</span></div>
+
+<h2>6.1 The core idea</h2>
+<div class="fig">{{NETWORK}}</div>
+<div class="box defn"><span class="t">Definition</span><p><b>Direct evidence</b> = trials that compare A with B head to head. <b>Indirect evidence</b> = A vs B inferred through a common comparator: <b>d(A,B) = d(A,Pl) − d(B,Pl)</b>. <b>Mixed (network) estimate</b> = weighted combination of both.</p></div>
+<ul><li>Network gains precision and allows comparisons nobody trialled.</li><li>It adds <b>assumptions</b>. That's where reviewers attack.</li></ul>
+<div class="box hy"><span class="t">High-yield</span><p><b>Pairwise first, network last.</b> If your pairwise MAs are messy, the network will be messier. Build the geometry from the same included studies you've already extracted.</p></div>
+
+<h2>6.2 Geometry and vocabulary</h2>
+<table><tr><th>Term</th><th>Meaning</th></tr>
+<tr><td>Node</td><td>One treatment (or defined treatment class)</td></tr>
+<tr><td>Edge</td><td>Direct comparison made in ≥ 1 trial</td></tr>
+<tr><td>Multi-arm trial</td><td>3+ arms; contributes correlated comparisons: software must handle it</td></tr>
+<tr><td>Closed loop</td><td>Both direct and indirect evidence for a comparison</td></tr>
+<tr><td>Connected network</td><td>Every node is reachable. Disconnected networks cannot be analysed together</td></tr>
+<tr><td>Reference</td><td>Common comparator (placebo / standard care); results often relative to it</td></tr></table>
+<div class="box trap"><span class="t">Reviewer trap</span><ul><li><b>Node definition ("lumping vs splitting")</b>: is "statin" one node or six doses/types? Define in the protocol, before looking at results.</li><li>Including a treatment that is never used in the clinical decision you care about. Network must be a <i>decision set</i>.</li><li>Showing the plot with equal-thickness lines. Size nodes by participants, edges by number of trials.</li></ul></div>
+
+<h2>6.3 Assumption 1: Transitivity</h2>
+<div class="box defn"><span class="t">Definition</span><p><b>Transitivity</b>: studies comparing A–Pl and B–Pl are similar enough in <b>effect modifiers</b> (age, severity, baseline risk, dose, duration, setting) that an indirect A-vs-B comparison is valid. It's a clinical judgement about study characteristics; you assess it <i>before</i> looking at statistics.</p></div>
+<ul><li>Tabulate effect-modifier distributions per comparison (a "transitivity table").</li><li>If A–Pl trials are in severe disease and B–Pl trials in mild disease, the indirect A vs B is confounded by severity.</li><li>Nothing substitutes for judgement. Statistical tests can't prove it.</li></ul>
+
+<h2>6.4 Assumption 2: Consistency (coherence)</h2>
+<p>Where direct and indirect evidence both exist, they should <b>agree</b>. Disagreement = <b>inconsistency / incoherence</b>.</p>
+<table><tr><th>Level</th><th>Method</th><th>Question</th></tr>
+<tr><td>Global</td><td>Design-by-treatment interaction test</td><td>Anywhere in the network, is there inconsistency?</td></tr>
+<tr><td>Local</td><td>Node-splitting (SIDE) / loop inconsistency</td><td>For this comparison, direct vs indirect: do they differ?</td></tr></table>
+<div class="box mn"><span class="t">Mnemonic</span><p class="big">T before C</p><p><b>T</b>ransitivity is the <i>assumption</i> (judge by thinking). <b>C</b>onsistency is the <i>testable consequence</i> (check by statistics). If transitivity fails, consistency tests may or may not catch it.</p></div>
+<div class="box trap"><span class="t">Reviewer trap</span><p>"Test for inconsistency not significant → no inconsistency." Same lesson as I²: tests are underpowered. Present node-split estimates, not just p-values, and take clinical context into account.</p></div>
+
+<h2>6.5 Heterogeneity in a network</h2>
+<p>Most NMA models estimate a <b>common τ²</b> for all comparisons (an assumption). Heterogeneity within each pairwise comparison should still be examined (Day 4 skills). Network meta-regression can adjust for an effect modifier; needs enough trials.</p>
+
+<h2>6.6 Frequentist vs Bayesian</h2>
+<table><tr><th></th><th>Frequentist</th><th>Bayesian</th></tr>
+<tr><td>Typical tools</td><td>R <b>netmeta</b>, Stata <i>network</i> suite</td><td>R <b>gemtc / BUGSnet</b> (JAGS/Stan)</td></tr>
+<tr><td>Output</td><td>Estimate, CI, P-score</td><td>Posterior median, 95% CrI, SUCRA, probabilities</td></tr>
+<tr><td>Strength</td><td>Fast, transparent, fewer settings</td><td>Natural ranking probabilities, flexible models</td></tr>
+<tr><td>Risk</td><td>Awkward with sparse data</td><td>Priors / convergence must be reported</td></tr></table>
+<p><b>Both are acceptable.</b> What matters is that the model, priors, convergence diagnostics (Bayesian) and software are reported. For beginners: <b>MetaInsight</b> (a free browser app built on R) runs frequentist and Bayesian NMA without coding and is ideal for teaching.</p>
+
+<h2>6.7 League tables and rankings</h2>
+<table><tr><th>Output</th><th>What it shows</th></tr>
+<tr><td><b>League table</b></td><td>Every pairwise effect (with CI/CrI) in one matrix. <b>The primary result.</b></td></tr>
+<tr><td><b>Forest plot vs reference</b></td><td>All treatments vs placebo</td></tr>
+<tr><td><b>SUCRA / P-score</b></td><td>0–100%: average rank, higher = more likely better. <b>Not an effect size.</b></td></tr>
+<tr><td>Rankogram</td><td>Probability of each treatment being 1st, 2nd, …</td></tr></table>
+<div class="box hy"><span class="t">High-yield</span><p><b>Rankings must always appear next to the estimates and their certainty.</b> A treatment can rank first on a trivial effect with a CI covering benefit and harm. SUCRA of 90% in a sparse, imprecise network is noise with a nice number on it.</p></div>
+<div class="box trap"><span class="t">Reviewer trap</span><ul><li>"Treatment X is the best" written from SUCRA alone.</li><li>Ranking drugs that have few trials with other drugs that have many.</li><li>No statement of the clinical importance threshold. "Different" is not "better".</li></ul></div>
+
+<h2>6.8 CINeMA: confidence in network estimates</h2>
+<p>CINeMA (Confidence in Network Meta-Analysis) is a free web app that rates <b>each network estimate</b> using <b>6 domains</b>, then gives High / Moderate / Low / Very low.</p>
+<table><tr><th>#</th><th>Domain</th><th>Idea</th></tr>
+<tr><td>1</td><td>Within-study bias</td><td>RoB of studies that contribute to the estimate (weighted by contribution)</td></tr>
+<tr><td>2</td><td>Reporting bias</td><td>Missing or selectively reported results</td></tr>
+<tr><td>3</td><td>Indirectness</td><td>Studies' P/I/C/O vs your target question</td></tr>
+<tr><td>4</td><td>Imprecision</td><td>CI vs a clinically meaningful range</td></tr>
+<tr><td>5</td><td>Heterogeneity</td><td>Prediction interval vs clinical thresholds</td></tr>
+<tr><td>6</td><td>Incoherence</td><td>Direct vs indirect disagreement (node-split), plus overall consistency</td></tr></table>
+<div class="box mn"><span class="t">Mnemonic</span><p class="big">W·R·I·I·H·I</p><p><b>W</b>ithin-study bias · <b>R</b>eporting bias · <b>I</b>ndirectness · <b>I</b>mprecision · <b>H</b>eterogeneity · <b>I</b>ncoherence. Six boxes: tick each for no concerns / some / major.</p></div>
+<p class="small">Alternative: GRADE extended to NMA (Puhan et al. four-step approach). Cite whichever you use; CINeMA is the most practical for beginners because it is stepwise and software-supported.</p>
+<table><tr><th>Question</th><th>Pairwise</th><th>Network</th></tr><tr><td>Reporting</td><td>PRISMA 2020</td><td>PRISMA-NMA (adds geometry, inconsistency, rankings)</td></tr><tr><td>Certainty</td><td>GRADE</td><td>CINeMA or GRADE-NMA</td></tr><tr><td>Key assumption</td><td>Similarity</td><td>Transitivity + consistency</td></tr><tr><td>Main output</td><td>Forest plot</td><td>League table + rankings with certainty</td></tr></table>
+
+<div class="box task"><span class="t">Hands-on · Day 6 deliverable</span><ol><li>Sketch your network on paper: nodes, edges, and where direct evidence is missing.</li><li>Build a transitivity table: 3 likely effect modifiers × each comparison.</li><li>Explore MetaInsight with its demo data: find the league table, the ranking and the node-split result.</li><li>Draft the NMA section of your protocol: node definition, models, consistency checks, ranking presentation, certainty method.</li></ol></div>
+
+<div class="rev"><h2>⚡ Day 6 · Rapid Revision</h2><div class="cols">
+<h3>Logic</h3><ul><li>Indirect: d(AB) = d(A,Pl) − d(B,Pl)</li><li>Mixed = direct + indirect</li></ul>
+<h3>Assumptions</h3><ul><li><b>Transitivity</b> (clinical, before analysis)</li><li><b>Consistency</b> (global + node-split)</li></ul>
+<h3>Outputs</h3><ul><li>League table = main</li><li>SUCRA/P-score: <b>never alone</b></li></ul>
+<h3>Certainty</h3><ul><li>CINeMA: <b>6</b> domains</li><li>PRISMA-NMA for reporting</li></ul>
+</div></div>
+
+<h2>Practice MCQs</h2>
+<div class="mcq"><div class="q">1. In an NMA, the indirect comparison A vs B via placebo is:</div><div class="o">A. d(A,Pl) + d(B,Pl)  B. d(A,Pl) − d(B,Pl)  C. d(A,Pl) × d(B,Pl)  D. Average of both</div><div class="a"><b>Answer B.</b></div></div>
+<div class="mcq"><div class="q">2. The assumption that effect modifiers are balanced across comparisons is:</div><div class="o">A. Consistency  B. Transitivity  C. Heterogeneity  D. Imprecision</div><div class="a"><b>Answer B.</b></div></div>
+<div class="mcq"><div class="q">3. Node-splitting evaluates:</div><div class="o">A. Publication bias  B. Local inconsistency  C. RoB  D. SUCRA</div><div class="a"><b>Answer B.</b></div></div>
+<div class="mcq"><div class="q">4. SUCRA of 92% means treatment X:</div><div class="o">A. Reduces events by 92%  B. Has high probability of ranking near the top, not the size of effect  C. Is proven superior  D. Has no inconsistency</div><div class="a"><b>Answer B.</b></div></div>
+<div class="mcq"><div class="q">5. Number of CINeMA domains:</div><div class="o">A. 4  B. 5  C. 6  D. 8</div><div class="a"><b>Answer C.</b></div></div>
+<div class="mcq"><div class="q">6. Which design cannot be analysed as a single network?</div><div class="o">A. Star-shaped  B. Loop  C. Disconnected  D. Multi-arm</div><div class="a"><b>Answer C.</b></div></div>
+<div class="mcq"><div class="q">7. Primary result of an NMA to show first:</div><div class="o">A. Ranking plot  B. League table with certainty  C. Funnel  D. P-value</div><div class="a"><b>Answer B.</b></div></div>
+<div class="mcq"><div class="q">8. Reporting guideline extension for NMAs:</div><div class="o">A. PRISMA-P  B. PRISMA-NMA  C. PRISMA-S  D. CONSORT</div><div class="a"><b>Answer B.</b></div></div>
+</section>

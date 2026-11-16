@@ -1,0 +1,69 @@
+<section class="chap">
+<div class="opener"><div class="no">2</div><div class="kick">Day 2 · Evidence</div><h1>Find everything.</h1>
+<p>You are not looking for papers that support you. You are trying to find <i>all</i> the studies, so the missing ones cannot embarrass you later.</p>
+<div class="meta"><span>PubMed</span><span>Embase</span><span>Cochrane CENTRAL</span><span>Rayyan</span></div>
+<span class="hand">yes, two. always two.</span></div>
+
+<h2>2.1 Anatomy of a search</h2>
+<div class="box defn"><span class="t">Definition</span><p><b>Sensitivity</b> = proportion of relevant records you retrieve (recall). <b>Precision</b> = proportion of retrieved records that are relevant. A systematic search deliberately buys sensitivity with precision: expect to screen 1,000+ records to include 10.</p></div>
+<h3>Build it block by block</h3>
+<ol><li>Pick the 2–3 PICO concepts that must appear (usually P + I; <b>do not search outcome</b> — it hides studies that report it poorly).</li><li>For each concept: controlled vocabulary + free-text synonyms joined by <b>OR</b>.</li><li>Join concepts with <b>AND</b>.</li><li>Add a design filter only if validated (see below).</li><li>Test: does it retrieve 5–10 "golden" papers you already know?</li></ol>
+<table><tr><th>Tool</th><th>Symbol</th><th>Does</th><th>Example</th></tr>
+<tr><td>Boolean</td><td>OR / AND / NOT</td><td>Widen / narrow / exclude (avoid NOT)</td><td>appendicitis OR appendectomy</td></tr>
+<tr><td>Truncation</td><td>*</td><td>Word stem</td><td>laparoscop* → laparoscopy, laparoscopic</td></tr>
+<tr><td>Phrase</td><td>" "</td><td>Exact phrase</td><td>"surgical site infection"</td></tr>
+<tr><td>Field tag</td><td>[tiab], [mh]</td><td>Restrict to title/abstract, MeSH</td><td>infection[tiab]</td></tr>
+<tr><td>Proximity (Embase/Ovid)</td><td>adjN / NEAR/n</td><td>Words within n of each other</td><td>wound adj3 infection</td></tr></table>
+
+<div class="fig"><div class="fix" style="text-align:left;font:9pt 'Special Elite'">
+<b style="color:#c8102e">EXAMPLE (PubMed, illustrative)</b><br>
+#1 &nbsp;"Appendicitis"[mh] OR appendicitis[tiab] OR appendectom*[tiab] OR appendicectom*[tiab]<br>
+#2 &nbsp;"Laparoscopy"[mh] OR laparoscop*[tiab] OR "minimally invasive"[tiab]<br>
+#3 &nbsp;#1 AND #2<br>
+#4 &nbsp;#3 AND (randomized controlled trial[pt] OR randomized[tiab] OR randomised[tiab] OR placebo[tiab] OR trial[tiab])
+</div></div>
+<div class="box trap"><span class="t">Reviewer trap</span><ul><li>Only MeSH → misses new, un-indexed records. Only free text → misses indexed synonyms. <b>Use both.</b></li><li>The final line above is a simplified teaching filter. For real reviews use a validated, published RCT filter and cite it.</li><li>Reporting "searched PubMed and Google" with no strategy, no dates. Reviewers can't reproduce it. Post the full strategy for <b>every</b> database.</li></ul></div>
+
+<h2>2.2 Where to search</h2>
+<table><tr><th>Source</th><th>Why</th><th>Note</th></tr>
+<tr><td><b>PubMed / MEDLINE</b></td><td>Free, biomedical, MeSH</td><td>Baseline, never alone</td></tr>
+<tr><td><b>Embase</b></td><td>Adds European + drug/device literature; Emtree</td><td>Often needs institutional access</td></tr>
+<tr><td><b>Cochrane CENTRAL</b></td><td>Largest collection of controlled trials</td><td>Gets RCTs others miss</td></tr>
+<tr><td><b>Trial registries</b></td><td>ClinicalTrials.gov, WHO ICTRP, CTRI</td><td>Finds unpublished/ongoing trials, outcome switching</td></tr>
+<tr><td>Others</td><td>Scopus, Web of Science, CINAHL, LILACS, IndMED</td><td>Pick for topic and region</td></tr>
+<tr><td>Grey literature</td><td>Preprints (medRxiv), theses, conference abstracts</td><td>Reduces publication bias</td></tr>
+<tr><td>Citation chasing</td><td>References of included studies + who cited them</td><td>Backward and forward</td></tr></table>
+<div class="box hy"><span class="t">High-yield</span><p>Cochrane's minimum expectation for an intervention review: <b>MEDLINE + Embase + CENTRAL</b>, plus trial registries and reference lists. Most "SRs" in student journals search one database. That's why they get rejected.</p></div>
+<div class="box mn"><span class="t">Mnemonic</span><p class="big">MECCA</p><p><b>M</b>EDLINE · <b>E</b>mbase · <b>C</b>ENTRAL · <b>C</b>itation chasing · <b>A</b>nd registries. Five stops, minimum.</p></div>
+
+<h2>2.3 Quality-check the search</h2>
+<ul><li><b>PRESS</b> (Peer Review of Electronic Search Strategies): have a second person (ideally a librarian) check logic, syntax, spelling, missed terms.</li><li><b>PRISMA-S</b>: 16-item checklist for reporting searches (databases, dates, full strategies, filters, limits).</li><li>Record search <b>date</b>, interface (Ovid / PubMed web), and records per source: you need these for the flow diagram.</li><li>Update the search before submission if &gt;12 months old.</li></ul>
+
+<h2>2.4 Deduplicate, then screen with two reviewers</h2>
+<h3>Rayyan workflow (free web tool)</h3>
+<ol><li>Export from each database as RIS/CSV/PubMed format. Keep the file names and counts.</li><li>Create a Rayyan review → upload files → <b>Detect duplicates</b> → resolve (never bulk-delete blindly).</li><li><b>Blind ON</b> so reviewers can't see each other's decisions. Both reviewers screen all records.</li><li>Use keyword highlighting: green = include terms, red = exclude terms (speeds, doesn't decide).</li><li>Stage 1: titles/abstracts → Include / Exclude / Maybe. Stage 2: full text → Include / Exclude <b>+ reason</b>.</li><li>Turn blind OFF → resolve conflicts by discussion, third reviewer if stuck.</li></ol>
+<div class="box pearl"><span class="t">Clinical pearl</span><p><b>Pilot first.</b> Both reviewers screen the same 50–100 records and compare. If you disagree a lot, your criteria are the problem, not the reviewers. Cohen's κ is often reported for agreement, but the bigger point is the process.</p></div>
+<h3>Exclusion reasons must be exact</h3>
+<p>Use a short, ordered list so each excluded full text gets <b>one</b> main reason: wrong population · wrong intervention · wrong comparator · wrong outcome · wrong study design · duplicate · no full text. These feed the PRISMA flow diagram.</p>
+<div class="fig">{{PRISMA_FILLED}}</div><div class="cap">Fig 2.1 PRISMA-style flow with hypothetical numbers. Check the arithmetic at every arrow: 1,842 − 394 = 1,448; 1,448 − 1,386 = 62; 62 − 31 = 31.</div>
+<div class="box trap"><span class="t">Reviewer trap</span><ul><li>One reviewer screening alone is single-reviewer bias, however experienced.</li><li>Flow numbers that don't add up, instant credibility loss.</li><li>Excluding on "no full text" without trying: email the author, use interlibrary loan.</li></ul></div>
+
+<div class="box task"><span class="t">Hands-on · Day 2 deliverable</span><ol><li>Build a PubMed strategy for your PICO (2 blocks + free text + MeSH). Test it: does it find your 5 golden papers?</li><li>Translate it to a second database (Embase or CENTRAL) and note what syntax changed.</li><li>Upload a sample of 100 records into Rayyan with a friend; screen blind; compute % agreement.</li><li>Write your protocol's <i>Search</i> and <i>Selection</i> sections.</li></ol></div>
+
+<div class="rev"><h2>⚡ Day 2 · Rapid Revision</h2><div class="cols">
+<h3>Build</h3><ul><li>Concepts: P + I (not O)</li><li>OR within, AND between</li><li>MeSH <b>and</b> free text</li></ul>
+<h3>Sources</h3><ul><li>MECCA</li><li>Registries + preprints + citation chasing</li></ul>
+<h3>Process</h3><ul><li>Dedup → blind dual screen → resolve</li><li>Reasons for every full-text exclusion</li><li>PRESS (check search) · PRISMA-S (<b>16</b> items)</li></ul>
+<h3>Traps</h3><ul><li>One database</li><li>Language limits</li><li>Flow numbers don't reconcile</li></ul>
+</div></div>
+
+<h2>Practice MCQs</h2>
+<div class="mcq"><div class="q">1. Which PICO element is usually omitted from the search string?</div><div class="o">A. Population  B. Intervention  C. Outcome  D. Design</div><div class="a"><b>Answer C.</b> Outcomes are inconsistently indexed and often not in titles/abstracts, so searching them loses studies.</div></div>
+<div class="mcq"><div class="q">2. In a database search, OR between synonyms:</div><div class="o">A. Narrows results  B. Broadens results  C. Excludes terms  D. Sorts by relevance</div><div class="a"><b>Answer B.</b> OR within a concept; AND between concepts.</div></div>
+<div class="mcq"><div class="q">3. "laparoscop*" is an example of:</div><div class="o">A. Phrase search  B. Proximity  C. Truncation  D. Field tag</div><div class="a"><b>Answer C.</b> The asterisk stands for any ending.</div></div>
+<div class="mcq"><div class="q">4. Minimum databases for a Cochrane-style intervention review:</div><div class="o">A. PubMed only  B. MEDLINE, Embase, CENTRAL  C. Google Scholar  D. Scopus only</div><div class="a"><b>Answer B.</b> Plus registries and reference lists.</div></div>
+<div class="mcq"><div class="q">5. PRESS is used for:</div><div class="o">A. Risk of bias  B. Peer review of search strategies  C. Data extraction  D. Reporting NMA</div><div class="a"><b>Answer B.</b></div></div>
+<div class="mcq"><div class="q">6. Why screen in blind mode?</div><div class="o">A. Faster  B. Prevents one reviewer influencing the other  C. Required by PROSPERO  D. Hides duplicates</div><div class="a"><b>Answer B.</b> Independent decisions are the point; conflicts are resolved afterwards.</div></div>
+<div class="mcq"><div class="q">7. A search with very high sensitivity will usually have:</div><div class="o">A. High precision  B. Low precision  C. No false positives  D. Fewer records</div><div class="a"><b>Answer B.</b> The trade-off is deliberate.</div></div>
+<div class="mcq"><div class="q">8. Flow diagram: 2,000 identified, 300 duplicates, 1,600 screened. What's wrong?</div><div class="o">A. Nothing  B. Numbers don't reconcile (should be 1,700)  C. Duplicates can't be removed  D. Screening must be 2,000</div><div class="a"><b>Answer B.</b> 2,000 − 300 = 1,700. Reconcile every box.</div></div>
+</section>

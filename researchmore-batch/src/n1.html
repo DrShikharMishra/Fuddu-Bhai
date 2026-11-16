@@ -1,0 +1,86 @@
+<section class="chap">
+<div class="opener"><div class="no">1</div><div class="kick">Day 1 · Protocol</div><h1>Ask a good question.</h1>
+<p>Every review that fails, fails here. A vague question gives a vague search, a vague pool and a vague paper. Spend today making the question sharp enough to hurt.</p>
+<div class="meta"><span>PICO</span><span>Eligibility</span><span>PRISMA-P</span><span>PROSPERO</span></div>
+<span class="hand">pairwise first. network last. in that order.</span></div>
+
+<h2>1.1 What are we actually doing?</h2>
+<table><tr><th>Design</th><th>What it is</th><th>Output</th><th>Use when</th></tr>
+<tr><td><b>Narrative review</b></td><td>Author picks and summarises papers; no fixed method</td><td>Opinion with citations</td><td>Teaching, background. Not evidence.</td></tr>
+<tr><td><b>Systematic review (SR)</b></td><td>Pre-specified question, reproducible search, 2 reviewers, critical appraisal</td><td>Structured synthesis</td><td>Always the foundation</td></tr>
+<tr><td><b>Meta-analysis (MA)</b></td><td>Statistical pooling of results <i>inside</i> an SR</td><td>One pooled estimate + CI</td><td>Studies are similar enough to combine</td></tr>
+<tr><td><b>Network MA (NMA)</b></td><td>MA of ≥3 treatments at once using direct + indirect evidence</td><td>Every pairwise effect + ranking</td><td>Many options, few head-to-head trials</td></tr>
+<tr><td><b>Scoping review</b></td><td>Maps what exists; no pooling, no RoB needed</td><td>Evidence map</td><td>Broad, exploratory questions</td></tr></table>
+<div class="box hy"><span class="t">High-yield</span><p><b>Every MA should sit inside an SR. Not every SR needs an MA.</b> A meta-analysis without a systematic search is just arithmetic on a convenient sample of papers.</p></div>
+
+<h3>Where it sits in the evidence hierarchy</h3>
+<p>Single case → case series → case-control → cohort → RCT → <b>SR/MA of RCTs</b> (top). Garbage-in applies: a pooled estimate from biased trials is a precise wrong answer. That is why Days 3 and 5 exist.</p>
+
+<h2>1.2 The question: PICO and its cousins</h2>
+<div class="fig">{{PICO}}</div>
+<table><tr><th>Framework</th><th>Letters</th><th>Question type</th></tr>
+<tr><td><b>PICO</b></td><td>Population · Intervention · Comparator · Outcome</td><td>Therapy / most clinical questions</td></tr>
+<tr><td>PICOS / PICOTS</td><td>+ Study design · + Timing · + Setting</td><td>Tighter eligibility</td></tr>
+<tr><td>PECO</td><td>Exposure instead of Intervention</td><td>Risk factors, aetiology (observational)</td></tr>
+<tr><td>PIRD / PIT</td><td>Index test · Reference standard · Diagnosis</td><td>Diagnostic accuracy</td></tr>
+<tr><td>PCC</td><td>Population · Concept · Context</td><td>Scoping reviews</td></tr>
+<tr><td>SPIDER</td><td>Sample · Phenomenon · Design · Evaluation · Research type</td><td>Qualitative evidence</td></tr></table>
+
+<div class="box mn"><span class="t">Mnemonic</span><p class="big">FINER</p><p>Good question = <b>F</b>easible · <b>I</b>nteresting · <b>N</b>ovel · <b>E</b>thical · <b>R</b>elevant. Add one check: <b>has someone already done it?</b> Search PROSPERO and PubMed for "systematic review" + your topic <i>before</i> you invest a month.</p></div>
+
+<h3>Bad question → good question</h3>
+<table><tr><th>Bad</th><th>Why it fails</th><th>Sharpened</th></tr>
+<tr><td>"Is laparoscopy better than open surgery?"</td><td>For what? Better how? In whom?</td><td><b>P</b> adults with acute appendicitis · <b>I</b> laparoscopic appendicectomy · <b>C</b> open appendicectomy · <b>O</b> 30-day surgical-site infection (primary), length of stay, conversion (secondary) · <b>S</b> RCTs</td></tr>
+<tr><td>"Does exercise help the heart?"</td><td>"Exercise", "help" and "heart" are all undefined</td><td><b>P</b> adults post-MI · <b>I</b> supervised cardiac rehab ≥8 wks · <b>C</b> usual care · <b>O</b> all-cause mortality at 12 months</td></tr></table>
+<div class="box trap"><span class="t">Reviewer trap</span><ul><li><b>Outcome = "outcomes"</b>. Name the primary outcome, the measure and the time point. Switching primary outcome after seeing results is outcome-switching: the cardinal sin.</li><li>Population too broad ("all patients") → heterogeneity you can never explain. Too narrow → 2 studies.</li><li>Comparator left vague: "standard care" varies by country and decade. Define it.</li></ul></div>
+
+<h2>1.3 Eligibility criteria</h2>
+<p>Inclusion and exclusion criteria are the <b>fence round your review</b>. Write them before searching. Each rule needs a reason a reviewer can accept.</p>
+<table><tr><th>Domain</th><th>Example inclusion</th><th>Example exclusion</th><th>Justify</th></tr>
+<tr><td>Design</td><td>Parallel-group RCTs</td><td>Case reports, editorials</td><td>Causal question</td></tr>
+<tr><td>Population</td><td>Adults ≥18, confirmed diagnosis</td><td>Paediatric, pregnant</td><td>Different biology</td></tr>
+<tr><td>Intervention</td><td>Defined dose/technique</td><td>Co-interventions that muddy effect</td><td>Isolates exposure</td></tr>
+<tr><td>Outcome</td><td>Reports primary outcome at ≥1 time point</td><td>No usable data</td><td>Poolability</td></tr>
+<tr><td>Other</td><td>Any language, any date*</td><td>Duplicate publications</td><td>*Restrict only with a reason</td></tr></table>
+<div class="box pearl"><span class="t">Clinical pearl</span><p>A language restriction ("English only") is the commonest unforced error. Excluding non-English trials can shift effect estimates and it must be listed as a limitation.</p></div>
+
+<h2>1.4 Choosing the effect measure now, not later</h2>
+<table><tr><th>Outcome type</th><th>Measure</th><th>Remember</th></tr>
+<tr><td>Dichotomous (infection yes/no)</td><td>RR · OR · RD</td><td>RR/OR pooled on log scale; RD for absolute impact</td></tr>
+<tr><td>Continuous, same scale</td><td>Mean difference (MD)</td><td>Needs same units</td></tr>
+<tr><td>Continuous, different scales</td><td>Standardised MD (Hedges' g)</td><td>Unit-free; harder to interpret</td></tr>
+<tr><td>Time-to-event</td><td>Hazard ratio (HR)</td><td>Pool log HR with its SE</td></tr></table>
+
+<h2>1.5 The protocol and PRISMA-P</h2>
+<div class="box defn"><span class="t">Definition</span><p><b>Protocol</b> = the written plan, fixed <i>before</i> you screen, stating question, eligibility, search, methods of appraisal, synthesis and what you will do if the data are awkward. <b>PRISMA-P</b> (2015) is the 17-item checklist for what a protocol must contain.</p></div>
+<p><b>Why bother?</b> It stops you choosing methods after peeking at results, it exposes duplicate work, and journals and reviewers increasingly ask for it.</p>
+<table><tr><th>Protocol section</th><th>What goes in it</th></tr>
+<tr><td>Administrative</td><td>Title ("systematic review"/"meta-analysis"), registration, authors and roles, amendments, funding</td></tr>
+<tr><td>Introduction</td><td>Rationale, objectives in PICO form</td></tr>
+<tr><td>Methods: eligibility</td><td>PICOS, years, languages, report status</td></tr>
+<tr><td>Methods: search</td><td>Databases, registers, grey sources, draft strategy</td></tr>
+<tr><td>Methods: study records</td><td>Management software, selection process (2 reviewers), data extraction items</td></tr>
+<tr><td>Methods: appraisal</td><td>RoB tool, how judgements are used</td></tr>
+<tr><td>Methods: synthesis</td><td>Effect measure, model, heterogeneity, subgroups, sensitivity, publication bias, certainty (GRADE)</td></tr></table>
+<h3>Registering on PROSPERO</h3>
+<ul><li>PROSPERO is a free international registry of systematic reviews with a health-related outcome, maintained by the Centre for Reviews and Dissemination, University of York.</li><li>Register <b>before you start screening</b>; it is meant to record plans, not completed work. Registration is a record, not peer review or an endorsement.</li><li>Needs: a title, review question, search plan, eligibility, primary outcome, RoB method, synthesis plan. Keep these identical to your protocol.</li><li>Not eligible (typically scoping reviews, narrative reviews)? A public time-stamped protocol on OSF Registries is the fallback.</li></ul>
+<div class="box trap"><span class="t">Reviewer trap</span><p><b>Registration after results is theatre.</b> If methods changed, say so in a "deviations from protocol" paragraph and update the registration. Honest change is fine. Hidden change is misconduct.</p></div>
+
+<div class="box task"><span class="t">Hands-on · Day 1 deliverable</span><ol><li>Write your topic as a single PICO sentence + one primary outcome with time point.</li><li>Search PROSPERO + PubMed for existing reviews; paste the 3 closest and write one line each on how yours differs.</li><li>Fill the eligibility table (above) with a reason in every row.</li><li>Draft the protocol headings from PRISMA-P and write Introduction + Objectives (150–250 words).</li></ol></div>
+
+<div class="rev"><h2>⚡ Day 1 · Rapid Revision</h2><div class="cols">
+<h3>Core</h3><ul><li>SR = method. MA = statistics inside an SR. NMA = many treatments at once.</li><li>PICO(S) → PECO / PCC / SPIDER by question type.</li><li>Protocol first. PRISMA-P = 17 items. Register before screening.</li></ul>
+<h3>Traps</h3><ul><li>Vague outcome / outcome switching</li><li>Language restriction without reason</li><li>Registering after results</li></ul>
+<h3>Numbers</h3><ul><li>2 reviewers, always</li><li>PRISMA-P: <b>17</b></li><li>Primary outcome: <b>1</b></li></ul>
+</div></div>
+
+<h2>Practice MCQs</h2>
+<div class="mcq"><div class="q">1. Which element of PICO is most often left vague, leading to outcome switching?</div><div class="o">A. Population  B. Intervention  C. Comparator  D. Outcome</div><div class="a"><b>Answer D.</b> Undefined outcomes (what, how measured, at what time) let authors choose the "best-looking" one later.</div></div>
+<div class="mcq"><div class="q">2. The best time to register a systematic review is:</div><div class="o">A. After data extraction  B. After analysis  C. Before screening begins  D. At manuscript submission</div><div class="a"><b>Answer C.</b> Registration records the plan; doing it after results defeats the purpose.</div></div>
+<div class="mcq"><div class="q">3. PRISMA-P is a reporting guideline for:</div><div class="o">A. The completed review  B. The review protocol  C. Search strategies  D. Network meta-analyses</div><div class="a"><b>Answer B.</b> PRISMA 2020 = completed review; PRISMA-S = searches; PRISMA-NMA = network reviews.</div></div>
+<div class="mcq"><div class="q">4. A question about harms of an environmental exposure in cohort studies is best framed as:</div><div class="o">A. PICO  B. PECO  C. SPIDER  D. PCC</div><div class="a"><b>Answer B.</b> Exposure replaces Intervention when you do not assign it.</div></div>
+<div class="mcq"><div class="q">5. A meta-analysis without a systematic search is best described as:</div><div class="o">A. Acceptable if studies are RCTs  B. A narrative review with maths  C. A scoping review  D. An NMA</div><div class="a"><b>Answer B.</b> Selective inclusion biases the pooled estimate however good the statistics.</div></div>
+<div class="mcq"><div class="q">6. Which restriction needs the strongest justification?</div><div class="o">A. Parallel-group RCTs only  B. Adults only  C. English-language only  D. Confirmed diagnosis</div><div class="a"><b>Answer C.</b> Language limits can bias estimates and are rarely driven by the question.</div></div>
+<div class="mcq"><div class="q">7. PROSPERO accepts registration of:</div><div class="o">A. Any literature review  B. Systematic reviews with a health-related outcome  C. Completed papers only  D. Primary RCTs</div><div class="a"><b>Answer B.</b> It is a registry of SRs, not trials (trials go to CTRI/ClinicalTrials.gov).</div></div>
+<div class="mcq"><div class="q">8. Pooled log-RR is back-transformed because RR is:</div><div class="o">A. Skewed multiplicative  B. Always normal  C. Unit-dependent  D. Absolute</div><div class="a"><b>Answer A.</b> Ratios are symmetric on the log scale; pool there, report on the natural scale.</div></div>
+</section>

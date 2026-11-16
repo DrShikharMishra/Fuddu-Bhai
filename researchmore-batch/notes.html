@@ -1,0 +1,589 @@
+<!doctype html><html lang='en'><head><meta charset='utf-8'><title>SR · MA · NMA Premium Notes</title><style>@font-face{font-family:'Caveat';font-style:normal;font-weight:600;src:url(../fonts/Caveat-normal-600.ttf) format('truetype');}
+@font-face{font-family:'Fraunces';font-style:italic;font-weight:600;src:url(../fonts/Fraunces-italic-600.ttf) format('truetype');}
+@font-face{font-family:'Fraunces';font-style:normal;font-weight:600;src:url(../fonts/Fraunces-normal-600.ttf) format('truetype');}
+@font-face{font-family:'Fraunces';font-style:normal;font-weight:800;src:url(../fonts/Fraunces-normal-800.ttf) format('truetype');}
+@font-face{font-family:'Special Elite';font-style:normal;font-weight:400;src:url(../fonts/SpecialElite-normal-400.ttf) format('truetype');}:root{--navy:#0c1f4d;--red:#c8102e;--cream:#f1eee7;--paper:#f7f5ef;--blue:#cdd8ea;--ink:#1b2238;--mute:#5b6479;--gold:#b8892b}
+*{box-sizing:border-box}
+html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{margin:0;background:var(--paper);color:var(--ink);font:10.2pt/1.5 'Inter',system-ui,sans-serif}
+@page{size:A4;margin:16mm 15mm 17mm}
+h1,h2,h3,.disp{font-family:'Fraunces',Georgia,serif;color:var(--navy);margin:0}
+h2{font-size:19pt;font-weight:800;margin:14pt 0 6pt;border-bottom:1.6pt solid var(--navy);padding-bottom:3pt;break-after:avoid}
+h3{font-size:12.5pt;font-weight:600;margin:11pt 0 3pt;break-after:avoid}
+h3::before{content:"§ ";color:var(--red)}
+p{margin:0 0 6pt}
+ul,ol{margin:2pt 0 7pt;padding-left:15pt}li{margin:1.5pt 0}
+b,strong{color:var(--navy)}
+.mono{font-family:'Special Elite',monospace}
+.hand{font-family:'Caveat',cursive;color:var(--red);font-size:13pt;line-height:1.1}
+.chap{page-break-before:always;break-before:page}
+.opener{background:var(--navy);color:#fff;margin:0 -15mm 10pt;padding:14mm 15mm 12mm;position:relative;overflow:hidden;min-height:92mm}
+.opener .no{font:800 92pt/0.8 Fraunces,serif;color:var(--red);position:absolute;right:15mm;top:10mm}
+.opener .kick{font:9pt 'Special Elite',monospace;letter-spacing:.18em;color:#cdd8ea;text-transform:uppercase}
+.opener h1{color:#fff;font-size:29pt;font-weight:800;line-height:1.05;margin:6pt 0 8pt;max-width:130mm}
+.opener p{color:#dfe6f3;max-width:140mm;font-size:10.5pt}
+.opener .hand{color:#ff9aa8;font-size:15pt;margin-top:6pt;display:block}
+.meta{display:flex;gap:6pt;margin:8pt 0 4pt;flex-wrap:wrap}
+.meta span{font:8.5pt 'Special Elite',monospace;border:1pt solid #8fa0c4;color:#e3e9f5;padding:2pt 7pt;border-radius:2pt}
+.box{border-radius:3pt;padding:7pt 10pt 6pt;margin:8pt 0;break-inside:avoid;position:relative}
+.box .t{display:inline-block;font:700 7.6pt 'Inter';letter-spacing:.14em;text-transform:uppercase;padding:2pt 7pt;border-radius:2pt;margin-bottom:4pt;color:#fff}
+.box p:last-child,.box ul:last-child{margin-bottom:2pt}
+.hy{background:#fdecee;border-left:4pt solid var(--red)}.hy .t{background:var(--red)}
+.trap{background:#fff;border:1.3pt dashed var(--navy)}.trap .t{background:var(--navy)}
+.mn{background:var(--blue);border-left:4pt solid var(--navy)}.mn .t{background:var(--navy)}
+.mn .big{font:800 15pt 'Fraunces';color:var(--red);letter-spacing:.04em}
+.pearl{background:#fbf3df;border-left:4pt solid var(--gold)}.pearl .t{background:var(--gold)}
+.defn{background:#fff;border:1pt solid #cfd6e6;border-left:4pt solid #3d66b8}.defn .t{background:#3d66b8}
+.task{background:#eef6ee;border:1.3pt solid #2f7d4f}.task .t{background:#2f7d4f}
+.fix{background:#fff;border:1pt solid #cfd6e6;border-radius:3pt;padding:7pt 10pt;margin:8pt 0;break-inside:avoid}
+table{border-collapse:collapse;width:100%;margin:7pt 0 9pt;font-size:9.1pt;break-inside:avoid}
+th{background:var(--navy);color:#fff;text-align:left;padding:4pt 6pt;font-weight:600;font-size:8.6pt;letter-spacing:.03em}
+td{padding:4pt 6pt;border-bottom:.8pt solid #cfd6e6;vertical-align:top}
+tr:nth-child(even) td{background:#f0ede5}
+td.r{color:var(--red);font-weight:600}
+.cap{font:8.4pt 'Special Elite',monospace;color:var(--mute);margin:-3pt 0 9pt}
+.fig{margin:8pt 0;text-align:center;break-inside:avoid}
+.fig svg{max-width:100%;height:auto}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10pt}
+.stamp{display:inline-block;border:1.6pt solid var(--red);color:var(--red);font:9pt 'Special Elite';padding:2pt 8pt;transform:rotate(-3deg);letter-spacing:.1em}
+.rev{background:var(--navy);color:#fff;padding:12pt 14pt;margin:6pt 0;border-radius:3pt}
+.rev h2{color:#fff;border-color:var(--red);margin-top:0}
+.rev h3{color:#fff}.rev b{color:#ffd0d6}.rev li{margin:2.5pt 0}
+.rev .cols{columns:2;column-gap:16pt}.rev .cols>*{break-inside:avoid}
+.mcq{break-inside:avoid;margin:7pt 0;padding:6pt 9pt;background:#fff;border:1pt solid #d5dbe8;border-radius:3pt}
+.mcq .q{font-weight:600;color:var(--navy);margin-bottom:3pt}.mcq .o{margin:1pt 0 1pt 8pt}
+.mcq .a{margin-top:4pt;padding-top:3pt;border-top:1pt dotted #aab4cc;font-size:9pt;color:#2f3b57}.mcq .a b{color:var(--red)}
+.toc li{margin:3pt 0}
+.cover{height:262mm;display:flex;flex-direction:column;justify-content:space-between;color:#fff;background:var(--navy);margin:0 -15mm;padding:18mm 18mm;page-break-after:always;position:relative}
+.cover h1{color:#fff;font-size:44pt;line-height:1.02;font-weight:800}
+.cover .red{color:#ff8da0}
+.cover .kick{font:10pt 'Special Elite';letter-spacing:.2em;color:#cdd8ea}
+.cover .hand{color:#ff9aa8;font-size:19pt}
+.cover .stampw{border:2pt solid #ff8da0;color:#ff8da0;display:inline-block;padding:4pt 12pt;font:11pt 'Special Elite';transform:rotate(-3deg)}
+.small{font-size:8.4pt;color:var(--mute)}
+.sl{break-inside:avoid;border:1pt solid #cfd6e6;background:#fff;border-radius:3pt;margin:7pt 0;padding:0}
+.sl .h{background:var(--blue);padding:4pt 9pt;font:600 10pt 'Fraunces';color:var(--navy);display:flex;justify-content:space-between}
+.sl .h i{font:8.4pt 'Special Elite';font-style:normal;color:var(--red)}
+.sl .b{padding:6pt 9pt}.sl .b ul{margin-bottom:3pt}
+.sl .say{border-left:3pt solid var(--red);padding:1pt 0 1pt 8pt;margin:5pt 0 2pt;font-style:italic;color:#2b3550}
+.sl .say::before{content:"SAY · ";font:700 7.6pt Inter;font-style:normal;letter-spacing:.14em;color:var(--red)}
+</style></head><body><div class='cover'><div><div class='kick'>RESEARCHMORE PUBLICATIONS · TEACHING BATCH</div></div>
+<div><div class='kick' style='margin-bottom:10pt'>PREMIUM NOTES · 7 DAYS</div><h1>Systematic Review,<br>Meta-Analysis &amp;<br><span class='red'>Network Meta-Analysis</span></h1><p style='font:13pt Fraunces;font-style:italic;color:#dfe6f3;max-width:130mm;margin-top:14pt'>From question to protocol to analysis. High-yield notes, reviewer traps, worked numbers and practice MCQs.</p><div class='hand' style='margin-top:10pt'>by day 7 you hold a protocol written by you.</div></div>
+<div><span class='stampw'>TEACHING ONLY · NOT A WRITING SERVICE</span><p style='color:#a9b6d3;font-size:8.5pt;margin-top:14pt'>Unofficial study material prepared from the batch brochure outline. Statistical examples use hypothetical data computed by script. Verify methods against the current Cochrane Handbook and reporting guidelines before use in a real review.</p></div></div><section class='chap'><h2 style='margin-top:0'>Contents</h2><ol class='toc' style='font:600 12pt Fraunces;color:#0c1f4d;line-height:2'>
+<li>Day 1 · Ask a good question <span class='small'>— PICO, eligibility, PRISMA-P, PROSPERO</span></li>
+<li>Day 2 · Find everything <span class='small'>— search strategy, databases, Rayyan screening</span></li>
+<li>Day 3 · Judge the evidence <span class='small'>— data extraction, RoB 2, ROBINS-I</span></li>
+<li>Day 4 · Pool it <span class='small'>— effect sizes, forest plot, heterogeneity, fixed vs random</span></li>
+<li>Day 5 · Stress-test it <span class='small'>— subgroups, sensitivity, publication bias, GRADE</span></li>
+<li>Day 6 · Go network <span class='small'>— geometry, transitivity, consistency, league tables, CINeMA</span></li>
+<li>Day 7 · Write it up <span class='small'>— PRISMA family, capstone protocol template</span></li></ol>
+<h3>How to use these notes</h3><div class='two'><div class='box hy'><span class='t'>High-yield</span><p>Red boxes: the facts that get asked. Learn these first.</p></div><div class='box trap'><span class='t'>Reviewer trap</span><p>Dashed boxes: the mistakes a reviewer will catch.</p></div><div class='box mn'><span class='t'>Mnemonic</span><p>Blue boxes: memory hooks.</p></div><div class='box task'><span class='t'>Hands-on</span><p>Green boxes: today's deliverable on <b>your own</b> question.</p></div></div>
+<div class='box pearl'><span class='t'>Method</span><p>Read one chapter → do the green box → close the notes and answer the MCQs cold → revisit only what you missed. The rapid-revision page is for the night before, not the first read.</p></div></section><section class="chap">
+<div class="opener"><div class="no">1</div><div class="kick">Day 1 · Protocol</div><h1>Ask a good question.</h1>
+<p>Every review that fails, fails here. A vague question gives a vague search, a vague pool and a vague paper. Spend today making the question sharp enough to hurt.</p>
+<div class="meta"><span>PICO</span><span>Eligibility</span><span>PRISMA-P</span><span>PROSPERO</span></div>
+<span class="hand">pairwise first. network last. in that order.</span></div>
+
+<h2>1.1 What are we actually doing?</h2>
+<table><tr><th>Design</th><th>What it is</th><th>Output</th><th>Use when</th></tr>
+<tr><td><b>Narrative review</b></td><td>Author picks and summarises papers; no fixed method</td><td>Opinion with citations</td><td>Teaching, background. Not evidence.</td></tr>
+<tr><td><b>Systematic review (SR)</b></td><td>Pre-specified question, reproducible search, 2 reviewers, critical appraisal</td><td>Structured synthesis</td><td>Always the foundation</td></tr>
+<tr><td><b>Meta-analysis (MA)</b></td><td>Statistical pooling of results <i>inside</i> an SR</td><td>One pooled estimate + CI</td><td>Studies are similar enough to combine</td></tr>
+<tr><td><b>Network MA (NMA)</b></td><td>MA of ≥3 treatments at once using direct + indirect evidence</td><td>Every pairwise effect + ranking</td><td>Many options, few head-to-head trials</td></tr>
+<tr><td><b>Scoping review</b></td><td>Maps what exists; no pooling, no RoB needed</td><td>Evidence map</td><td>Broad, exploratory questions</td></tr></table>
+<div class="box hy"><span class="t">High-yield</span><p><b>Every MA should sit inside an SR. Not every SR needs an MA.</b> A meta-analysis without a systematic search is just arithmetic on a convenient sample of papers.</p></div>
+
+<h3>Where it sits in the evidence hierarchy</h3>
+<p>Single case → case series → case-control → cohort → RCT → <b>SR/MA of RCTs</b> (top). Garbage-in applies: a pooled estimate from biased trials is a precise wrong answer. That is why Days 3 and 5 exist.</p>
+
+<h2>1.2 The question: PICO and its cousins</h2>
+<div class="fig"><svg viewBox="0 0 520 110" xmlns="http://www.w3.org/2000/svg" font-family="Fraunces,serif"><rect x="8" y="8" width="118" height="92" fill="#fff" stroke="#0c1f4d" stroke-width="1.6"/><text x="67" y="62" text-anchor="middle" font-size="46" font-weight="800" fill="#c8102e">P</text><text x="67" y="90" text-anchor="middle" font-size="12" fill="#0c1f4d" font-weight="600">Population</text><rect x="136" y="8" width="118" height="92" fill="#fff" stroke="#0c1f4d" stroke-width="1.6"/><text x="195" y="62" text-anchor="middle" font-size="46" font-weight="800" fill="#c8102e">I</text><text x="195" y="90" text-anchor="middle" font-size="12" fill="#0c1f4d" font-weight="600">Intervention</text><rect x="264" y="8" width="118" height="92" fill="#fff" stroke="#0c1f4d" stroke-width="1.6"/><text x="323" y="62" text-anchor="middle" font-size="46" font-weight="800" fill="#c8102e">C</text><text x="323" y="90" text-anchor="middle" font-size="12" fill="#0c1f4d" font-weight="600">Comparator</text><rect x="392" y="8" width="118" height="92" fill="#fff" stroke="#0c1f4d" stroke-width="1.6"/><text x="451" y="62" text-anchor="middle" font-size="46" font-weight="800" fill="#c8102e">O</text><text x="451" y="90" text-anchor="middle" font-size="12" fill="#0c1f4d" font-weight="600">Outcome</text></svg></div>
+<table><tr><th>Framework</th><th>Letters</th><th>Question type</th></tr>
+<tr><td><b>PICO</b></td><td>Population · Intervention · Comparator · Outcome</td><td>Therapy / most clinical questions</td></tr>
+<tr><td>PICOS / PICOTS</td><td>+ Study design · + Timing · + Setting</td><td>Tighter eligibility</td></tr>
+<tr><td>PECO</td><td>Exposure instead of Intervention</td><td>Risk factors, aetiology (observational)</td></tr>
+<tr><td>PIRD / PIT</td><td>Index test · Reference standard · Diagnosis</td><td>Diagnostic accuracy</td></tr>
+<tr><td>PCC</td><td>Population · Concept · Context</td><td>Scoping reviews</td></tr>
+<tr><td>SPIDER</td><td>Sample · Phenomenon · Design · Evaluation · Research type</td><td>Qualitative evidence</td></tr></table>
+
+<div class="box mn"><span class="t">Mnemonic</span><p class="big">FINER</p><p>Good question = <b>F</b>easible · <b>I</b>nteresting · <b>N</b>ovel · <b>E</b>thical · <b>R</b>elevant. Add one check: <b>has someone already done it?</b> Search PROSPERO and PubMed for "systematic review" + your topic <i>before</i> you invest a month.</p></div>
+
+<h3>Bad question → good question</h3>
+<table><tr><th>Bad</th><th>Why it fails</th><th>Sharpened</th></tr>
+<tr><td>"Is laparoscopy better than open surgery?"</td><td>For what? Better how? In whom?</td><td><b>P</b> adults with acute appendicitis · <b>I</b> laparoscopic appendicectomy · <b>C</b> open appendicectomy · <b>O</b> 30-day surgical-site infection (primary), length of stay, conversion (secondary) · <b>S</b> RCTs</td></tr>
+<tr><td>"Does exercise help the heart?"</td><td>"Exercise", "help" and "heart" are all undefined</td><td><b>P</b> adults post-MI · <b>I</b> supervised cardiac rehab ≥8 wks · <b>C</b> usual care · <b>O</b> all-cause mortality at 12 months</td></tr></table>
+<div class="box trap"><span class="t">Reviewer trap</span><ul><li><b>Outcome = "outcomes"</b>. Name the primary outcome, the measure and the time point. Switching primary outcome after seeing results is outcome-switching: the cardinal sin.</li><li>Population too broad ("all patients") → heterogeneity you can never explain. Too narrow → 2 studies.</li><li>Comparator left vague: "standard care" varies by country and decade. Define it.</li></ul></div>
+
+<h2>1.3 Eligibility criteria</h2>
+<p>Inclusion and exclusion criteria are the <b>fence round your review</b>. Write them before searching. Each rule needs a reason a reviewer can accept.</p>
+<table><tr><th>Domain</th><th>Example inclusion</th><th>Example exclusion</th><th>Justify</th></tr>
+<tr><td>Design</td><td>Parallel-group RCTs</td><td>Case reports, editorials</td><td>Causal question</td></tr>
+<tr><td>Population</td><td>Adults ≥18, confirmed diagnosis</td><td>Paediatric, pregnant</td><td>Different biology</td></tr>
+<tr><td>Intervention</td><td>Defined dose/technique</td><td>Co-interventions that muddy effect</td><td>Isolates exposure</td></tr>
+<tr><td>Outcome</td><td>Reports primary outcome at ≥1 time point</td><td>No usable data</td><td>Poolability</td></tr>
+<tr><td>Other</td><td>Any language, any date*</td><td>Duplicate publications</td><td>*Restrict only with a reason</td></tr></table>
+<div class="box pearl"><span class="t">Clinical pearl</span><p>A language restriction ("English only") is the commonest unforced error. Excluding non-English trials can shift effect estimates and it must be listed as a limitation.</p></div>
+
+<h2>1.4 Choosing the effect measure now, not later</h2>
+<table><tr><th>Outcome type</th><th>Measure</th><th>Remember</th></tr>
+<tr><td>Dichotomous (infection yes/no)</td><td>RR · OR · RD</td><td>RR/OR pooled on log scale; RD for absolute impact</td></tr>
+<tr><td>Continuous, same scale</td><td>Mean difference (MD)</td><td>Needs same units</td></tr>
+<tr><td>Continuous, different scales</td><td>Standardised MD (Hedges' g)</td><td>Unit-free; harder to interpret</td></tr>
+<tr><td>Time-to-event</td><td>Hazard ratio (HR)</td><td>Pool log HR with its SE</td></tr></table>
+
+<h2>1.5 The protocol and PRISMA-P</h2>
+<div class="box defn"><span class="t">Definition</span><p><b>Protocol</b> = the written plan, fixed <i>before</i> you screen, stating question, eligibility, search, methods of appraisal, synthesis and what you will do if the data are awkward. <b>PRISMA-P</b> (2015) is the 17-item checklist for what a protocol must contain.</p></div>
+<p><b>Why bother?</b> It stops you choosing methods after peeking at results, it exposes duplicate work, and journals and reviewers increasingly ask for it.</p>
+<table><tr><th>Protocol section</th><th>What goes in it</th></tr>
+<tr><td>Administrative</td><td>Title ("systematic review"/"meta-analysis"), registration, authors and roles, amendments, funding</td></tr>
+<tr><td>Introduction</td><td>Rationale, objectives in PICO form</td></tr>
+<tr><td>Methods: eligibility</td><td>PICOS, years, languages, report status</td></tr>
+<tr><td>Methods: search</td><td>Databases, registers, grey sources, draft strategy</td></tr>
+<tr><td>Methods: study records</td><td>Management software, selection process (2 reviewers), data extraction items</td></tr>
+<tr><td>Methods: appraisal</td><td>RoB tool, how judgements are used</td></tr>
+<tr><td>Methods: synthesis</td><td>Effect measure, model, heterogeneity, subgroups, sensitivity, publication bias, certainty (GRADE)</td></tr></table>
+<h3>Registering on PROSPERO</h3>
+<ul><li>PROSPERO is a free international registry of systematic reviews with a health-related outcome, maintained by the Centre for Reviews and Dissemination, University of York.</li><li>Register <b>before you start screening</b>; it is meant to record plans, not completed work. Registration is a record, not peer review or an endorsement.</li><li>Needs: a title, review question, search plan, eligibility, primary outcome, RoB method, synthesis plan. Keep these identical to your protocol.</li><li>Not eligible (typically scoping reviews, narrative reviews)? A public time-stamped protocol on OSF Registries is the fallback.</li></ul>
+<div class="box trap"><span class="t">Reviewer trap</span><p><b>Registration after results is theatre.</b> If methods changed, say so in a "deviations from protocol" paragraph and update the registration. Honest change is fine. Hidden change is misconduct.</p></div>
+
+<div class="box task"><span class="t">Hands-on · Day 1 deliverable</span><ol><li>Write your topic as a single PICO sentence + one primary outcome with time point.</li><li>Search PROSPERO + PubMed for existing reviews; paste the 3 closest and write one line each on how yours differs.</li><li>Fill the eligibility table (above) with a reason in every row.</li><li>Draft the protocol headings from PRISMA-P and write Introduction + Objectives (150–250 words).</li></ol></div>
+
+<div class="rev"><h2>⚡ Day 1 · Rapid Revision</h2><div class="cols">
+<h3>Core</h3><ul><li>SR = method. MA = statistics inside an SR. NMA = many treatments at once.</li><li>PICO(S) → PECO / PCC / SPIDER by question type.</li><li>Protocol first. PRISMA-P = 17 items. Register before screening.</li></ul>
+<h3>Traps</h3><ul><li>Vague outcome / outcome switching</li><li>Language restriction without reason</li><li>Registering after results</li></ul>
+<h3>Numbers</h3><ul><li>2 reviewers, always</li><li>PRISMA-P: <b>17</b></li><li>Primary outcome: <b>1</b></li></ul>
+</div></div>
+
+<h2>Practice MCQs</h2>
+<div class="mcq"><div class="q">1. Which element of PICO is most often left vague, leading to outcome switching?</div><div class="o">A. Population  B. Intervention  C. Comparator  D. Outcome</div><div class="a"><b>Answer D.</b> Undefined outcomes (what, how measured, at what time) let authors choose the "best-looking" one later.</div></div>
+<div class="mcq"><div class="q">2. The best time to register a systematic review is:</div><div class="o">A. After data extraction  B. After analysis  C. Before screening begins  D. At manuscript submission</div><div class="a"><b>Answer C.</b> Registration records the plan; doing it after results defeats the purpose.</div></div>
+<div class="mcq"><div class="q">3. PRISMA-P is a reporting guideline for:</div><div class="o">A. The completed review  B. The review protocol  C. Search strategies  D. Network meta-analyses</div><div class="a"><b>Answer B.</b> PRISMA 2020 = completed review; PRISMA-S = searches; PRISMA-NMA = network reviews.</div></div>
+<div class="mcq"><div class="q">4. A question about harms of an environmental exposure in cohort studies is best framed as:</div><div class="o">A. PICO  B. PECO  C. SPIDER  D. PCC</div><div class="a"><b>Answer B.</b> Exposure replaces Intervention when you do not assign it.</div></div>
+<div class="mcq"><div class="q">5. A meta-analysis without a systematic search is best described as:</div><div class="o">A. Acceptable if studies are RCTs  B. A narrative review with maths  C. A scoping review  D. An NMA</div><div class="a"><b>Answer B.</b> Selective inclusion biases the pooled estimate however good the statistics.</div></div>
+<div class="mcq"><div class="q">6. Which restriction needs the strongest justification?</div><div class="o">A. Parallel-group RCTs only  B. Adults only  C. English-language only  D. Confirmed diagnosis</div><div class="a"><b>Answer C.</b> Language limits can bias estimates and are rarely driven by the question.</div></div>
+<div class="mcq"><div class="q">7. PROSPERO accepts registration of:</div><div class="o">A. Any literature review  B. Systematic reviews with a health-related outcome  C. Completed papers only  D. Primary RCTs</div><div class="a"><b>Answer B.</b> It is a registry of SRs, not trials (trials go to CTRI/ClinicalTrials.gov).</div></div>
+<div class="mcq"><div class="q">8. Pooled log-RR is back-transformed because RR is:</div><div class="o">A. Skewed multiplicative  B. Always normal  C. Unit-dependent  D. Absolute</div><div class="a"><b>Answer A.</b> Ratios are symmetric on the log scale; pool there, report on the natural scale.</div></div>
+</section>
+<section class="chap">
+<div class="opener"><div class="no">2</div><div class="kick">Day 2 · Evidence</div><h1>Find everything.</h1>
+<p>You are not looking for papers that support you. You are trying to find <i>all</i> the studies, so the missing ones cannot embarrass you later.</p>
+<div class="meta"><span>PubMed</span><span>Embase</span><span>Cochrane CENTRAL</span><span>Rayyan</span></div>
+<span class="hand">yes, two. always two.</span></div>
+
+<h2>2.1 Anatomy of a search</h2>
+<div class="box defn"><span class="t">Definition</span><p><b>Sensitivity</b> = proportion of relevant records you retrieve (recall). <b>Precision</b> = proportion of retrieved records that are relevant. A systematic search deliberately buys sensitivity with precision: expect to screen 1,000+ records to include 10.</p></div>
+<h3>Build it block by block</h3>
+<ol><li>Pick the 2–3 PICO concepts that must appear (usually P + I; <b>do not search outcome</b> — it hides studies that report it poorly).</li><li>For each concept: controlled vocabulary + free-text synonyms joined by <b>OR</b>.</li><li>Join concepts with <b>AND</b>.</li><li>Add a design filter only if validated (see below).</li><li>Test: does it retrieve 5–10 "golden" papers you already know?</li></ol>
+<table><tr><th>Tool</th><th>Symbol</th><th>Does</th><th>Example</th></tr>
+<tr><td>Boolean</td><td>OR / AND / NOT</td><td>Widen / narrow / exclude (avoid NOT)</td><td>appendicitis OR appendectomy</td></tr>
+<tr><td>Truncation</td><td>*</td><td>Word stem</td><td>laparoscop* → laparoscopy, laparoscopic</td></tr>
+<tr><td>Phrase</td><td>" "</td><td>Exact phrase</td><td>"surgical site infection"</td></tr>
+<tr><td>Field tag</td><td>[tiab], [mh]</td><td>Restrict to title/abstract, MeSH</td><td>infection[tiab]</td></tr>
+<tr><td>Proximity (Embase/Ovid)</td><td>adjN / NEAR/n</td><td>Words within n of each other</td><td>wound adj3 infection</td></tr></table>
+
+<div class="fig"><div class="fix" style="text-align:left;font:9pt 'Special Elite'">
+<b style="color:#c8102e">EXAMPLE (PubMed, illustrative)</b><br>
+#1 &nbsp;"Appendicitis"[mh] OR appendicitis[tiab] OR appendectom*[tiab] OR appendicectom*[tiab]<br>
+#2 &nbsp;"Laparoscopy"[mh] OR laparoscop*[tiab] OR "minimally invasive"[tiab]<br>
+#3 &nbsp;#1 AND #2<br>
+#4 &nbsp;#3 AND (randomized controlled trial[pt] OR randomized[tiab] OR randomised[tiab] OR placebo[tiab] OR trial[tiab])
+</div></div>
+<div class="box trap"><span class="t">Reviewer trap</span><ul><li>Only MeSH → misses new, un-indexed records. Only free text → misses indexed synonyms. <b>Use both.</b></li><li>The final line above is a simplified teaching filter. For real reviews use a validated, published RCT filter and cite it.</li><li>Reporting "searched PubMed and Google" with no strategy, no dates. Reviewers can't reproduce it. Post the full strategy for <b>every</b> database.</li></ul></div>
+
+<h2>2.2 Where to search</h2>
+<table><tr><th>Source</th><th>Why</th><th>Note</th></tr>
+<tr><td><b>PubMed / MEDLINE</b></td><td>Free, biomedical, MeSH</td><td>Baseline, never alone</td></tr>
+<tr><td><b>Embase</b></td><td>Adds European + drug/device literature; Emtree</td><td>Often needs institutional access</td></tr>
+<tr><td><b>Cochrane CENTRAL</b></td><td>Largest collection of controlled trials</td><td>Gets RCTs others miss</td></tr>
+<tr><td><b>Trial registries</b></td><td>ClinicalTrials.gov, WHO ICTRP, CTRI</td><td>Finds unpublished/ongoing trials, outcome switching</td></tr>
+<tr><td>Others</td><td>Scopus, Web of Science, CINAHL, LILACS, IndMED</td><td>Pick for topic and region</td></tr>
+<tr><td>Grey literature</td><td>Preprints (medRxiv), theses, conference abstracts</td><td>Reduces publication bias</td></tr>
+<tr><td>Citation chasing</td><td>References of included studies + who cited them</td><td>Backward and forward</td></tr></table>
+<div class="box hy"><span class="t">High-yield</span><p>Cochrane's minimum expectation for an intervention review: <b>MEDLINE + Embase + CENTRAL</b>, plus trial registries and reference lists. Most "SRs" in student journals search one database. That's why they get rejected.</p></div>
+<div class="box mn"><span class="t">Mnemonic</span><p class="big">MECCA</p><p><b>M</b>EDLINE · <b>E</b>mbase · <b>C</b>ENTRAL · <b>C</b>itation chasing · <b>A</b>nd registries. Five stops, minimum.</p></div>
+
+<h2>2.3 Quality-check the search</h2>
+<ul><li><b>PRESS</b> (Peer Review of Electronic Search Strategies): have a second person (ideally a librarian) check logic, syntax, spelling, missed terms.</li><li><b>PRISMA-S</b>: 16-item checklist for reporting searches (databases, dates, full strategies, filters, limits).</li><li>Record search <b>date</b>, interface (Ovid / PubMed web), and records per source: you need these for the flow diagram.</li><li>Update the search before submission if &gt;12 months old.</li></ul>
+
+<h2>2.4 Deduplicate, then screen with two reviewers</h2>
+<h3>Rayyan workflow (free web tool)</h3>
+<ol><li>Export from each database as RIS/CSV/PubMed format. Keep the file names and counts.</li><li>Create a Rayyan review → upload files → <b>Detect duplicates</b> → resolve (never bulk-delete blindly).</li><li><b>Blind ON</b> so reviewers can't see each other's decisions. Both reviewers screen all records.</li><li>Use keyword highlighting: green = include terms, red = exclude terms (speeds, doesn't decide).</li><li>Stage 1: titles/abstracts → Include / Exclude / Maybe. Stage 2: full text → Include / Exclude <b>+ reason</b>.</li><li>Turn blind OFF → resolve conflicts by discussion, third reviewer if stuck.</li></ol>
+<div class="box pearl"><span class="t">Clinical pearl</span><p><b>Pilot first.</b> Both reviewers screen the same 50–100 records and compare. If you disagree a lot, your criteria are the problem, not the reviewers. Cohen's κ is often reported for agreement, but the bigger point is the process.</p></div>
+<h3>Exclusion reasons must be exact</h3>
+<p>Use a short, ordered list so each excluded full text gets <b>one</b> main reason: wrong population · wrong intervention · wrong comparator · wrong outcome · wrong study design · duplicate · no full text. These feed the PRISMA flow diagram.</p>
+<div class="fig"><svg viewBox="0 0 560 420" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif" font-size="10"><defs><marker id="a" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8z" fill="#0c1f4d"/></marker></defs><rect x="20" y="10" width="220" height="44" fill="#fff" stroke="#0c1f4d" stroke-width="1.4" /><text x="28" y="26" font-weight="700" fill="#0c1f4d" font-size="9">IDENTIFICATION</text><text x="28" y="42" fill="#333">Records from databases + registers n = 1,842</text><rect x="300" y="10" width="240" height="44" fill="#fff" stroke="#0c1f4d" stroke-width="1.4" stroke-dasharray="5 3"/><text x="308" y="26" font-weight="700" fill="#0c1f4d" font-size="9">REMOVED BEFORE SCREENING</text><text x="308" y="42" fill="#333">Duplicates n = 394  (auto + manual)</text><line x1="240" y1="32" x2="300" y2="32" stroke="#0c1f4d" stroke-width="1.4" marker-end="url(#a)"/><rect x="20" y="90" width="220" height="44" fill="#fff" stroke="#0c1f4d" stroke-width="1.4" /><text x="28" y="106" font-weight="700" fill="#0c1f4d" font-size="9">SCREENING · 2 REVIEWERS</text><text x="28" y="122" fill="#333">Title/abstract screened n = 1,448</text><line x1="130" y1="54" x2="130" y2="90" stroke="#0c1f4d" stroke-width="1.4" marker-end="url(#a)"/><rect x="300" y="90" width="240" height="44" fill="#fff" stroke="#0c1f4d" stroke-width="1.4" stroke-dasharray="5 3"/><text x="308" y="106" font-weight="700" fill="#0c1f4d" font-size="9">EXCLUDED</text><text x="308" y="122" fill="#333">Not relevant n = 1,386</text><line x1="240" y1="112" x2="300" y2="112" stroke="#0c1f4d" stroke-width="1.4" marker-end="url(#a)"/><rect x="20" y="170" width="220" height="44" fill="#fff" stroke="#0c1f4d" stroke-width="1.4" /><text x="28" y="186" font-weight="700" fill="#0c1f4d" font-size="9">ELIGIBILITY</text><text x="28" y="202" fill="#333">Full texts sought n = 62</text><line x1="130" y1="134" x2="130" y2="170" stroke="#0c1f4d" stroke-width="1.4" marker-end="url(#a)"/><rect x="300" y="170" width="240" height="70" fill="#fff" stroke="#0c1f4d" stroke-width="1.4" stroke-dasharray="5 3"/><text x="308" y="186" font-weight="700" fill="#0c1f4d" font-size="9">FULL TEXTS EXCLUDED + REASONS</text><text x="308" y="202" fill="#333">Wrong population n = 9</text><text x="308" y="214" fill="#333">Wrong comparator n = 12</text><text x="308" y="228" fill="#333">No usable data n = 10</text><line x1="240" y1="192" x2="300" y2="192" stroke="#0c1f4d" stroke-width="1.4" marker-end="url(#a)"/><rect x="20" y="260" width="220" height="44" fill="#fff" stroke="#0c1f4d" stroke-width="1.4" /><text x="28" y="276" font-weight="700" fill="#0c1f4d" font-size="9">INCLUDED IN REVIEW</text><text x="28" y="292" fill="#333">Studies n = 31</text><line x1="130" y1="214" x2="130" y2="260" stroke="#0c1f4d" stroke-width="1.4" marker-end="url(#a)"/><rect x="20" y="336" width="220" height="56" fill="#fff" stroke="#c8102e" stroke-width="2" /><text x="28" y="352" font-weight="700" fill="#0c1f4d" font-size="9">INCLUDED IN META-ANALYSIS</text><text x="28" y="368" fill="#333">Studies n = 24  (k = 24 with usable data)</text><line x1="130" y1="304" x2="130" y2="336" stroke="#0c1f4d" stroke-width="1.4" marker-end="url(#a)"/><text x="300" y="360" class="h" fill="#c8102e" font-size="10">(example numbers are hypothetical)</text></svg></div><div class="cap">Fig 2.1 PRISMA-style flow with hypothetical numbers. Check the arithmetic at every arrow: 1,842 − 394 = 1,448; 1,448 − 1,386 = 62; 62 − 31 = 31.</div>
+<div class="box trap"><span class="t">Reviewer trap</span><ul><li>One reviewer screening alone is single-reviewer bias, however experienced.</li><li>Flow numbers that don't add up, instant credibility loss.</li><li>Excluding on "no full text" without trying: email the author, use interlibrary loan.</li></ul></div>
+
+<div class="box task"><span class="t">Hands-on · Day 2 deliverable</span><ol><li>Build a PubMed strategy for your PICO (2 blocks + free text + MeSH). Test it: does it find your 5 golden papers?</li><li>Translate it to a second database (Embase or CENTRAL) and note what syntax changed.</li><li>Upload a sample of 100 records into Rayyan with a friend; screen blind; compute % agreement.</li><li>Write your protocol's <i>Search</i> and <i>Selection</i> sections.</li></ol></div>
+
+<div class="rev"><h2>⚡ Day 2 · Rapid Revision</h2><div class="cols">
+<h3>Build</h3><ul><li>Concepts: P + I (not O)</li><li>OR within, AND between</li><li>MeSH <b>and</b> free text</li></ul>
+<h3>Sources</h3><ul><li>MECCA</li><li>Registries + preprints + citation chasing</li></ul>
+<h3>Process</h3><ul><li>Dedup → blind dual screen → resolve</li><li>Reasons for every full-text exclusion</li><li>PRESS (check search) · PRISMA-S (<b>16</b> items)</li></ul>
+<h3>Traps</h3><ul><li>One database</li><li>Language limits</li><li>Flow numbers don't reconcile</li></ul>
+</div></div>
+
+<h2>Practice MCQs</h2>
+<div class="mcq"><div class="q">1. Which PICO element is usually omitted from the search string?</div><div class="o">A. Population  B. Intervention  C. Outcome  D. Design</div><div class="a"><b>Answer C.</b> Outcomes are inconsistently indexed and often not in titles/abstracts, so searching them loses studies.</div></div>
+<div class="mcq"><div class="q">2. In a database search, OR between synonyms:</div><div class="o">A. Narrows results  B. Broadens results  C. Excludes terms  D. Sorts by relevance</div><div class="a"><b>Answer B.</b> OR within a concept; AND between concepts.</div></div>
+<div class="mcq"><div class="q">3. "laparoscop*" is an example of:</div><div class="o">A. Phrase search  B. Proximity  C. Truncation  D. Field tag</div><div class="a"><b>Answer C.</b> The asterisk stands for any ending.</div></div>
+<div class="mcq"><div class="q">4. Minimum databases for a Cochrane-style intervention review:</div><div class="o">A. PubMed only  B. MEDLINE, Embase, CENTRAL  C. Google Scholar  D. Scopus only</div><div class="a"><b>Answer B.</b> Plus registries and reference lists.</div></div>
+<div class="mcq"><div class="q">5. PRESS is used for:</div><div class="o">A. Risk of bias  B. Peer review of search strategies  C. Data extraction  D. Reporting NMA</div><div class="a"><b>Answer B.</b></div></div>
+<div class="mcq"><div class="q">6. Why screen in blind mode?</div><div class="o">A. Faster  B. Prevents one reviewer influencing the other  C. Required by PROSPERO  D. Hides duplicates</div><div class="a"><b>Answer B.</b> Independent decisions are the point; conflicts are resolved afterwards.</div></div>
+<div class="mcq"><div class="q">7. A search with very high sensitivity will usually have:</div><div class="o">A. High precision  B. Low precision  C. No false positives  D. Fewer records</div><div class="a"><b>Answer B.</b> The trade-off is deliberate.</div></div>
+<div class="mcq"><div class="q">8. Flow diagram: 2,000 identified, 300 duplicates, 1,600 screened. What's wrong?</div><div class="o">A. Nothing  B. Numbers don't reconcile (should be 1,700)  C. Duplicates can't be removed  D. Screening must be 2,000</div><div class="a"><b>Answer B.</b> 2,000 − 300 = 1,700. Reconcile every box.</div></div>
+</section>
+<section class="chap">
+<div class="opener"><div class="no">3</div><div class="kick">Day 3 · Evidence</div><h1>Judge the evidence.</h1>
+<p>A trial being published doesn't make it trustworthy. Today you extract data cleanly and decide, domain by domain, how likely each result is to be wrong.</p>
+<div class="meta"><span>Data extraction</span><span>RoB 2</span><span>ROBINS-I</span><span>robvis</span></div>
+<span class="hand">bias ≠ poor reporting. know the difference.</span></div>
+
+<h2>3.1 Data extraction</h2>
+<ol><li>Build the form <b>before</b> extracting: study ID, design, setting, population, intervention details, comparator, outcome definitions, time points, <b>events/N per arm or mean/SD/N</b>, funding, conflicts.</li><li><b>Pilot</b> on 2–3 studies. Fix the form. Then extract.</li><li>Two reviewers independently (or one extracts, one verifies all). Compare. Resolve.</li><li>Keep a <b>source note</b>: table/page number for every number.</li></ol>
+<div class="box trap"><span class="t">Reviewer trap</span><ul><li><b>Multi-arm trials</b>: don't count the control group twice. Combine arms or split the shared group's N.</li><li><b>Multiple reports of one trial</b> → one study. Link them. Counting a trial twice inflates precision.</li><li>Intention-to-treat vs per-protocol: take ITT where reported, and state which.</li><li>Medians/IQR to mean/SD: estimates exist but are approximations. Flag them and run a sensitivity analysis.</li><li>Missing data: contact the author (two attempts). Do <b>not</b> impute without a documented method.</li></ul></div>
+<div class="box pearl"><span class="t">Clinical pearl</span><p>Extract the <b>same</b> outcome at the <b>same</b> time point. "Pain at discharge" and "pain at 6 weeks" are different outcomes. Pre-specify which you will pool.</p></div>
+
+<h2>3.2 Risk of bias vs. quality vs. reporting</h2>
+<table><tr><th>Concept</th><th>Question it asks</th></tr>
+<tr><td><b>Risk of bias</b></td><td>Could the <i>result</i> be systematically wrong because of how the study was designed or run?</td></tr>
+<tr><td>Quality of reporting</td><td>Did the authors describe what they did? (CONSORT)</td></tr>
+<tr><td>Precision</td><td>How wide is the confidence interval? (a random-error issue, not bias)</td></tr></table>
+<div class="box hy"><span class="t">High-yield</span><p><b>Bias = systematic error. Imprecision = random error.</b> A small, perfectly run RCT is unbiased but imprecise. A huge, badly run one is precise but biased.</p></div>
+
+<h2>3.3 RoB 2: randomised trials</h2>
+<p>RoB 2 is the current Cochrane tool. It judges a <b>specific result</b> (one outcome from one trial), not the trial as a whole, and sorts each of its <b>5 domains</b> into <b>Low risk · Some concerns · High risk</b> through signalling questions.</p>
+<table><tr><th>#</th><th>Domain</th><th>Ask</th><th>Red flag</th></tr>
+<tr><td>D1</td><td>Randomisation process</td><td>Was allocation random? concealed? baseline imbalances?</td><td>Alternate allocation; envelopes opened by staff</td></tr>
+<tr><td>D2</td><td>Deviations from intended interventions</td><td>Blinding of participants/carers? analysis appropriate (ITT)?</td><td>Open label with subjective outcome; per-protocol only</td></tr>
+<tr><td>D3</td><td>Missing outcome data</td><td>Complete? is missingness related to true value?</td><td>Dropout differs by arm</td></tr>
+<tr><td>D4</td><td>Measurement of the outcome</td><td>Appropriate method? assessors blinded?</td><td>Unblinded assessment of pain/satisfaction</td></tr>
+<tr><td>D5</td><td>Selection of the reported result</td><td>Pre-specified plan? chose from multiple analyses?</td><td>Outcome switched vs registry</td></tr></table>
+<div class="box mn"><span class="t">Mnemonic</span><p class="big">R · D · M · M · S</p><p><b>R</b>andomisation · <b>D</b>eviations · <b>M</b>issing data · <b>M</b>easurement · <b>S</b>elective reporting. Five domains; <b>overall = worst domain</b> (any High → High; otherwise any "Some concerns" → Some concerns).</p></div>
+<div class="fig"><svg viewBox="0 0 520 190" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif" font-size="9"><text x="161" y="24" text-anchor="middle" fill="#0c1f4d" font-size="7.6" font-weight="700">D1</text><text x="161" y="34" text-anchor="middle" fill="#0c1f4d" font-size="6.6">Randomisation</text><text x="223" y="24" text-anchor="middle" fill="#0c1f4d" font-size="7.6" font-weight="700">D2</text><text x="223" y="34" text-anchor="middle" fill="#0c1f4d" font-size="6.6">Deviations</text><text x="285" y="24" text-anchor="middle" fill="#0c1f4d" font-size="7.6" font-weight="700">D3</text><text x="285" y="34" text-anchor="middle" fill="#0c1f4d" font-size="6.6">Missing data</text><text x="347" y="24" text-anchor="middle" fill="#0c1f4d" font-size="7.6" font-weight="700">D4</text><text x="347" y="34" text-anchor="middle" fill="#0c1f4d" font-size="6.6">Measurement</text><text x="409" y="24" text-anchor="middle" fill="#0c1f4d" font-size="7.6" font-weight="700">D5</text><text x="409" y="34" text-anchor="middle" fill="#0c1f4d" font-size="6.6">Selection of result</text><text x="471" y="24" text-anchor="middle" fill="#0c1f4d" font-size="7.6" font-weight="700">Overall</text><text x="471" y="34" text-anchor="middle" fill="#0c1f4d" font-size="6.6"></text><text x="10" y="62" fill="#0c1f4d" font-weight="700">Trial A</text><circle cx="161" cy="58" r="11" fill="#2f9d57"/><text x="161" y="62" text-anchor="middle" fill="#fff" font-weight="700">+</text><circle cx="223" cy="58" r="11" fill="#2f9d57"/><text x="223" y="62" text-anchor="middle" fill="#fff" font-weight="700">+</text><circle cx="285" cy="58" r="11" fill="#2f9d57"/><text x="285" y="62" text-anchor="middle" fill="#fff" font-weight="700">+</text><circle cx="347" cy="58" r="11" fill="#2f9d57"/><text x="347" y="62" text-anchor="middle" fill="#fff" font-weight="700">+</text><circle cx="409" cy="58" r="11" fill="#e0a526"/><text x="409" y="62" text-anchor="middle" fill="#fff" font-weight="700">?</text><circle cx="471" cy="58" r="11" fill="#e0a526"/><text x="471" y="62" text-anchor="middle" fill="#fff" font-weight="700">?</text><text x="10" y="96" fill="#0c1f4d" font-weight="700">Trial B</text><circle cx="161" cy="92" r="11" fill="#e0a526"/><text x="161" y="96" text-anchor="middle" fill="#fff" font-weight="700">?</text><circle cx="223" cy="92" r="11" fill="#2f9d57"/><text x="223" y="96" text-anchor="middle" fill="#fff" font-weight="700">+</text><circle cx="285" cy="92" r="11" fill="#2f9d57"/><text x="285" y="96" text-anchor="middle" fill="#fff" font-weight="700">+</text><circle cx="347" cy="92" r="11" fill="#2f9d57"/><text x="347" y="96" text-anchor="middle" fill="#fff" font-weight="700">+</text><circle cx="409" cy="92" r="11" fill="#2f9d57"/><text x="409" y="96" text-anchor="middle" fill="#fff" font-weight="700">+</text><circle cx="471" cy="92" r="11" fill="#e0a526"/><text x="471" y="96" text-anchor="middle" fill="#fff" font-weight="700">?</text><text x="10" y="130" fill="#0c1f4d" font-weight="700">Trial C</text><circle cx="161" cy="126" r="11" fill="#2f9d57"/><text x="161" y="130" text-anchor="middle" fill="#fff" font-weight="700">+</text><circle cx="223" cy="126" r="11" fill="#e0a526"/><text x="223" y="130" text-anchor="middle" fill="#fff" font-weight="700">?</text><circle cx="285" cy="126" r="11" fill="#c8102e"/><text x="285" y="130" text-anchor="middle" fill="#fff" font-weight="700">−</text><circle cx="347" cy="126" r="11" fill="#2f9d57"/><text x="347" y="130" text-anchor="middle" fill="#fff" font-weight="700">+</text><circle cx="409" cy="126" r="11" fill="#e0a526"/><text x="409" y="130" text-anchor="middle" fill="#fff" font-weight="700">?</text><circle cx="471" cy="126" r="11" fill="#c8102e"/><text x="471" y="130" text-anchor="middle" fill="#fff" font-weight="700">−</text><text x="10" y="164" fill="#0c1f4d" font-weight="700">Trial D</text><circle cx="161" cy="160" r="11" fill="#2f9d57"/><text x="161" y="164" text-anchor="middle" fill="#fff" font-weight="700">+</text><circle cx="223" cy="160" r="11" fill="#2f9d57"/><text x="223" y="164" text-anchor="middle" fill="#fff" font-weight="700">+</text><circle cx="285" cy="160" r="11" fill="#2f9d57"/><text x="285" y="164" text-anchor="middle" fill="#fff" font-weight="700">+</text><circle cx="347" cy="160" r="11" fill="#e0a526"/><text x="347" y="164" text-anchor="middle" fill="#fff" font-weight="700">?</text><circle cx="409" cy="160" r="11" fill="#2f9d57"/><text x="409" y="164" text-anchor="middle" fill="#fff" font-weight="700">+</text><circle cx="471" cy="160" r="11" fill="#e0a526"/><text x="471" y="164" text-anchor="middle" fill="#fff" font-weight="700">?</text><text x="10" y="186" fill="#555" font-size="8">+ low risk   ? some concerns   − high risk  (illustrative traffic-light plot)</text></svg></div><div class="cap">Fig 3.1 Traffic-light plot (illustrative). Make these with robvis (free: R package or web app).</div>
+
+<h2>3.4 ROBINS-I: non-randomised studies</h2>
+<p>For cohort or case-control studies of interventions. It compares the study to an <b>ideal target randomised trial</b>. The big difference: <b>confounding is expected</b>.</p>
+<table><tr><th>Pre-intervention</th><th>At intervention</th><th>Post-intervention</th></tr>
+<tr><td>1 Confounding<br>2 Selection of participants</td><td>3 Classification of interventions</td><td>4 Deviations from intended interventions<br>5 Missing data<br>6 Measurement of outcomes<br>7 Selection of reported result</td></tr></table>
+<ul><li><b>7 domains.</b> Judgments: Low · Moderate · Serious · Critical (+ No information).</li><li>"Low risk" ≈ comparable to a well-done RCT, rarely achieved by an observational study.</li><li>Critical risk in any domain → usually excluded from synthesis.</li></ul>
+<table><tr><th></th><th>RoB 2</th><th>ROBINS-I</th></tr>
+<tr><td>Studies</td><td>RCTs</td><td>Non-randomised</td></tr>
+<tr><td>Domains</td><td class="r">5</td><td class="r">7</td></tr>
+<tr><td>Levels</td><td>Low / Some concerns / High</td><td>Low / Moderate / Serious / Critical</td></tr>
+<tr><td>Key threat</td><td>Randomisation, blinding, missing data</td><td>Confounding</td></tr>
+<tr><td>Judged at</td><td>Result level</td><td>Result level</td></tr></table>
+<div class="box trap"><span class="t">Reviewer trap</span><ul><li>Giving each study a single overall score from an old checklist and adding up points. Domain-based judgement is the standard.</li><li>Two reviewers must rate independently; report agreement and how disagreements were resolved.</li><li>Don't exclude trials just because they're high risk. Assess their influence in sensitivity analysis (Day 5).</li><li>Newcastle-Ottawa Scale (stars) is still seen in the literature for cohort/case-control; ROBINS-I is the Cochrane-favoured alternative; JBI tools exist for other designs. Name the tool in the protocol.</li></ul></div>
+
+<div class="box task"><span class="t">Hands-on · Day 3 deliverable</span><ol><li>Design your extraction form (≤ 25 columns). Pilot it on two papers.</li><li>Apply RoB 2 (or ROBINS-I) to one paper's primary outcome; write one sentence of support per domain.</li><li>Swap with a classmate: where did you disagree, and why?</li><li>Write the protocol's <i>Data extraction</i> and <i>Risk of bias</i> sections.</li></ol></div>
+
+<div class="rev"><h2>⚡ Day 3 · Rapid Revision</h2><div class="cols">
+<h3>Extraction</h3><ul><li>Form → pilot → dual extraction</li><li>One trial = one study</li><li>Don't double-count control arms</li></ul>
+<h3>Tools</h3><ul><li>RoB 2: <b>5</b> domains, 3 levels</li><li>ROBINS-I: <b>7</b> domains, 4 levels (+NI)</li><li>NOS / JBI: other designs</li></ul>
+<h3>Concepts</h3><ul><li>Bias ≠ imprecision</li><li>Overall RoB = worst domain</li><li>Judge the <b>result</b>, not the trial</li></ul>
+</div></div>
+
+<h2>Practice MCQs</h2>
+<div class="mcq"><div class="q">1. RoB 2 contains how many domains?</div><div class="o">A. 4  B. 5  C. 6  D. 7</div><div class="a"><b>Answer B.</b> Randomisation, deviations, missing data, measurement, selection of reported result.</div></div>
+<div class="mcq"><div class="q">2. ROBINS-I contains how many domains?</div><div class="o">A. 5  B. 6  C. 7  D. 9</div><div class="a"><b>Answer C.</b> It adds confounding, participant selection, intervention classification.</div></div>
+<div class="mcq"><div class="q">3. A trial reports pain outcome with unblinded assessors in an open-label design. Which domain is most affected?</div><div class="o">A. D1  B. D3  C. D4  D. D5</div><div class="a"><b>Answer C.</b> Measurement of the outcome (subjective, unblinded).</div></div>
+<div class="mcq"><div class="q">4. The primary outcome in the paper differs from the registry entry. Domain:</div><div class="o">A. D1  B. D2  C. D4  D. D5</div><div class="a"><b>Answer D.</b> Selection of the reported result.</div></div>
+<div class="mcq"><div class="q">5. Overall RoB 2 judgement when one domain is High and the rest Low:</div><div class="o">A. Low  B. Some concerns  C. High  D. Average</div><div class="a"><b>Answer C.</b> Worst-domain rule.</div></div>
+<div class="mcq"><div class="q">6. Which is a random-error issue rather than bias?</div><div class="o">A. Poor allocation concealment  B. Wide CI from small sample  C. Selective outcome reporting  D. Unblinded assessment</div><div class="a"><b>Answer B.</b> Imprecision, handled in GRADE, not RoB.</div></div>
+<div class="mcq"><div class="q">7. Three-arm trial (A, B, control). To include in two separate pairwise MAs without double counting, you should:</div><div class="o">A. Use full control in both  B. Split the control group's N  C. Drop control  D. Ignore it</div><div class="a"><b>Answer B.</b> Or combine arms if conceptually the same.</div></div>
+<div class="mcq"><div class="q">8. ROBINS-I's reference standard is:</div><div class="o">A. A perfect RCT of the same question  B. A cohort  C. A case series  D. Expert opinion</div><div class="a"><b>Answer A.</b> The "target trial" you'd ideally have run.</div></div>
+</section>
+<section class="chap">
+<div class="opener"><div class="no">4</div><div class="kick">Day 4 · Analysis</div><h1>Pool it.</h1>
+<p>A meta-analysis is a weighted average of study results, plus an honest account of how much those results disagree.</p>
+<div class="meta"><span>Effect sizes</span><span>Weights</span><span>Forest plot</span><span>I² · τ² · PI</span></div>
+<span class="hand">knowing when NOT to pool is a skill.</span></div>
+
+<h2>4.1 The idea in one line</h2>
+<div class="box defn"><span class="t">Definition</span><p><b>Pooled effect = Σ(wᵢ × yᵢ) / Σwᵢ</b>, where yᵢ is each study's effect (log RR, MD, …) and wᵢ is its weight. Inverse-variance weight: <b>wᵢ = 1 / vᵢ</b>, so precise studies count more. Variance vᵢ = SE².</p></div>
+<h3>Effect measures at a glance</h3>
+<table><tr><th>Data</th><th>Effect</th><th>Null value</th><th>Scale pooled on</th></tr>
+<tr><td>Binary</td><td>RR / OR</td><td>1</td><td>log</td></tr><tr><td>Binary</td><td>RD</td><td>0</td><td>natural</td></tr>
+<tr><td>Continuous</td><td>MD / SMD</td><td>0</td><td>natural</td></tr><tr><td>Survival</td><td>HR</td><td>1</td><td>log</td></tr></table>
+<div class="box pearl"><span class="t">Clinical pearl</span><p><b>OR ≠ RR when the outcome is common.</b> If baseline risk is high, an OR exaggerates the effect when read as a risk ratio. Prefer RR (or RD) unless the design forces OR. Report absolute effects for the clinician.</p></div>
+
+<h2>4.2 Fixed vs random: it's about what you believe</h2>
+<table><tr><th></th><th>Common-effect ("fixed")</th><th>Random-effects</th></tr>
+<tr><td>Assumes</td><td>One true effect; studies differ only by chance</td><td>True effects <i>vary</i> across studies (mean μ, spread τ²)</td></tr>
+<tr><td>Weights</td><td>1/vᵢ</td><td>1/(vᵢ + τ²) — small studies gain weight</td></tr>
+<tr><td>CI</td><td>Narrower</td><td>Wider when heterogeneous</td></tr>
+<tr><td>Answers</td><td>"What is the effect in <i>these</i> studies?"</td><td>"What is the <i>average</i> effect across settings?"</td></tr></table>
+<div class="box hy"><span class="t">High-yield</span><p><b>Don't choose the model by looking at I².</b> Choose by what the question and the clinical diversity imply. In real life studies differ, so random-effects is the usual default; pre-specify it. Use fixed-effect as a sensitivity check.</p></div>
+
+<h2>4.3 Worked example · hypothetical data</h2>
+<div class="box trap"><span class="t">Hypothetical dataset</span><p>These six "trials" are <b>invented for teaching</b>. Question: does prophylactic antibiotic X reduce 30-day surgical-site infection (SSI) vs placebo? Numbers below were computed by script (inverse-variance on log RR; DerSimonian-Laird τ²).</p></div>
+<div class="fig"><svg viewBox="0 0 640 330" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif" font-size="9.5"><text x="8" y="18" font-weight="700" fill="#0c1f4d">Study (hypothetical)</text><text x="196" y="18" font-weight="700" fill="#0c1f4d">Tx n/N</text><text x="248" y="18" font-weight="700" fill="#0c1f4d" >Ctl n/N</text><text x="520" y="18" font-weight="700" fill="#0c1f4d">RR [95% CI]</text><text x="604" y="18" font-weight="700" fill="#0c1f4d">Wt%</text><line x1="8" x2="632" y1="24" y2="24" stroke="#0c1f4d"/><text x="8" y="47" fill="#0c1f4d">Trial A</text><text x="196" y="47" fill="#333">12/150</text><text x="248" y="47" fill="#333">20/148</text><line x1="352.6" x2="429.9" y1="44" y2="44" stroke="#0c1f4d" stroke-width="1.4"/><rect x="386.4" y="39.2" width="9.7" height="9.7" fill="#0c1f4d"/><text x="520" y="47" fill="#333">0.59 [0.30, 1.17]</text><text x="604" y="47" fill="#333">18.2</text><text x="8" y="75" fill="#0c1f4d">Trial B</text><text x="196" y="75" fill="#333">8/90</text><text x="248" y="75" fill="#333">15/92</text><line x1="340.6" x2="432.5" y1="72" y2="72" stroke="#0c1f4d" stroke-width="1.4"/><rect x="382.2" y="67.7" width="8.7" height="8.7" fill="#0c1f4d"/><text x="520" y="75" fill="#333">0.55 [0.24, 1.22]</text><text x="604" y="75" fill="#333">14.9</text><text x="8" y="103" fill="#0c1f4d">Trial C</text><text x="196" y="103" fill="#333">34/310</text><text x="248" y="103" fill="#333">30/305</text><line x1="400.8" x2="453.7" y1="100" y2="100" stroke="#0c1f4d" stroke-width="1.4"/><rect x="421.3" y="94.1" width="11.9" height="11.9" fill="#0c1f4d"/><text x="520" y="103" fill="#333">1.12 [0.70, 1.77]</text><text x="604" y="103" fill="#333">25.2</text><text x="8" y="131" fill="#0c1f4d">Trial D</text><text x="196" y="131" fill="#333">5/60</text><text x="248" y="131" fill="#333">6/58</text><line x1="344.4" x2="473.1" y1="128" y2="128" stroke="#0c1f4d" stroke-width="1.4"/><rect x="405.3" y="124.5" width="6.9" height="6.9" fill="#0c1f4d"/><text x="520" y="131" fill="#333">0.81 [0.26, 2.50]</text><text x="604" y="131" fill="#333">9.4</text><text x="8" y="159" fill="#0c1f4d">Trial E</text><text x="196" y="159" fill="#333">11/200</text><text x="248" y="159" fill="#333">31/198</text><line x1="324.0" x2="399.1" y1="156" y2="156" stroke="#0c1f4d" stroke-width="1.4"/><rect x="356.6" y="151.1" width="9.8" height="9.8" fill="#0c1f4d"/><text x="520" y="159" fill="#333">0.35 [0.18, 0.68]</text><text x="604" y="159" fill="#333">18.7</text><text x="8" y="187" fill="#0c1f4d">Trial F</text><text x="196" y="187" fill="#333">9/120</text><text x="248" y="187" fill="#333">10/125</text><line x1="368.2" x2="466.6" y1="184" y2="184" stroke="#0c1f4d" stroke-width="1.4"/><rect x="413.3" y="179.9" width="8.3" height="8.3" fill="#0c1f4d"/><text x="520" y="187" fill="#333">0.94 [0.39, 2.23]</text><text x="604" y="187" fill="#333">13.7</text><line x1="8" x2="632" y1="202" y2="202" stroke="#0c1f4d"/><text x="8" y="219" font-weight="700" fill="#0c1f4d">Random effects (DL)</text><polygon points="376.6,216 399.3,208 422.0,216 399.3,224" fill="#c8102e"/><text x="520" y="219" font-weight="700" fill="#c8102e">0.68 [0.46, 1.02]</text><text x="604" y="219" fill="#333">100</text><text x="8" y="243" fill="#0c1f4d">95% prediction interval</text><line x1="338.1" x2="460.4" y1="240" y2="240" stroke="#c8102e" stroke-width="2" stroke-dasharray="4 2"/><text x="520" y="243" fill="#c8102e">[0.23, 2.00]</text><line x1="421.1" x2="421.1" y1="30" y2="262" stroke="#555" stroke-dasharray="3 3"/><line x1="290" x2="500" y1="262" y2="262" stroke="#0c1f4d"/><line x1="290.0" x2="290.0" y1="262" y2="266" stroke="#0c1f4d"/><text x="290.0" y="276" text-anchor="middle" fill="#0c1f4d">0.1</text><line x1="342.2" x2="342.2" y1="262" y2="266" stroke="#0c1f4d"/><text x="342.2" y="276" text-anchor="middle" fill="#0c1f4d">0.25</text><line x1="381.6" x2="381.6" y1="262" y2="266" stroke="#0c1f4d"/><text x="381.6" y="276" text-anchor="middle" fill="#0c1f4d">0.5</text><line x1="421.1" x2="421.1" y1="262" y2="266" stroke="#0c1f4d"/><text x="421.1" y="276" text-anchor="middle" fill="#0c1f4d">1</text><line x1="460.5" x2="460.5" y1="262" y2="266" stroke="#0c1f4d"/><text x="460.5" y="276" text-anchor="middle" fill="#0c1f4d">2</text><line x1="500.0" x2="500.0" y1="262" y2="266" stroke="#0c1f4d"/><text x="500.0" y="276" text-anchor="middle" fill="#0c1f4d">4</text><text x="413.1" y="290" text-anchor="end" fill="#0c1f4d">← favours treatment</text><text x="429.1" y="290" fill="#0c1f4d">favours control →</text><text x="424.1" y="36" fill="#555" font-size="8">no effect</text></svg></div>
+<div class="cap">Fig 4.1 Forest plot: square size ∝ weight; diamond = pooled random-effects RR; dashed red line = 95% prediction interval.</div>
+<table><tr><th>Quantity</th><th>Value</th><th>How</th></tr>
+<tr><td>Q</td><td class="r">9.13 (df 5, p = 0.10)</td><td>Σ wᵢ(yᵢ − ȳ_FE)²</td></tr>
+<tr><td>τ² (DL)</td><td class="r">0.108  (τ = 0.33)</td><td>(Q − df) / C</td></tr>
+<tr><td>I²</td><td class="r">45%</td><td>(Q − df)/Q</td></tr>
+<tr><td>Fixed-effect RR</td><td class="r">0.72 [0.54, 0.95]</td><td>Common-effect</td></tr>
+<tr><td>Random-effects RR</td><td class="r">0.68 [0.46, 1.02]</td><td>Wald CI</td></tr>
+<tr><td>95% prediction interval</td><td class="r">[0.23, 2.00]</td><td>t(k−2) with τ² + SE²</td></tr></table>
+<h3>How to read it, line by line</h3>
+<ul><li><b>Direction:</b> pooled RR &lt; 1 → fewer infections with X.</li><li><b>Fixed vs random disagree on significance</b> (fixed CI excludes 1; random touches it). That's a flag: heterogeneity is changing the answer. Report it plainly; don't pick the nicer one.</li><li><b>Trial C</b> points the other way (RR &gt; 1) and has the biggest fixed-effect weight; random-effects cuts its weight from 36% to 25%.</li><li><b>Prediction interval</b> [0.23, 2.00] is wide: in a <i>new</i> setting the true effect might be a big benefit <i>or</i> harm. The CI for the mean alone would hide that.</li></ul>
+<div class="box mn"><span class="t">Mnemonic</span><p class="big">Q · τ² · I² · PI</p><p><b>Q</b> tests if there's more spread than chance. <b>τ²</b> = how much true effects vary (in log units). <b>I²</b> = % of the observed spread that's real, not chance. <b>PI</b> = where the next study's true effect likely falls.</p></div>
+<h3>Interpreting I² (Cochrane guidance, overlapping bands)</h3>
+<table><tr><th>I²</th><th>Rough reading</th></tr><tr><td>0–40%</td><td>might not be important</td></tr><tr><td>30–60%</td><td>may represent moderate heterogeneity</td></tr><tr><td>50–90%</td><td>may represent substantial heterogeneity</td></tr><tr><td>75–100%</td><td>considerable heterogeneity</td></tr></table>
+<p class="small">Bands deliberately overlap: interpret I² with its CI, the size and direction of effects, and the strength of evidence for heterogeneity (Q p-value). With few studies, Q is underpowered and I² is imprecise.</p>
+<div class="box trap"><span class="t">Reviewer trap</span><ul><li>"I² = 0 so studies are homogeneous." No: with k = 6 you simply can't tell.</li><li>Calling a result "significant" because the fixed-effect model says so while random-effects doesn't.</li><li>Pooling apples and oranges: different populations, doses or outcomes, just because the software allows it.</li><li>Rare events / zero cells: use Mantel-Haenszel or Peto (careful), and state the continuity-correction rule. Don't silently add 0.5.</li></ul></div>
+
+<h3>Methods you will meet in software</h3>
+<table><tr><th>Choice</th><th>Options</th><th>Practical note</th></tr>
+<tr><td>τ² estimator</td><td>DerSimonian-Laird (DL) · REML · Paule-Mandel</td><td>DL is the old default; REML preferred in modern guidance for continuous data</td></tr>
+<tr><td>CI method</td><td>Wald · Hartung-Knapp-Sidik-Jonkman (HKSJ)</td><td>HKSJ is more honest with few studies; CI gets wider</td></tr>
+<tr><td>Binary pooling</td><td>Inverse variance · Mantel-Haenszel · Peto</td><td>MH better with sparse data</td></tr></table>
+
+<h2>4.4 When NOT to pool</h2>
+<ul><li>Clinical diversity you can't defend (different diseases, doses, outcome definitions).</li><li>Only 1 study per comparison (pooling needs ≥ 2).</li><li>Heterogeneity so extreme that an average is meaningless → narrative synthesis (SWiM), or explain with subgroups first.</li></ul>
+
+<h2>4.5 Doing it in software</h2>
+<div class="fix" style="font:8.8pt 'Special Elite'">
+# R (free) · package "meta"<br>
+library(meta)<br>
+m &lt;- metabin(event.e, n.e, event.c, n.c, studlab = study, data = d,<br>
+&nbsp;&nbsp;sm = "RR", method = "MH", method.tau = "REML",<br>
+&nbsp;&nbsp;hakn = TRUE, prediction = TRUE)<br>
+forest(m); summary(m)
+</div>
+<p>RevMan (free from Cochrane) or the Jamovi/MAJOR module are point-and-click alternatives. Whatever you use, <b>save the script/project</b> — reviewers may ask for your data.</p>
+<div class="box task"><span class="t">Hands-on · Day 4 deliverable</span><ol><li>Take the 6-study dataset above and reproduce Q, I², pooled RR in R or a spreadsheet.</li><li>Change Trial C's events to 25 vs 30. What happens to I², τ² and the fixed-vs-random difference?</li><li>For your own question: choose effect measure, model, τ² estimator and CI method; write the <i>Synthesis</i> section of the protocol.</li></ol></div>
+
+<div class="rev"><h2>⚡ Day 4 · Rapid Revision</h2><div class="cols">
+<h3>Formulas</h3><ul><li>w = 1/v (FE) · w = 1/(v+τ²) (RE)</li><li>I² = (Q − df)/Q</li><li>Pool ratios on <b>log</b> scale</li></ul>
+<h3>Choose</h3><ul><li>FE: one true effect</li><li>RE: effects vary — default for real life</li><li>Pre-specify; don't pick by I²</li></ul>
+<h3>Report</h3><ul><li>Pooled effect + 95% CI + <b>PI</b></li><li>τ², I², Q</li><li>Fixed vs random if they disagree</li></ul>
+<h3>Don't</h3><ul><li>Pool apples/oranges</li><li>Say "no heterogeneity" with k=6</li></ul>
+</div></div>
+
+<h2>Practice MCQs</h2>
+<div class="mcq"><div class="q">1. In an inverse-variance meta-analysis, a study gets more weight when:</div><div class="o">A. Its sample is small  B. Its variance is small  C. It's published first  D. It's positive</div><div class="a"><b>Answer B.</b> w = 1/variance.</div></div>
+<div class="mcq"><div class="q">2. Random-effects, compared with fixed-effect, generally:</div><div class="o">A. Narrows CI  B. Gives small studies relatively more weight  C. Ignores heterogeneity  D. Needs no τ²</div><div class="a"><b>Answer B.</b> Adding τ² to each variance flattens the weights.</div></div>
+<div class="mcq"><div class="q">3. I² measures:</div><div class="o">A. Publication bias  B. % of variability due to heterogeneity not chance  C. Effect size  D. Risk of bias</div><div class="a"><b>Answer B.</b></div></div>
+<div class="mcq"><div class="q">4. The 95% prediction interval answers:</div><div class="o">A. Where the pooled mean lies  B. Where a new study's true effect may lie  C. Whether bias exists  D. How many studies are missing</div><div class="a"><b>Answer B.</b></div></div>
+<div class="mcq"><div class="q">5. Pooled RR 0.68 [0.46, 1.02] (random) but 0.72 [0.54, 0.95] (fixed). Best statement:</div><div class="o">A. Fixed is right  B. Report both; heterogeneity affects the conclusion  C. Delete Trial C  D. Switch to OR</div><div class="a"><b>Answer B.</b> Pre-specified model reported; the other explored; no cherry-picking.</div></div>
+<div class="mcq"><div class="q">6. Odds ratio overstates risk ratio when:</div><div class="o">A. Event is rare  B. Event is common  C. k is large  D. Studies are RCTs</div><div class="a"><b>Answer B.</b></div></div>
+<div class="mcq"><div class="q">7. Which pooling method is often preferred for sparse binary data?</div><div class="o">A. Mantel-Haenszel  B. Meta-regression  C. Egger  D. Funnel</div><div class="a"><b>Answer A.</b> (Peto for very rare events, with caveats.)</div></div>
+<div class="mcq"><div class="q">8. Hartung-Knapp adjustment is mainly used to:</div><div class="o">A. Estimate τ²  B. Widen CI appropriately with few studies  C. Test bias  D. Rank treatments</div><div class="a"><b>Answer B.</b></div></div>
+</section>
+<section class="chap">
+<div class="opener"><div class="no">5</div><div class="kick">Day 5 · Analysis</div><h1>Stress-test it.</h1>
+<p>A pooled number that has never been attacked is a pooled number you don't understand. Today you try to break your own result, then grade how much you trust it.</p>
+<div class="meta"><span>Subgroups</span><span>Sensitivity</span><span>Publication bias</span><span>GRADE</span></div>
+<span class="hand">if it survives your attack, it earns the conclusion.</span></div>
+
+<h2>5.1 Explaining heterogeneity</h2>
+<table><tr><th>Tool</th><th>Question</th><th>Rules</th></tr>
+<tr><td><b>Subgroup analysis</b></td><td>Does the effect differ between categories (e.g. adults vs children)?</td><td>Pre-specify (≤ 3–5), test the <b>difference between subgroups</b> (not "significant here, not there"), few studies per subgroup → low power</td></tr>
+<tr><td><b>Meta-regression</b></td><td>Does effect change with a continuous covariate (age, dose, year)?</td><td>Rule of thumb ≥ 10 studies per covariate; observational by nature</td></tr>
+<tr><td><b>Sensitivity analysis</b></td><td>Does the conclusion survive different choices?</td><td>Pre-specified list; report all results</td></tr></table>
+<div class="box trap"><span class="t">Reviewer trap</span><ul><li><b>"Significant in men, not in women, therefore different."</b> Wrong. Only a formal interaction (subgroup difference) test answers that.</li><li>Dredging 12 subgroups after seeing the data → false positives. Label post-hoc as exploratory.</li><li>Between-study comparisons are confounded; subgroup findings do not prove causation.</li></ul></div>
+
+<h3>Standard sensitivity checks</h3>
+<ul><li><b>Leave-one-out</b>: drop each study in turn; does the estimate or I² collapse? (Trial C in Day 4's example.)</li><li><b>Exclude high-RoB studies</b>.</li><li><b>Fixed vs random</b>; DL vs REML; with/without HKSJ.</li><li>Exclude studies with imputed SDs or extreme sizes.</li><li><b>Alternative effect measure</b> (RR vs OR vs RD).</li></ul>
+<div class="box hy"><span class="t">High-yield</span><p>If the conclusion flips under reasonable alternatives, <b>say so and downgrade certainty</b> (inconsistency / risk of bias). A robust result survives; a fragile one is reported as fragile.</p></div>
+
+<h2>5.2 Publication bias and small-study effects</h2>
+<div class="two"><div class="fig"><svg viewBox="0 0 380 270" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif" font-size="9"><polygon points="190,30 49,156.0 331,156.0" fill="#cdd8ea" opacity=".6"/><line x1="190" x2="190" y1="30" y2="156.0" stroke="#0c1f4d"/><circle cx="187.6" cy="46.8" r="3.6" fill="#0c1f4d"/><circle cx="196.0" cy="51.0" r="3.6" fill="#0c1f4d"/><circle cx="178.0" cy="59.4" r="3.6" fill="#0c1f4d"/><circle cx="204.4" cy="65.7" r="3.6" fill="#0c1f4d"/><circle cx="184.0" cy="72.0" r="3.6" fill="#0c1f4d"/><circle cx="214.0" cy="80.4" r="3.6" fill="#0c1f4d"/><circle cx="168.4" cy="86.7" r="3.6" fill="#0c1f4d"/><circle cx="192.4" cy="93.0" r="3.6" fill="#0c1f4d"/><circle cx="226.0" cy="105.6" r="3.6" fill="#0c1f4d"/><circle cx="156.4" cy="114.0" r="3.6" fill="#0c1f4d"/><circle cx="202.0" cy="124.5" r="3.6" fill="#0c1f4d"/><circle cx="244.0" cy="135.0" r="3.6" fill="#0c1f4d"/><circle cx="154.0" cy="139.2" r="3.6" fill="#0c1f4d"/><line x1="30" x2="370" y1="158" y2="158" stroke="#0c1f4d"/><text x="190" y="264" text-anchor="middle" fill="#0c1f4d">effect size →</text><text x="10" y="34" fill="#0c1f4d">SE 0</text><text x="10" y="156" fill="#0c1f4d">SE ↓ (small studies)</text></svg><div class="cap">Symmetric: no obvious asymmetry</div></div><div class="fig"><svg viewBox="0 0 380 270" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif" font-size="9"><polygon points="190,30 49,156.0 331,156.0" fill="#cdd8ea" opacity=".6"/><line x1="190" x2="190" y1="30" y2="156.0" stroke="#0c1f4d"/><circle cx="187.6" cy="46.8" r="3.6" fill="#0c1f4d"/><circle cx="196.0" cy="51.0" r="3.6" fill="#0c1f4d"/><circle cx="178.0" cy="59.4" r="3.6" fill="#0c1f4d"/><circle cx="204.4" cy="65.7" r="3.6" fill="#0c1f4d"/><circle cx="184.0" cy="72.0" r="3.6" fill="#0c1f4d"/><circle cx="214.0" cy="80.4" r="3.6" fill="#0c1f4d"/><circle cx="168.4" cy="86.7" r="3.6" fill="#0c1f4d"/><circle cx="156.4" cy="114.0" r="3.6" fill="#0c1f4d"/><circle cx="154.0" cy="139.2" r="3.6" fill="#0c1f4d"/><ellipse cx="236" cy="124" rx="44" ry="26" fill="none" stroke="#c8102e" stroke-width="1.6" stroke-dasharray="5 3"/><text x="236" y="128" text-anchor="middle" fill="#c8102e" font-size="8.5">missing studies?</text><line x1="30" x2="370" y1="158" y2="158" stroke="#0c1f4d"/><text x="190" y="264" text-anchor="middle" fill="#0c1f4d">effect size →</text><text x="10" y="34" fill="#0c1f4d">SE 0</text><text x="10" y="156" fill="#0c1f4d">SE ↓ (small studies)</text></svg><div class="cap">Asymmetric: small "negative" studies missing?</div></div></div>
+<ul><li><b>Funnel plot</b>: effect (x) vs precision/SE (y, inverted). Big precise studies at the top; small noisy ones spread at the bottom.</li><li><b>Egger's regression</b> tests asymmetry. Use funnel/Egger/Begg only when there are <b>≥ 10 studies</b>; fewer gives too little power to tell chance from asymmetry.</li><li><b>Trim-and-fill</b>: estimates how many studies are "missing" and adjusts. Use as sensitivity, not truth.</li><li>Contour-enhanced funnels mark significance zones, helping to separate publication bias from other causes.</li></ul>
+<div class="box mn"><span class="t">Mnemonic</span><p class="big">HERO</p><p>Asymmetry has causes besides publication bias: <b>H</b>eterogeneity · <b>E</b>ffect differs with study size (true) · <b>R</b>eporting bias · <b>O</b>ther (chance, artefacts of the effect measure, poor methodological quality in small trials).</p></div>
+<div class="box trap"><span class="t">Reviewer trap</span><p><b>"Funnel looks symmetric, so no publication bias"</b> with k = 6. You can't conclude that. Say the test is not interpretable; then rely on registry searches (are there registered but unpublished trials?) and grey literature.</p></div>
+
+<h2>5.3 GRADE: how much do you trust the pooled number?</h2>
+<p>GRADE rates <b>certainty of evidence for each outcome</b> — not each study. Start from the design, then move down for problems and up for strengths.</p>
+<table><tr><th>Start</th><th>Level</th></tr><tr><td>Randomised trials</td><td class="r">High ⊕⊕⊕⊕</td></tr><tr><td>Observational (non-randomised)</td><td class="r">Low ⊕⊕○○ (ROBINS-I-based reviews can start high)</td></tr></table>
+<div class="two"><div><h3>Downgrade (5)</h3><ol><li><b>Risk of bias</b></li><li><b>Inconsistency</b> (heterogeneity unexplained)</li><li><b>Indirectness</b> (P/I/C/O differ from your question)</li><li><b>Imprecision</b> (wide CI, small total N / events)</li><li><b>Publication bias</b></li></ol><p class="small">Each: not serious (0), serious (−1), very serious (−2).</p></div>
+<div><h3>Upgrade (3) — mainly observational</h3><ol><li><b>Large effect</b> (e.g. RR &gt; 2 or &lt; 0.5)</li><li><b>Dose–response gradient</b></li><li><b>All plausible confounding</b> would <i>reduce</i> the effect (or suggest a spurious effect when none is seen)</li></ol><p class="small">Don't upgrade if you already downgraded for serious bias.</p></div></div>
+<div class="box mn"><span class="t">Mnemonic</span><p class="big">RIIPP ↓ &nbsp; LDC ↑</p><p><b>Down:</b> <b>R</b>isk of bias · <b>I</b>nconsistency · <b>I</b>ndirectness · <b>I</b>mprecision (+) <b>P</b>ublication bias. <b>Up:</b> <b>L</b>arge effect · <b>D</b>ose-response · <b>C</b>onfounding works against effect.</p></div>
+<table><tr><th>Final certainty</th><th>Plain-language meaning</th></tr>
+<tr><td><b>High</b></td><td>We are very confident the true effect is close to the estimate.</td></tr>
+<tr><td><b>Moderate</b></td><td>True effect is probably close, but may be substantially different.</td></tr>
+<tr><td><b>Low</b></td><td>Our confidence is limited; the true effect may be substantially different.</td></tr>
+<tr><td><b>Very low</b></td><td>We have very little confidence; the true effect is likely substantially different.</td></tr></table>
+<h3>Summary of Findings (SoF) table: the page clinicians read</h3>
+<p>One row per important outcome: relative effect + CI, <b>absolute</b> effect per 1,000, no. of participants (studies), certainty rating with footnotes explaining each downgrade. Build it free in GRADEpro GDT.</p>
+<div class="box pearl"><span class="t">Clinical pearl</span><p><b>Worked thinking, Day 4 example:</b> RCTs start High. Some trials unblinded with subjective outcomes? −1 RoB. I² 45% with trials pointing opposite directions and a wide prediction interval? −1 inconsistency. CI crossing 1 plus possible harm? −1 imprecision. Final: Low, and you must say <i>why</i>.</p></div>
+<div class="box trap"><span class="t">Reviewer trap</span><ul><li>Calling a "significant" p-value "high-quality evidence". Different questions.</li><li>Rating down without writing the reason in a footnote.</li><li>Applying GRADE to the whole review instead of outcome by outcome.</li></ul></div>
+
+<div class="box task"><span class="t">Hands-on · Day 5 deliverable</span><ol><li>On the Day 4 dataset, run leave-one-out. Which study moves the estimate most?</li><li>Write 2 pre-specified subgroup analyses for your own protocol with the <i>reason</i> for each.</li><li>Grade one outcome using the 5 downgrade domains, with a one-line justification per domain.</li><li>Draft your protocol's <i>Heterogeneity, sensitivity, publication bias and certainty</i> sections.</li></ol></div>
+
+<div class="rev"><h2>⚡ Day 5 · Rapid Revision</h2><div class="cols">
+<h3>Explain it</h3><ul><li>Subgroup: test difference, pre-specify</li><li>Meta-regression: ≥10 studies</li><li>Sensitivity: leave-one-out, RoB, models</li></ul>
+<h3>Bias</h3><ul><li>Funnel/Egger: <b>≥10</b> studies</li><li>Asymmetry ≠ always publication bias (HERO)</li><li>Trim-and-fill = sensitivity only</li></ul>
+<h3>GRADE</h3><ul><li><b>5</b> down: RIIPP</li><li><b>3</b> up: LDC</li><li>RCT start High; observational start Low</li><li>Per outcome, with footnotes</li></ul>
+</div></div>
+
+<h2>Practice MCQs</h2>
+<div class="mcq"><div class="q">1. Minimum number of studies usually advised for funnel plot / Egger's test:</div><div class="o">A. 3  B. 5  C. 10  D. 30</div><div class="a"><b>Answer C.</b> Below ~10 the tests have too little power.</div></div>
+<div class="mcq"><div class="q">2. Number of reasons to downgrade / upgrade in GRADE:</div><div class="o">A. 5 / 3  B. 3 / 5  C. 4 / 4  D. 6 / 2</div><div class="a"><b>Answer A.</b></div></div>
+<div class="mcq"><div class="q">3. Starting certainty for RCTs in GRADE:</div><div class="o">A. Low  B. Moderate  C. High  D. Very low</div><div class="a"><b>Answer C.</b></div></div>
+<div class="mcq"><div class="q">4. Effect is significant in men and not in women. To claim a subgroup difference you need:</div><div class="o">A. Nothing more  B. A test for subgroup differences  C. A funnel plot  D. Fixed-effect model</div><div class="a"><b>Answer B.</b></div></div>
+<div class="mcq"><div class="q">5. Which is NOT a cause of funnel asymmetry?</div><div class="o">A. Publication bias  B. True heterogeneity  C. Chance  D. Using a forest plot</div><div class="a"><b>Answer D.</b></div></div>
+<div class="mcq"><div class="q">6. CI 0.45–1.60 around the pooled RR (benefit possible, harm possible). GRADE domain:</div><div class="o">A. Indirectness  B. Imprecision  C. Publication bias  D. Risk of bias</div><div class="a"><b>Answer B.</b></div></div>
+<div class="mcq"><div class="q">7. Which can justify upgrading observational evidence?</div><div class="o">A. Large effect  B. Single study  C. Industry funding  D. Wide CI</div><div class="a"><b>Answer A.</b></div></div>
+<div class="mcq"><div class="q">8. GRADE certainty is assigned to:</div><div class="o">A. Each study  B. Each outcome across the body of evidence  C. The journal  D. The author</div><div class="a"><b>Answer B.</b></div></div>
+</section>
+<section class="chap">
+<div class="opener"><div class="no">6</div><div class="kick">Day 6 · Analysis</div><h1>Go network.</h1>
+<p>Pairwise MA answers "A vs B". Real clinicians face A, B, C, D and a placebo, with trials that never met each other. NMA uses the web of comparisons to rank them, if the web is honest.</p>
+<div class="meta"><span>Geometry</span><span>Transitivity</span><span>Consistency</span><span>League table</span><span>CINeMA</span></div>
+<span class="hand">rankings never walk alone.</span></div>
+
+<h2>6.1 The core idea</h2>
+<div class="fig"><svg viewBox="0 0 420 250" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif" font-size="10"><line x1="210" y1="125" x2="80" y2="50" stroke="#0c1f4d" stroke-width="9.1"/><line x1="210" y1="125" x2="340" y2="50" stroke="#0c1f4d" stroke-width="6.4"/><line x1="210" y1="125" x2="80" y2="200" stroke="#0c1f4d" stroke-width="4.6"/><line x1="210" y1="125" x2="340" y2="200" stroke="#0c1f4d" stroke-width="2.8"/><line x1="80" y1="50" x2="340" y2="50" stroke="#0c1f4d" stroke-width="3.7"/><line x1="80" y1="200" x2="340" y2="200" stroke="#0c1f4d" stroke-width="1.9"/><line x1="80" y1="50" x2="80" y2="200" stroke="#c8102e" stroke-width="2" stroke-dasharray="6 4"/><circle cx="210" cy="125" r="26" fill="#fff" stroke="#0c1f4d" stroke-width="2"/><text x="210" y="129" text-anchor="middle" fill="#0c1f4d" font-weight="700">Placebo</text><circle cx="80" cy="50" r="20" fill="#fff" stroke="#0c1f4d" stroke-width="2"/><text x="80" y="54" text-anchor="middle" fill="#0c1f4d" font-weight="700">A</text><circle cx="340" cy="50" r="20" fill="#fff" stroke="#0c1f4d" stroke-width="2"/><text x="340" y="54" text-anchor="middle" fill="#0c1f4d" font-weight="700">B</text><circle cx="80" cy="200" r="20" fill="#fff" stroke="#0c1f4d" stroke-width="2"/><text x="80" y="204" text-anchor="middle" fill="#0c1f4d" font-weight="700">C</text><circle cx="340" cy="200" r="20" fill="#fff" stroke="#0c1f4d" stroke-width="2"/><text x="340" y="204" text-anchor="middle" fill="#0c1f4d" font-weight="700">D</text><text x="30" y="128" fill="#c8102e" font-size="9">A vs C: no direct trial</text><text x="8" y="244" fill="#555" font-size="8.5">Line thickness = number of trials. Dashed red = indirect evidence only.</text></svg></div>
+<div class="box defn"><span class="t">Definition</span><p><b>Direct evidence</b> = trials that compare A with B head to head. <b>Indirect evidence</b> = A vs B inferred through a common comparator: <b>d(A,B) = d(A,Pl) − d(B,Pl)</b>. <b>Mixed (network) estimate</b> = weighted combination of both.</p></div>
+<ul><li>Network gains precision and allows comparisons nobody trialled.</li><li>It adds <b>assumptions</b>. That's where reviewers attack.</li></ul>
+<div class="box hy"><span class="t">High-yield</span><p><b>Pairwise first, network last.</b> If your pairwise MAs are messy, the network will be messier. Build the geometry from the same included studies you've already extracted.</p></div>
+
+<h2>6.2 Geometry and vocabulary</h2>
+<table><tr><th>Term</th><th>Meaning</th></tr>
+<tr><td>Node</td><td>One treatment (or defined treatment class)</td></tr>
+<tr><td>Edge</td><td>Direct comparison made in ≥ 1 trial</td></tr>
+<tr><td>Multi-arm trial</td><td>3+ arms; contributes correlated comparisons: software must handle it</td></tr>
+<tr><td>Closed loop</td><td>Both direct and indirect evidence for a comparison</td></tr>
+<tr><td>Connected network</td><td>Every node is reachable. Disconnected networks cannot be analysed together</td></tr>
+<tr><td>Reference</td><td>Common comparator (placebo / standard care); results often relative to it</td></tr></table>
+<div class="box trap"><span class="t">Reviewer trap</span><ul><li><b>Node definition ("lumping vs splitting")</b>: is "statin" one node or six doses/types? Define in the protocol, before looking at results.</li><li>Including a treatment that is never used in the clinical decision you care about. Network must be a <i>decision set</i>.</li><li>Showing the plot with equal-thickness lines. Size nodes by participants, edges by number of trials.</li></ul></div>
+
+<h2>6.3 Assumption 1: Transitivity</h2>
+<div class="box defn"><span class="t">Definition</span><p><b>Transitivity</b>: studies comparing A–Pl and B–Pl are similar enough in <b>effect modifiers</b> (age, severity, baseline risk, dose, duration, setting) that an indirect A-vs-B comparison is valid. It's a clinical judgement about study characteristics; you assess it <i>before</i> looking at statistics.</p></div>
+<ul><li>Tabulate effect-modifier distributions per comparison (a "transitivity table").</li><li>If A–Pl trials are in severe disease and B–Pl trials in mild disease, the indirect A vs B is confounded by severity.</li><li>Nothing substitutes for judgement. Statistical tests can't prove it.</li></ul>
+
+<h2>6.4 Assumption 2: Consistency (coherence)</h2>
+<p>Where direct and indirect evidence both exist, they should <b>agree</b>. Disagreement = <b>inconsistency / incoherence</b>.</p>
+<table><tr><th>Level</th><th>Method</th><th>Question</th></tr>
+<tr><td>Global</td><td>Design-by-treatment interaction test</td><td>Anywhere in the network, is there inconsistency?</td></tr>
+<tr><td>Local</td><td>Node-splitting (SIDE) / loop inconsistency</td><td>For this comparison, direct vs indirect: do they differ?</td></tr></table>
+<div class="box mn"><span class="t">Mnemonic</span><p class="big">T before C</p><p><b>T</b>ransitivity is the <i>assumption</i> (judge by thinking). <b>C</b>onsistency is the <i>testable consequence</i> (check by statistics). If transitivity fails, consistency tests may or may not catch it.</p></div>
+<div class="box trap"><span class="t">Reviewer trap</span><p>"Test for inconsistency not significant → no inconsistency." Same lesson as I²: tests are underpowered. Present node-split estimates, not just p-values, and take clinical context into account.</p></div>
+
+<h2>6.5 Heterogeneity in a network</h2>
+<p>Most NMA models estimate a <b>common τ²</b> for all comparisons (an assumption). Heterogeneity within each pairwise comparison should still be examined (Day 4 skills). Network meta-regression can adjust for an effect modifier; needs enough trials.</p>
+
+<h2>6.6 Frequentist vs Bayesian</h2>
+<table><tr><th></th><th>Frequentist</th><th>Bayesian</th></tr>
+<tr><td>Typical tools</td><td>R <b>netmeta</b>, Stata <i>network</i> suite</td><td>R <b>gemtc / BUGSnet</b> (JAGS/Stan)</td></tr>
+<tr><td>Output</td><td>Estimate, CI, P-score</td><td>Posterior median, 95% CrI, SUCRA, probabilities</td></tr>
+<tr><td>Strength</td><td>Fast, transparent, fewer settings</td><td>Natural ranking probabilities, flexible models</td></tr>
+<tr><td>Risk</td><td>Awkward with sparse data</td><td>Priors / convergence must be reported</td></tr></table>
+<p><b>Both are acceptable.</b> What matters is that the model, priors, convergence diagnostics (Bayesian) and software are reported. For beginners: <b>MetaInsight</b> (a free browser app built on R) runs frequentist and Bayesian NMA without coding and is ideal for teaching.</p>
+
+<h2>6.7 League tables and rankings</h2>
+<table><tr><th>Output</th><th>What it shows</th></tr>
+<tr><td><b>League table</b></td><td>Every pairwise effect (with CI/CrI) in one matrix. <b>The primary result.</b></td></tr>
+<tr><td><b>Forest plot vs reference</b></td><td>All treatments vs placebo</td></tr>
+<tr><td><b>SUCRA / P-score</b></td><td>0–100%: average rank, higher = more likely better. <b>Not an effect size.</b></td></tr>
+<tr><td>Rankogram</td><td>Probability of each treatment being 1st, 2nd, …</td></tr></table>
+<div class="box hy"><span class="t">High-yield</span><p><b>Rankings must always appear next to the estimates and their certainty.</b> A treatment can rank first on a trivial effect with a CI covering benefit and harm. SUCRA of 90% in a sparse, imprecise network is noise with a nice number on it.</p></div>
+<div class="box trap"><span class="t">Reviewer trap</span><ul><li>"Treatment X is the best" written from SUCRA alone.</li><li>Ranking drugs that have few trials with other drugs that have many.</li><li>No statement of the clinical importance threshold. "Different" is not "better".</li></ul></div>
+
+<h2>6.8 CINeMA: confidence in network estimates</h2>
+<p>CINeMA (Confidence in Network Meta-Analysis) is a free web app that rates <b>each network estimate</b> using <b>6 domains</b>, then gives High / Moderate / Low / Very low.</p>
+<table><tr><th>#</th><th>Domain</th><th>Idea</th></tr>
+<tr><td>1</td><td>Within-study bias</td><td>RoB of studies that contribute to the estimate (weighted by contribution)</td></tr>
+<tr><td>2</td><td>Reporting bias</td><td>Missing or selectively reported results</td></tr>
+<tr><td>3</td><td>Indirectness</td><td>Studies' P/I/C/O vs your target question</td></tr>
+<tr><td>4</td><td>Imprecision</td><td>CI vs a clinically meaningful range</td></tr>
+<tr><td>5</td><td>Heterogeneity</td><td>Prediction interval vs clinical thresholds</td></tr>
+<tr><td>6</td><td>Incoherence</td><td>Direct vs indirect disagreement (node-split), plus overall consistency</td></tr></table>
+<div class="box mn"><span class="t">Mnemonic</span><p class="big">W·R·I·I·H·I</p><p><b>W</b>ithin-study bias · <b>R</b>eporting bias · <b>I</b>ndirectness · <b>I</b>mprecision · <b>H</b>eterogeneity · <b>I</b>ncoherence. Six boxes: tick each for no concerns / some / major.</p></div>
+<p class="small">Alternative: GRADE extended to NMA (Puhan et al. four-step approach). Cite whichever you use; CINeMA is the most practical for beginners because it is stepwise and software-supported.</p>
+<table><tr><th>Question</th><th>Pairwise</th><th>Network</th></tr><tr><td>Reporting</td><td>PRISMA 2020</td><td>PRISMA-NMA (adds geometry, inconsistency, rankings)</td></tr><tr><td>Certainty</td><td>GRADE</td><td>CINeMA or GRADE-NMA</td></tr><tr><td>Key assumption</td><td>Similarity</td><td>Transitivity + consistency</td></tr><tr><td>Main output</td><td>Forest plot</td><td>League table + rankings with certainty</td></tr></table>
+
+<div class="box task"><span class="t">Hands-on · Day 6 deliverable</span><ol><li>Sketch your network on paper: nodes, edges, and where direct evidence is missing.</li><li>Build a transitivity table: 3 likely effect modifiers × each comparison.</li><li>Explore MetaInsight with its demo data: find the league table, the ranking and the node-split result.</li><li>Draft the NMA section of your protocol: node definition, models, consistency checks, ranking presentation, certainty method.</li></ol></div>
+
+<div class="rev"><h2>⚡ Day 6 · Rapid Revision</h2><div class="cols">
+<h3>Logic</h3><ul><li>Indirect: d(AB) = d(A,Pl) − d(B,Pl)</li><li>Mixed = direct + indirect</li></ul>
+<h3>Assumptions</h3><ul><li><b>Transitivity</b> (clinical, before analysis)</li><li><b>Consistency</b> (global + node-split)</li></ul>
+<h3>Outputs</h3><ul><li>League table = main</li><li>SUCRA/P-score: <b>never alone</b></li></ul>
+<h3>Certainty</h3><ul><li>CINeMA: <b>6</b> domains</li><li>PRISMA-NMA for reporting</li></ul>
+</div></div>
+
+<h2>Practice MCQs</h2>
+<div class="mcq"><div class="q">1. In an NMA, the indirect comparison A vs B via placebo is:</div><div class="o">A. d(A,Pl) + d(B,Pl)  B. d(A,Pl) − d(B,Pl)  C. d(A,Pl) × d(B,Pl)  D. Average of both</div><div class="a"><b>Answer B.</b></div></div>
+<div class="mcq"><div class="q">2. The assumption that effect modifiers are balanced across comparisons is:</div><div class="o">A. Consistency  B. Transitivity  C. Heterogeneity  D. Imprecision</div><div class="a"><b>Answer B.</b></div></div>
+<div class="mcq"><div class="q">3. Node-splitting evaluates:</div><div class="o">A. Publication bias  B. Local inconsistency  C. RoB  D. SUCRA</div><div class="a"><b>Answer B.</b></div></div>
+<div class="mcq"><div class="q">4. SUCRA of 92% means treatment X:</div><div class="o">A. Reduces events by 92%  B. Has high probability of ranking near the top, not the size of effect  C. Is proven superior  D. Has no inconsistency</div><div class="a"><b>Answer B.</b></div></div>
+<div class="mcq"><div class="q">5. Number of CINeMA domains:</div><div class="o">A. 4  B. 5  C. 6  D. 8</div><div class="a"><b>Answer C.</b></div></div>
+<div class="mcq"><div class="q">6. Which design cannot be analysed as a single network?</div><div class="o">A. Star-shaped  B. Loop  C. Disconnected  D. Multi-arm</div><div class="a"><b>Answer C.</b></div></div>
+<div class="mcq"><div class="q">7. Primary result of an NMA to show first:</div><div class="o">A. Ranking plot  B. League table with certainty  C. Funnel  D. P-value</div><div class="a"><b>Answer B.</b></div></div>
+<div class="mcq"><div class="q">8. Reporting guideline extension for NMAs:</div><div class="o">A. PRISMA-P  B. PRISMA-NMA  C. PRISMA-S  D. CONSORT</div><div class="a"><b>Answer B.</b></div></div>
+</section>
+<section class="chap">
+<div class="opener"><div class="no">7</div><div class="kick">Day 7 · Report</div><h1>Write it up.</h1>
+<p>Everything you did is invisible unless you report it. Today you meet PRISMA (all of it), assemble the capstone protocol and learn what reviewers will actually say.</p>
+<div class="meta"><span>PRISMA 2020</span><span>PRISMA-NMA</span><span>PRISMA-P</span><span>AMSTAR 2</span><span>Capstone</span></div>
+<span class="hand">you finish at the protocol. that is the point.</span></div>
+
+<h2>7.1 The PRISMA family</h2>
+<table><tr><th>Guideline</th><th>For</th><th>Size</th><th>Use at</th></tr>
+<tr><td><b>PRISMA-P</b></td><td>Review <b>protocol</b></td><td>17 items</td><td>Before screening: <b>your capstone</b></td></tr>
+<tr><td><b>PRISMA 2020</b></td><td>Completed SR (± MA)</td><td>27 items + 12-item abstract checklist + flow diagram</td><td>Manuscript</td></tr>
+<tr><td><b>PRISMA-NMA</b></td><td>Network meta-analyses</td><td>32 items</td><td>Manuscript; adds geometry, inconsistency, ranking</td></tr>
+<tr><td><b>PRISMA-S</b></td><td>Search reporting</td><td>16 items</td><td>Search section/appendix</td></tr></table>
+<div class="box hy"><span class="t">High-yield</span><p>Know which letter does what. <b>P</b>rotocol · <b>S</b>earch · <b>NMA</b> · none = main report. Journals ask for the checklist with <b>page numbers</b> against each item.</p></div>
+
+<h2>7.2 Structure of the final report</h2>
+<table><tr><th>Section</th><th>Must include</th></tr>
+<tr><td>Title</td><td>"Systematic review and meta-analysis / network meta-analysis" in the title</td></tr>
+<tr><td>Abstract</td><td>Structured per PRISMA 2020 abstract: objectives, eligibility, sources, RoB, synthesis, results, limitations, funding, registration</td></tr>
+<tr><td>Introduction</td><td>Rationale; objectives in PICO form</td></tr>
+<tr><td>Methods</td><td>Registration + protocol + <b>deviations</b>; eligibility; sources + dates; full strategy; selection; extraction; RoB; effect measures; synthesis; heterogeneity; sensitivity; reporting bias; certainty</td></tr>
+<tr><td>Results</td><td>Flow diagram; characteristics table; RoB; <b>forest plots</b>; heterogeneity; sensitivity; certainty / SoF; for NMA: network plot, league table, ranks with CINeMA</td></tr>
+<tr><td>Discussion</td><td>Summary; comparison with other evidence; <b>limitations</b> of evidence <i>and</i> review; implications for practice and research</td></tr>
+<tr><td>Other</td><td>Registration number, funding, competing interests, <b>data/code availability</b></td></tr></table>
+<h3>Writing rules for the Results and Discussion</h3>
+<ul><li>Results report; the Discussion interprets. Don't mix.</li><li>Report <b>every</b> pre-specified analysis, including null and unflattering ones.</li><li>Use <b>certainty language</b> that matches GRADE/CINeMA: "may reduce" for low, "probably reduces" for moderate.</li><li>Avoid "proves", "no effect" (use "no clear evidence of an effect" when the CI includes meaningful benefit and harm).</li></ul>
+<div class="box trap"><span class="t">Reviewer trap</span><ul><li>Conclusion stronger than the certainty rating.</li><li>No "deviations from protocol" statement even though methods changed.</li><li>Only reporting what's significant. Selective reporting inside a review about selective reporting.</li><li>Missing limitations of the <i>review</i> itself (language, database coverage, few studies).</li></ul></div>
+
+<h2>7.3 Appraising a published review: AMSTAR 2</h2>
+<p><b>AMSTAR 2</b> (16 items) lets you judge another review. Critical items include: protocol registered before the review; adequate search; justified exclusions; RoB assessed; appropriate pooling; RoB considered when interpreting; publication bias assessed. Overall confidence: High / Moderate / Low / Critically low.</p>
+
+<h2>7.4 The capstone: your protocol (template)</h2>
+<div class="fix"><p class="mono" style="font-size:9pt">PROTOCOL · SR / MA / NMA</p><ol style="font-size:9.3pt">
+<li><b>Title</b> — "[Intervention] vs [comparator] for [outcome] in [population]: a systematic review and meta-analysis (protocol)".</li>
+<li><b>Registration</b> — PROSPERO ID (or OSF link); authors and roles; amendments log; funding; competing interests.</li>
+<li><b>Background and rationale</b> — what is known, what is missing, why an SR now (≈250 words).</li>
+<li><b>Objectives</b> — PICO sentence.</li>
+<li><b>Eligibility</b> — table: P, I, C, O (primary + secondary + time point), S, language, dates.</li>
+<li><b>Information sources</b> — databases (MEDLINE, Embase, CENTRAL…), registries, grey literature, citation chasing; planned search date; full draft strategy in appendix.</li>
+<li><b>Selection process</b> — dedup tool, 2 independent reviewers, Rayyan, conflict resolution, pilot, flow diagram.</li>
+<li><b>Data extraction</b> — items, form, pilot, 2 reviewers, author contact, handling multi-arm and multiple reports.</li>
+<li><b>Risk of bias</b> — RoB 2 / ROBINS-I; independent; how judgements feed synthesis.</li>
+<li><b>Effect measures</b> — RR/OR/MD/SMD/HR; handling zero events; medians-to-means.</li>
+<li><b>Synthesis</b> — random-effects, τ² estimator, CI method, software; criteria for pooling; narrative if not pooled.</li>
+<li><b>Heterogeneity / subgroups / sensitivity</b> — pre-specified list, with direction and reason.</li>
+<li><b>Reporting bias</b> — funnel/Egger only if ≥ 10 studies; registry comparison.</li>
+<li><b>NMA only</b> — node definition, transitivity assessment, model (freq/Bayes), consistency checks, ranking presentation, CINeMA.</li>
+<li><b>Certainty</b> — GRADE (or CINeMA) per outcome; SoF outcomes listed.</li>
+<li><b>Timeline and dissemination</b> — milestones, planned journal type, data sharing.</li></ol></div>
+<div class="box pearl"><span class="t">Clinical pearl</span><p><b>Run a pre-mortem.</b> Ask a friend to read your protocol and write the reviewer comment they would give. If three comments repeat — fix the protocol, not your defence.</p></div>
+
+<h2>7.5 Authorship, ethics, honesty</h2>
+<ul><li>Authorship follows <b>ICMJE</b> criteria: substantial contribution, drafting/revising, approval, accountability. Writing a paper for someone else's name doesn't qualify them as author.</li><li>SRs of published data usually don't need ethics committee review, but check your institution's rule and state it.</li><li>Disclose any AI-assisted tools you used and keep human responsibility for every claim and number. Do not let a tool invent citations.</li><li>Avoid predatory journals: check indexing (e.g. PubMed/Scopus coverage) and peer-review practice.</li></ul>
+
+<div class="box task"><span class="t">Hands-on · Day 7 deliverable (capstone)</span><ol><li>Assemble all your Day 1–6 sections into the template above, in one document.</li><li>Complete the PRISMA-P checklist with section/page references.</li><li>Submit the PROSPERO form (or OSF registration) using your own text.</li><li>Bring it to live Q&amp;A for feedback; revise.</li></ol></div>
+
+<div class="rev"><h2>⚡ Day 7 · Rapid Revision</h2><div class="cols">
+<h3>Checklists</h3><ul><li>PRISMA-P <b>17</b> · PRISMA 2020 <b>27</b> (+12 abstract) · PRISMA-NMA <b>32</b> · PRISMA-S <b>16</b> · AMSTAR 2 <b>16</b></li></ul>
+<h3>Write</h3><ul><li>Match language to certainty</li><li>Report all pre-specified analyses</li><li>Deviations stated</li></ul>
+<h3>Capstone</h3><ul><li>Protocol written <b>by you</b></li><li>Registered before screening</li><li>Peer-test it</li></ul>
+</div></div>
+
+<h2>Practice MCQs</h2>
+<div class="mcq"><div class="q">1. The reporting guideline for protocols is:</div><div class="o">A. PRISMA 2020  B. PRISMA-P  C. PRISMA-S  D. CONSORT</div><div class="a"><b>Answer B.</b></div></div>
+<div class="mcq"><div class="q">2. PRISMA 2020 main checklist has how many items?</div><div class="o">A. 17  B. 27  C. 32  D. 16</div><div class="a"><b>Answer B.</b> (27; 17 = PRISMA-P; 32 = PRISMA-NMA; 16 = PRISMA-S / AMSTAR 2.)</div></div>
+<div class="mcq"><div class="q">3. PRISMA-NMA is distinctive because it adds items on:</div><div class="o">A. Network geometry, inconsistency and ranking  B. Blinding  C. Randomisation  D. Costs</div><div class="a"><b>Answer A.</b></div></div>
+<div class="mcq"><div class="q">4. A CI of 0.7–1.4 with an observed 'no difference' should be written as:</div><div class="o">A. "Proves no effect"  B. "No clear evidence of an effect"  C. "Treatment is useless"  D. "Significant"</div><div class="a"><b>Answer B.</b></div></div>
+<div class="mcq"><div class="q">5. Methods changed after registration. You should:</div><div class="o">A. Hide it  B. Report deviations and update registration  C. Delete protocol  D. Withdraw</div><div class="a"><b>Answer B.</b></div></div>
+<div class="mcq"><div class="q">6. AMSTAR 2 is used to:</div><div class="o">A. Report an SR  B. Appraise confidence in an existing SR  C. Search databases  D. Rank drugs</div><div class="a"><b>Answer B.</b></div></div>
+<div class="mcq"><div class="q">7. Which section should interpret findings?</div><div class="o">A. Methods  B. Results  C. Discussion  D. Abstract only</div><div class="a"><b>Answer C.</b></div></div>
+<div class="mcq"><div class="q">8. Moderate-certainty evidence is best worded as:</div><div class="o">A. "Probably reduces"  B. "Definitely reduces"  C. "May reduce"  D. "Unknown"</div><div class="a"><b>Answer A.</b> Low = "may"; very low = "uncertain".</div></div>
+</section>
+</body></html>

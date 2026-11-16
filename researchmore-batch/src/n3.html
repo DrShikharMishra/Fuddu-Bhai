@@ -1,0 +1,60 @@
+<section class="chap">
+<div class="opener"><div class="no">3</div><div class="kick">Day 3 · Evidence</div><h1>Judge the evidence.</h1>
+<p>A trial being published doesn't make it trustworthy. Today you extract data cleanly and decide, domain by domain, how likely each result is to be wrong.</p>
+<div class="meta"><span>Data extraction</span><span>RoB 2</span><span>ROBINS-I</span><span>robvis</span></div>
+<span class="hand">bias ≠ poor reporting. know the difference.</span></div>
+
+<h2>3.1 Data extraction</h2>
+<ol><li>Build the form <b>before</b> extracting: study ID, design, setting, population, intervention details, comparator, outcome definitions, time points, <b>events/N per arm or mean/SD/N</b>, funding, conflicts.</li><li><b>Pilot</b> on 2–3 studies. Fix the form. Then extract.</li><li>Two reviewers independently (or one extracts, one verifies all). Compare. Resolve.</li><li>Keep a <b>source note</b>: table/page number for every number.</li></ol>
+<div class="box trap"><span class="t">Reviewer trap</span><ul><li><b>Multi-arm trials</b>: don't count the control group twice. Combine arms or split the shared group's N.</li><li><b>Multiple reports of one trial</b> → one study. Link them. Counting a trial twice inflates precision.</li><li>Intention-to-treat vs per-protocol: take ITT where reported, and state which.</li><li>Medians/IQR to mean/SD: estimates exist but are approximations. Flag them and run a sensitivity analysis.</li><li>Missing data: contact the author (two attempts). Do <b>not</b> impute without a documented method.</li></ul></div>
+<div class="box pearl"><span class="t">Clinical pearl</span><p>Extract the <b>same</b> outcome at the <b>same</b> time point. "Pain at discharge" and "pain at 6 weeks" are different outcomes. Pre-specify which you will pool.</p></div>
+
+<h2>3.2 Risk of bias vs. quality vs. reporting</h2>
+<table><tr><th>Concept</th><th>Question it asks</th></tr>
+<tr><td><b>Risk of bias</b></td><td>Could the <i>result</i> be systematically wrong because of how the study was designed or run?</td></tr>
+<tr><td>Quality of reporting</td><td>Did the authors describe what they did? (CONSORT)</td></tr>
+<tr><td>Precision</td><td>How wide is the confidence interval? (a random-error issue, not bias)</td></tr></table>
+<div class="box hy"><span class="t">High-yield</span><p><b>Bias = systematic error. Imprecision = random error.</b> A small, perfectly run RCT is unbiased but imprecise. A huge, badly run one is precise but biased.</p></div>
+
+<h2>3.3 RoB 2: randomised trials</h2>
+<p>RoB 2 is the current Cochrane tool. It judges a <b>specific result</b> (one outcome from one trial), not the trial as a whole, and sorts each of its <b>5 domains</b> into <b>Low risk · Some concerns · High risk</b> through signalling questions.</p>
+<table><tr><th>#</th><th>Domain</th><th>Ask</th><th>Red flag</th></tr>
+<tr><td>D1</td><td>Randomisation process</td><td>Was allocation random? concealed? baseline imbalances?</td><td>Alternate allocation; envelopes opened by staff</td></tr>
+<tr><td>D2</td><td>Deviations from intended interventions</td><td>Blinding of participants/carers? analysis appropriate (ITT)?</td><td>Open label with subjective outcome; per-protocol only</td></tr>
+<tr><td>D3</td><td>Missing outcome data</td><td>Complete? is missingness related to true value?</td><td>Dropout differs by arm</td></tr>
+<tr><td>D4</td><td>Measurement of the outcome</td><td>Appropriate method? assessors blinded?</td><td>Unblinded assessment of pain/satisfaction</td></tr>
+<tr><td>D5</td><td>Selection of the reported result</td><td>Pre-specified plan? chose from multiple analyses?</td><td>Outcome switched vs registry</td></tr></table>
+<div class="box mn"><span class="t">Mnemonic</span><p class="big">R · D · M · M · S</p><p><b>R</b>andomisation · <b>D</b>eviations · <b>M</b>issing data · <b>M</b>easurement · <b>S</b>elective reporting. Five domains; <b>overall = worst domain</b> (any High → High; otherwise any "Some concerns" → Some concerns).</p></div>
+<div class="fig">{{ROB}}</div><div class="cap">Fig 3.1 Traffic-light plot (illustrative). Make these with robvis (free: R package or web app).</div>
+
+<h2>3.4 ROBINS-I: non-randomised studies</h2>
+<p>For cohort or case-control studies of interventions. It compares the study to an <b>ideal target randomised trial</b>. The big difference: <b>confounding is expected</b>.</p>
+<table><tr><th>Pre-intervention</th><th>At intervention</th><th>Post-intervention</th></tr>
+<tr><td>1 Confounding<br>2 Selection of participants</td><td>3 Classification of interventions</td><td>4 Deviations from intended interventions<br>5 Missing data<br>6 Measurement of outcomes<br>7 Selection of reported result</td></tr></table>
+<ul><li><b>7 domains.</b> Judgments: Low · Moderate · Serious · Critical (+ No information).</li><li>"Low risk" ≈ comparable to a well-done RCT, rarely achieved by an observational study.</li><li>Critical risk in any domain → usually excluded from synthesis.</li></ul>
+<table><tr><th></th><th>RoB 2</th><th>ROBINS-I</th></tr>
+<tr><td>Studies</td><td>RCTs</td><td>Non-randomised</td></tr>
+<tr><td>Domains</td><td class="r">5</td><td class="r">7</td></tr>
+<tr><td>Levels</td><td>Low / Some concerns / High</td><td>Low / Moderate / Serious / Critical</td></tr>
+<tr><td>Key threat</td><td>Randomisation, blinding, missing data</td><td>Confounding</td></tr>
+<tr><td>Judged at</td><td>Result level</td><td>Result level</td></tr></table>
+<div class="box trap"><span class="t">Reviewer trap</span><ul><li>Giving each study a single overall score from an old checklist and adding up points. Domain-based judgement is the standard.</li><li>Two reviewers must rate independently; report agreement and how disagreements were resolved.</li><li>Don't exclude trials just because they're high risk. Assess their influence in sensitivity analysis (Day 5).</li><li>Newcastle-Ottawa Scale (stars) is still seen in the literature for cohort/case-control; ROBINS-I is the Cochrane-favoured alternative; JBI tools exist for other designs. Name the tool in the protocol.</li></ul></div>
+
+<div class="box task"><span class="t">Hands-on · Day 3 deliverable</span><ol><li>Design your extraction form (≤ 25 columns). Pilot it on two papers.</li><li>Apply RoB 2 (or ROBINS-I) to one paper's primary outcome; write one sentence of support per domain.</li><li>Swap with a classmate: where did you disagree, and why?</li><li>Write the protocol's <i>Data extraction</i> and <i>Risk of bias</i> sections.</li></ol></div>
+
+<div class="rev"><h2>⚡ Day 3 · Rapid Revision</h2><div class="cols">
+<h3>Extraction</h3><ul><li>Form → pilot → dual extraction</li><li>One trial = one study</li><li>Don't double-count control arms</li></ul>
+<h3>Tools</h3><ul><li>RoB 2: <b>5</b> domains, 3 levels</li><li>ROBINS-I: <b>7</b> domains, 4 levels (+NI)</li><li>NOS / JBI: other designs</li></ul>
+<h3>Concepts</h3><ul><li>Bias ≠ imprecision</li><li>Overall RoB = worst domain</li><li>Judge the <b>result</b>, not the trial</li></ul>
+</div></div>
+
+<h2>Practice MCQs</h2>
+<div class="mcq"><div class="q">1. RoB 2 contains how many domains?</div><div class="o">A. 4  B. 5  C. 6  D. 7</div><div class="a"><b>Answer B.</b> Randomisation, deviations, missing data, measurement, selection of reported result.</div></div>
+<div class="mcq"><div class="q">2. ROBINS-I contains how many domains?</div><div class="o">A. 5  B. 6  C. 7  D. 9</div><div class="a"><b>Answer C.</b> It adds confounding, participant selection, intervention classification.</div></div>
+<div class="mcq"><div class="q">3. A trial reports pain outcome with unblinded assessors in an open-label design. Which domain is most affected?</div><div class="o">A. D1  B. D3  C. D4  D. D5</div><div class="a"><b>Answer C.</b> Measurement of the outcome (subjective, unblinded).</div></div>
+<div class="mcq"><div class="q">4. The primary outcome in the paper differs from the registry entry. Domain:</div><div class="o">A. D1  B. D2  C. D4  D. D5</div><div class="a"><b>Answer D.</b> Selection of the reported result.</div></div>
+<div class="mcq"><div class="q">5. Overall RoB 2 judgement when one domain is High and the rest Low:</div><div class="o">A. Low  B. Some concerns  C. High  D. Average</div><div class="a"><b>Answer C.</b> Worst-domain rule.</div></div>
+<div class="mcq"><div class="q">6. Which is a random-error issue rather than bias?</div><div class="o">A. Poor allocation concealment  B. Wide CI from small sample  C. Selective outcome reporting  D. Unblinded assessment</div><div class="a"><b>Answer B.</b> Imprecision, handled in GRADE, not RoB.</div></div>
+<div class="mcq"><div class="q">7. Three-arm trial (A, B, control). To include in two separate pairwise MAs without double counting, you should:</div><div class="o">A. Use full control in both  B. Split the control group's N  C. Drop control  D. Ignore it</div><div class="a"><b>Answer B.</b> Or combine arms if conceptually the same.</div></div>
+<div class="mcq"><div class="q">8. ROBINS-I's reference standard is:</div><div class="o">A. A perfect RCT of the same question  B. A cohort  C. A case series  D. Expert opinion</div><div class="a"><b>Answer A.</b> The "target trial" you'd ideally have run.</div></div>
+</section>

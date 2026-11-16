@@ -1,0 +1,79 @@
+<section class="chap">
+<div class="opener"><div class="no">4</div><div class="kick">Day 4 · Analysis</div><h1>Pool it.</h1>
+<p>A meta-analysis is a weighted average of study results, plus an honest account of how much those results disagree.</p>
+<div class="meta"><span>Effect sizes</span><span>Weights</span><span>Forest plot</span><span>I² · τ² · PI</span></div>
+<span class="hand">knowing when NOT to pool is a skill.</span></div>
+
+<h2>4.1 The idea in one line</h2>
+<div class="box defn"><span class="t">Definition</span><p><b>Pooled effect = Σ(wᵢ × yᵢ) / Σwᵢ</b>, where yᵢ is each study's effect (log RR, MD, …) and wᵢ is its weight. Inverse-variance weight: <b>wᵢ = 1 / vᵢ</b>, so precise studies count more. Variance vᵢ = SE².</p></div>
+<h3>Effect measures at a glance</h3>
+<table><tr><th>Data</th><th>Effect</th><th>Null value</th><th>Scale pooled on</th></tr>
+<tr><td>Binary</td><td>RR / OR</td><td>1</td><td>log</td></tr><tr><td>Binary</td><td>RD</td><td>0</td><td>natural</td></tr>
+<tr><td>Continuous</td><td>MD / SMD</td><td>0</td><td>natural</td></tr><tr><td>Survival</td><td>HR</td><td>1</td><td>log</td></tr></table>
+<div class="box pearl"><span class="t">Clinical pearl</span><p><b>OR ≠ RR when the outcome is common.</b> If baseline risk is high, an OR exaggerates the effect when read as a risk ratio. Prefer RR (or RD) unless the design forces OR. Report absolute effects for the clinician.</p></div>
+
+<h2>4.2 Fixed vs random: it's about what you believe</h2>
+<table><tr><th></th><th>Common-effect ("fixed")</th><th>Random-effects</th></tr>
+<tr><td>Assumes</td><td>One true effect; studies differ only by chance</td><td>True effects <i>vary</i> across studies (mean μ, spread τ²)</td></tr>
+<tr><td>Weights</td><td>1/vᵢ</td><td>1/(vᵢ + τ²) — small studies gain weight</td></tr>
+<tr><td>CI</td><td>Narrower</td><td>Wider when heterogeneous</td></tr>
+<tr><td>Answers</td><td>"What is the effect in <i>these</i> studies?"</td><td>"What is the <i>average</i> effect across settings?"</td></tr></table>
+<div class="box hy"><span class="t">High-yield</span><p><b>Don't choose the model by looking at I².</b> Choose by what the question and the clinical diversity imply. In real life studies differ, so random-effects is the usual default; pre-specify it. Use fixed-effect as a sensitivity check.</p></div>
+
+<h2>4.3 Worked example · hypothetical data</h2>
+<div class="box trap"><span class="t">Hypothetical dataset</span><p>These six "trials" are <b>invented for teaching</b>. Question: does prophylactic antibiotic X reduce 30-day surgical-site infection (SSI) vs placebo? Numbers below were computed by script (inverse-variance on log RR; DerSimonian-Laird τ²).</p></div>
+<div class="fig">{{FOREST}}</div>
+<div class="cap">Fig 4.1 Forest plot: square size ∝ weight; diamond = pooled random-effects RR; dashed red line = 95% prediction interval.</div>
+<table><tr><th>Quantity</th><th>Value</th><th>How</th></tr>
+<tr><td>Q</td><td class="r">{{Q}} (df {{DF}}, p = {{QP}})</td><td>Σ wᵢ(yᵢ − ȳ_FE)²</td></tr>
+<tr><td>τ² (DL)</td><td class="r">{{TAU2}}  (τ = {{TAU}})</td><td>(Q − df) / C</td></tr>
+<tr><td>I²</td><td class="r">{{I2}}%</td><td>(Q − df)/Q</td></tr>
+<tr><td>Fixed-effect RR</td><td class="r">{{FERR}} [{{FELO}}, {{FEHI}}]</td><td>Common-effect</td></tr>
+<tr><td>Random-effects RR</td><td class="r">{{RERR}} [{{RELO}}, {{REHI}}]</td><td>Wald CI</td></tr>
+<tr><td>95% prediction interval</td><td class="r">[{{PILO}}, {{PIHI}}]</td><td>t(k−2) with τ² + SE²</td></tr></table>
+<h3>How to read it, line by line</h3>
+<ul><li><b>Direction:</b> pooled RR &lt; 1 → fewer infections with X.</li><li><b>Fixed vs random disagree on significance</b> (fixed CI excludes 1; random touches it). That's a flag: heterogeneity is changing the answer. Report it plainly; don't pick the nicer one.</li><li><b>Trial C</b> points the other way (RR &gt; 1) and has the biggest fixed-effect weight; random-effects cuts its weight from {{WC_FE}}% to {{WC_RE}}%.</li><li><b>Prediction interval</b> [{{PILO}}, {{PIHI}}] is wide: in a <i>new</i> setting the true effect might be a big benefit <i>or</i> harm. The CI for the mean alone would hide that.</li></ul>
+<div class="box mn"><span class="t">Mnemonic</span><p class="big">Q · τ² · I² · PI</p><p><b>Q</b> tests if there's more spread than chance. <b>τ²</b> = how much true effects vary (in log units). <b>I²</b> = % of the observed spread that's real, not chance. <b>PI</b> = where the next study's true effect likely falls.</p></div>
+<h3>Interpreting I² (Cochrane guidance, overlapping bands)</h3>
+<table><tr><th>I²</th><th>Rough reading</th></tr><tr><td>0–40%</td><td>might not be important</td></tr><tr><td>30–60%</td><td>may represent moderate heterogeneity</td></tr><tr><td>50–90%</td><td>may represent substantial heterogeneity</td></tr><tr><td>75–100%</td><td>considerable heterogeneity</td></tr></table>
+<p class="small">Bands deliberately overlap: interpret I² with its CI, the size and direction of effects, and the strength of evidence for heterogeneity (Q p-value). With few studies, Q is underpowered and I² is imprecise.</p>
+<div class="box trap"><span class="t">Reviewer trap</span><ul><li>"I² = 0 so studies are homogeneous." No: with k = 6 you simply can't tell.</li><li>Calling a result "significant" because the fixed-effect model says so while random-effects doesn't.</li><li>Pooling apples and oranges: different populations, doses or outcomes, just because the software allows it.</li><li>Rare events / zero cells: use Mantel-Haenszel or Peto (careful), and state the continuity-correction rule. Don't silently add 0.5.</li></ul></div>
+
+<h3>Methods you will meet in software</h3>
+<table><tr><th>Choice</th><th>Options</th><th>Practical note</th></tr>
+<tr><td>τ² estimator</td><td>DerSimonian-Laird (DL) · REML · Paule-Mandel</td><td>DL is the old default; REML preferred in modern guidance for continuous data</td></tr>
+<tr><td>CI method</td><td>Wald · Hartung-Knapp-Sidik-Jonkman (HKSJ)</td><td>HKSJ is more honest with few studies; CI gets wider</td></tr>
+<tr><td>Binary pooling</td><td>Inverse variance · Mantel-Haenszel · Peto</td><td>MH better with sparse data</td></tr></table>
+
+<h2>4.4 When NOT to pool</h2>
+<ul><li>Clinical diversity you can't defend (different diseases, doses, outcome definitions).</li><li>Only 1 study per comparison (pooling needs ≥ 2).</li><li>Heterogeneity so extreme that an average is meaningless → narrative synthesis (SWiM), or explain with subgroups first.</li></ul>
+
+<h2>4.5 Doing it in software</h2>
+<div class="fix" style="font:8.8pt 'Special Elite'">
+# R (free) · package "meta"<br>
+library(meta)<br>
+m &lt;- metabin(event.e, n.e, event.c, n.c, studlab = study, data = d,<br>
+&nbsp;&nbsp;sm = "RR", method = "MH", method.tau = "REML",<br>
+&nbsp;&nbsp;hakn = TRUE, prediction = TRUE)<br>
+forest(m); summary(m)
+</div>
+<p>RevMan (free from Cochrane) or the Jamovi/MAJOR module are point-and-click alternatives. Whatever you use, <b>save the script/project</b> — reviewers may ask for your data.</p>
+<div class="box task"><span class="t">Hands-on · Day 4 deliverable</span><ol><li>Take the 6-study dataset above and reproduce Q, I², pooled RR in R or a spreadsheet.</li><li>Change Trial C's events to 25 vs 30. What happens to I², τ² and the fixed-vs-random difference?</li><li>For your own question: choose effect measure, model, τ² estimator and CI method; write the <i>Synthesis</i> section of the protocol.</li></ol></div>
+
+<div class="rev"><h2>⚡ Day 4 · Rapid Revision</h2><div class="cols">
+<h3>Formulas</h3><ul><li>w = 1/v (FE) · w = 1/(v+τ²) (RE)</li><li>I² = (Q − df)/Q</li><li>Pool ratios on <b>log</b> scale</li></ul>
+<h3>Choose</h3><ul><li>FE: one true effect</li><li>RE: effects vary — default for real life</li><li>Pre-specify; don't pick by I²</li></ul>
+<h3>Report</h3><ul><li>Pooled effect + 95% CI + <b>PI</b></li><li>τ², I², Q</li><li>Fixed vs random if they disagree</li></ul>
+<h3>Don't</h3><ul><li>Pool apples/oranges</li><li>Say "no heterogeneity" with k=6</li></ul>
+</div></div>
+
+<h2>Practice MCQs</h2>
+<div class="mcq"><div class="q">1. In an inverse-variance meta-analysis, a study gets more weight when:</div><div class="o">A. Its sample is small  B. Its variance is small  C. It's published first  D. It's positive</div><div class="a"><b>Answer B.</b> w = 1/variance.</div></div>
+<div class="mcq"><div class="q">2. Random-effects, compared with fixed-effect, generally:</div><div class="o">A. Narrows CI  B. Gives small studies relatively more weight  C. Ignores heterogeneity  D. Needs no τ²</div><div class="a"><b>Answer B.</b> Adding τ² to each variance flattens the weights.</div></div>
+<div class="mcq"><div class="q">3. I² measures:</div><div class="o">A. Publication bias  B. % of variability due to heterogeneity not chance  C. Effect size  D. Risk of bias</div><div class="a"><b>Answer B.</b></div></div>
+<div class="mcq"><div class="q">4. The 95% prediction interval answers:</div><div class="o">A. Where the pooled mean lies  B. Where a new study's true effect may lie  C. Whether bias exists  D. How many studies are missing</div><div class="a"><b>Answer B.</b></div></div>
+<div class="mcq"><div class="q">5. Pooled RR 0.68 [0.46, 1.02] (random) but 0.72 [0.54, 0.95] (fixed). Best statement:</div><div class="o">A. Fixed is right  B. Report both; heterogeneity affects the conclusion  C. Delete Trial C  D. Switch to OR</div><div class="a"><b>Answer B.</b> Pre-specified model reported; the other explored; no cherry-picking.</div></div>
+<div class="mcq"><div class="q">6. Odds ratio overstates risk ratio when:</div><div class="o">A. Event is rare  B. Event is common  C. k is large  D. Studies are RCTs</div><div class="a"><b>Answer B.</b></div></div>
+<div class="mcq"><div class="q">7. Which pooling method is often preferred for sparse binary data?</div><div class="o">A. Mantel-Haenszel  B. Meta-regression  C. Egger  D. Funnel</div><div class="a"><b>Answer A.</b> (Peto for very rare events, with caveats.)</div></div>
+<div class="mcq"><div class="q">8. Hartung-Knapp adjustment is mainly used to:</div><div class="o">A. Estimate τ²  B. Widen CI appropriately with few studies  C. Test bias  D. Rank treatments</div><div class="a"><b>Answer B.</b></div></div>
+</section>
