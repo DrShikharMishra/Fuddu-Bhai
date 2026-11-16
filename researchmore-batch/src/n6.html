@@ -2,7 +2,7 @@
 <div class="opener"><div class="no">6</div><div class="kick">Day 6 · Analysis</div><h1>Go network.</h1>
 <p>Pairwise MA answers "A vs B". Real clinicians face A, B, C, D and a placebo, with trials that never met each other. NMA uses the web of comparisons to rank them, if the web is honest.</p>
 <div class="meta"><span>Geometry</span><span>Transitivity</span><span>Consistency</span><span>League table</span><span>CINeMA</span></div>
-<span class="hand">rankings never walk alone.</span></div>
+</div>
 
 <h2>6.1 The core idea</h2>
 <div class="fig">{{NETWORK}}</div>
@@ -52,7 +52,19 @@
 <div class="box hy"><span class="t">High-yield</span><p><b>Rankings must always appear next to the estimates and their certainty.</b> A treatment can rank first on a trivial effect with a CI covering benefit and harm. SUCRA of 90% in a sparse, imprecise network is noise with a nice number on it.</p></div>
 <div class="box trap"><span class="t">Reviewer trap</span><ul><li>"Treatment X is the best" written from SUCRA alone.</li><li>Ranking drugs that have few trials with other drugs that have many.</li><li>No statement of the clinical importance threshold. "Different" is not "better".</li></ul></div>
 
-<h2>6.8 CINeMA: confidence in network estimates</h2>
+<h2>6.8 Worked example · hypothetical network</h2>
+<div class="box trap"><span class="t">Hypothetical dataset</span><p>Ten invented two-arm trials of treatments <b>A, B, C</b> versus <b>placebo</b>. Outcome: pain score (0–10) at 6 weeks, <b>mean difference</b> (negative favours the first-named treatment). Estimates were computed by script: weighted least squares on the contrast data, with a DerSimonian-Laird-type τ². Trials: A–Pl ×3, B–Pl ×3, C–Pl ×2, A–B ×1, B–C ×1. Two closed loops: A–B–Pl and B–C–Pl.</p></div>
+<table><tr><th>Quantity</th><th>Value</th></tr><tr><td>Network heterogeneity</td><td class="r">Q = {{NQ}} on {{NDF}} df · τ² = {{NTAU2}} · I² = {{NI2}}%</td></tr>
+{{NVSP}}</table>
+<h3>League table (row vs column, MD with 95% CI)</h3>
+{{NLEAGUE}}
+<div class="cap">Negative favours the row treatment. Example: A vs B = {{NAB}}, so the data are compatible with no difference.</div>
+<h3>P-scores</h3>
+<table><tr><th>Treatment</th><th>P-score</th><th>Reading</th></tr>{{NPS}}</table>
+<h3>Node-split check: A vs B</h3>
+<table><tr><th>Source</th><th>MD (95% CI)</th></tr><tr><td>Direct (1 trial)</td><td class="r">{{NSD}}</td></tr><tr><td>Indirect (via placebo)</td><td class="r">{{NSI}}</td></tr><tr><td>Difference</td><td class="r">{{NSDIFF}} (p = {{NSP}})</td></tr></table>
+<div class="box hy"><span class="t">How to write this up</span><ul><li><b>A</b> gave the largest improvement versus placebo (MD {{NA}}), B was intermediate, and C was not clearly different from placebo (CI includes 0).</li><li><b>A is ranked first (P-score {{NPA}}%)</b>, but A versus B is {{NAB}}: the data do not separate them. A ranking is not an effect size.</li><li>No evidence of inconsistency in the A–B–Placebo loop, but with a single direct trial the test is underpowered; certainty still needs CINeMA.</li></ul></div>
+<h2>6.9 CINeMA: confidence in network estimates</h2>
 <p>CINeMA (Confidence in Network Meta-Analysis) is a free web app that rates <b>each network estimate</b> using <b>6 domains</b>, then gives High / Moderate / Low / Very low.</p>
 <table><tr><th>#</th><th>Domain</th><th>Idea</th></tr>
 <tr><td>1</td><td>Within-study bias</td><td>RoB of studies that contribute to the estimate (weighted by contribution)</td></tr>

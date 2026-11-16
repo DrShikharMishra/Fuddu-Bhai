@@ -1,0 +1,151 @@
+<!doctype html><html lang='en'><head><meta charset='utf-8'><title>Day 4 Notes</title><style>@font-face{font-family:'Caveat';font-style:normal;font-weight:600;src:url(../fonts/Caveat-normal-600.ttf) format('truetype');}
+@font-face{font-family:'Fraunces';font-style:italic;font-weight:600;src:url(../fonts/Fraunces-italic-600.ttf) format('truetype');}
+@font-face{font-family:'Fraunces';font-style:normal;font-weight:600;src:url(../fonts/Fraunces-normal-600.ttf) format('truetype');}
+@font-face{font-family:'Fraunces';font-style:normal;font-weight:800;src:url(../fonts/Fraunces-normal-800.ttf) format('truetype');}
+@font-face{font-family:'Special Elite';font-style:normal;font-weight:400;src:url(../fonts/SpecialElite-normal-400.ttf) format('truetype');}:root{--navy:#0c1f4d;--red:#c8102e;--cream:#f1eee7;--paper:#f7f5ef;--blue:#cdd8ea;--ink:#1b2238;--mute:#5b6479;--gold:#b8892b}
+*{box-sizing:border-box}
+html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{margin:0;background:var(--paper);color:var(--ink);font:10.2pt/1.5 'Inter',system-ui,sans-serif}
+@page{size:A4;margin:16mm 15mm 17mm}
+h1,h2,h3,.disp{font-family:'Fraunces',Georgia,serif;color:var(--navy);margin:0}
+h2{font-size:19pt;font-weight:800;margin:14pt 0 6pt;border-bottom:1.6pt solid var(--navy);padding-bottom:3pt;break-after:avoid}
+h3{font-size:12.5pt;font-weight:600;margin:11pt 0 3pt;break-after:avoid}
+h3::before{content:"§ ";color:var(--red)}
+p{margin:0 0 6pt}
+ul,ol{margin:2pt 0 7pt;padding-left:15pt}li{margin:1.5pt 0}
+b,strong{color:var(--navy)}
+.mono{font-family:'Special Elite',monospace}
+.hand{font-family:'Caveat',cursive;color:var(--red);font-size:13pt;line-height:1.1}
+.chap{page-break-before:always;break-before:page}
+.opener{background:var(--navy);color:#fff;margin:0 -15mm 10pt;padding:14mm 15mm 12mm;position:relative;overflow:hidden;min-height:92mm}
+.opener .no{font:800 92pt/0.8 Fraunces,serif;color:var(--red);position:absolute;right:15mm;top:10mm}
+.opener .kick{font:9pt 'Special Elite',monospace;letter-spacing:.18em;color:#cdd8ea;text-transform:uppercase}
+.opener h1{color:#fff;font-size:29pt;font-weight:800;line-height:1.05;margin:6pt 0 8pt;max-width:130mm}
+.opener p{color:#dfe6f3;max-width:140mm;font-size:10.5pt}
+.opener .hand{color:#ff9aa8;font-size:15pt;margin-top:6pt;display:block}
+.meta{display:flex;gap:6pt;margin:8pt 0 4pt;flex-wrap:wrap}
+.meta span{font:8.5pt 'Special Elite',monospace;border:1pt solid #8fa0c4;color:#e3e9f5;padding:2pt 7pt;border-radius:2pt}
+.box{border-radius:3pt;padding:7pt 10pt 6pt;margin:8pt 0;break-inside:avoid;position:relative}
+.box .t{display:inline-block;font:700 7.6pt 'Inter';letter-spacing:.14em;text-transform:uppercase;padding:2pt 7pt;border-radius:2pt;margin-bottom:4pt;color:#fff}
+.box p:last-child,.box ul:last-child{margin-bottom:2pt}
+.hy{background:#fdecee;border-left:4pt solid var(--red)}.hy .t{background:var(--red)}
+.trap{background:#fff;border:1.3pt dashed var(--navy)}.trap .t{background:var(--navy)}
+.mn{background:var(--blue);border-left:4pt solid var(--navy)}.mn .t{background:var(--navy)}
+.mn .big{font:800 15pt 'Fraunces';color:var(--red);letter-spacing:.04em}
+.pearl{background:#fbf3df;border-left:4pt solid var(--gold)}.pearl .t{background:var(--gold)}
+.defn{background:#fff;border:1pt solid #cfd6e6;border-left:4pt solid #3d66b8}.defn .t{background:#3d66b8}
+.task{background:#eef6ee;border:1.3pt solid #2f7d4f}.task .t{background:#2f7d4f}
+.fix{background:#fff;border:1pt solid #cfd6e6;border-radius:3pt;padding:7pt 10pt;margin:8pt 0;break-inside:avoid}
+table{border-collapse:collapse;width:100%;margin:7pt 0 9pt;font-size:9.1pt;break-inside:avoid}
+th{background:var(--navy);color:#fff;text-align:left;padding:4pt 6pt;font-weight:600;font-size:8.6pt;letter-spacing:.03em}
+td{padding:4pt 6pt;border-bottom:.8pt solid #cfd6e6;vertical-align:top}
+tr:nth-child(even) td{background:#f0ede5}
+td.r{color:var(--red);font-weight:600}
+.cap{font:8.4pt 'Special Elite',monospace;color:var(--mute);margin:-3pt 0 9pt}
+.fig{margin:8pt 0;text-align:center;break-inside:avoid}
+.fig svg{max-width:100%;height:auto}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10pt}
+.stamp{display:inline-block;border:1.6pt solid var(--red);color:var(--red);font:9pt 'Special Elite';padding:2pt 8pt;transform:rotate(-3deg);letter-spacing:.1em}
+.rev{background:var(--navy);color:#fff;padding:12pt 14pt;margin:6pt 0;border-radius:3pt}
+.rev h2{color:#fff;border-color:var(--red);margin-top:0}
+.rev h3{color:#fff}.rev b{color:#ffd0d6}.rev li{margin:2.5pt 0}
+.rev .cols{columns:2;column-gap:16pt}.rev .cols>*{break-inside:avoid}
+.mcq{break-inside:avoid;margin:7pt 0;padding:6pt 9pt;background:#fff;border:1pt solid #d5dbe8;border-radius:3pt}
+.mcq .q{font-weight:600;color:var(--navy);margin-bottom:3pt}.mcq .o{margin:1pt 0 1pt 8pt}
+.mcq .a{margin-top:4pt;padding-top:3pt;border-top:1pt dotted #aab4cc;font-size:9pt;color:#2f3b57}.mcq .a b{color:var(--red)}
+.toc li{margin:3pt 0}
+.cover{height:262mm;display:flex;flex-direction:column;justify-content:space-between;color:#fff;background:var(--navy);margin:0 -15mm;padding:18mm 18mm;page-break-after:always;position:relative}
+.cover h1{color:#fff;font-size:44pt;line-height:1.02;font-weight:800}
+.cover .red{color:#ff8da0}
+.cover .kick{font:10pt 'Special Elite';letter-spacing:.2em;color:#cdd8ea}
+.cover .hand{color:#ff9aa8;font-size:19pt}
+.cover .stampw{border:2pt solid #ff8da0;color:#ff8da0;display:inline-block;padding:4pt 12pt;font:11pt 'Special Elite';transform:rotate(-3deg)}
+.small{font-size:8.4pt;color:var(--mute)}
+.sl{break-inside:avoid;border:1pt solid #cfd6e6;background:#fff;border-radius:3pt;margin:7pt 0;padding:0}
+.sl .h{background:var(--blue);padding:4pt 9pt;font:600 10pt 'Fraunces';color:var(--navy);display:flex;justify-content:space-between}
+.sl .h i{font:8.4pt 'Special Elite';font-style:normal;color:var(--red)}
+.sl .b{padding:6pt 9pt}.sl .b ul{margin-bottom:3pt}
+.sl .say{border-left:3pt solid var(--red);padding:1pt 0 1pt 8pt;margin:5pt 0 2pt;font-style:italic;color:#2b3550}
+.sl .say::before{content:"SAY · ";font:700 7.6pt Inter;font-style:normal;letter-spacing:.14em;color:var(--red)}
+body>section.chap:first-child{break-before:auto;page-break-before:auto}
+</style></head><body><section class="chap">
+<div class="opener"><div class="no">4</div><div class="kick">Day 4 · Analysis</div><h1>Pool it.</h1>
+<p>A meta-analysis is a weighted average of study results, plus an honest account of how much those results disagree.</p>
+<div class="meta"><span>Effect sizes</span><span>Weights</span><span>Forest plot</span><span>I² · τ² · PI</span></div>
+</div>
+
+<h2>4.1 The idea in one line</h2>
+<div class="box defn"><span class="t">Definition</span><p><b>Pooled effect = Σ(wᵢ × yᵢ) / Σwᵢ</b>, where yᵢ is each study's effect (log RR, MD, …) and wᵢ is its weight. Inverse-variance weight: <b>wᵢ = 1 / vᵢ</b>, so precise studies count more. Variance vᵢ = SE².</p></div>
+<h3>Effect measures at a glance</h3>
+<table><tr><th>Data</th><th>Effect</th><th>Null value</th><th>Scale pooled on</th></tr>
+<tr><td>Binary</td><td>RR / OR</td><td>1</td><td>log</td></tr><tr><td>Binary</td><td>RD</td><td>0</td><td>natural</td></tr>
+<tr><td>Continuous</td><td>MD / SMD</td><td>0</td><td>natural</td></tr><tr><td>Survival</td><td>HR</td><td>1</td><td>log</td></tr></table>
+<div class="box pearl"><span class="t">Clinical pearl</span><p><b>OR ≠ RR when the outcome is common.</b> If baseline risk is high, an OR exaggerates the effect when read as a risk ratio. Prefer RR (or RD) unless the design forces OR. Report absolute effects for the clinician.</p></div>
+
+<h2>4.2 Fixed vs random: it's about what you believe</h2>
+<table><tr><th></th><th>Common-effect ("fixed")</th><th>Random-effects</th></tr>
+<tr><td>Assumes</td><td>One true effect; studies differ only by chance</td><td>True effects <i>vary</i> across studies (mean μ, spread τ²)</td></tr>
+<tr><td>Weights</td><td>1/vᵢ</td><td>1/(vᵢ + τ²) — small studies gain weight</td></tr>
+<tr><td>CI</td><td>Narrower</td><td>Wider when heterogeneous</td></tr>
+<tr><td>Answers</td><td>"What is the effect in <i>these</i> studies?"</td><td>"What is the <i>average</i> effect across settings?"</td></tr></table>
+<div class="box hy"><span class="t">High-yield</span><p><b>Don't choose the model by looking at I².</b> Choose by what the question and the clinical diversity imply. In real life studies differ, so random-effects is the usual default; pre-specify it. Use fixed-effect as a sensitivity check.</p></div>
+
+<h2>4.3 Worked example · hypothetical data</h2>
+<div class="box trap"><span class="t">Hypothetical dataset</span><p>These six "trials" are <b>invented for teaching</b>. Question: does prophylactic antibiotic X reduce 30-day surgical-site infection (SSI) vs placebo? Numbers below were computed by script (inverse-variance on log RR; DerSimonian-Laird τ²).</p></div>
+<div class="fig"><svg viewBox="0 0 700 330" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif" font-size="11.5"><text x="8" y="18" font-weight="700" fill="#0c1f4d">Study (hypothetical)</text><text x="196" y="18" font-weight="700" fill="#0c1f4d">Tx n/N</text><text x="248" y="18" font-weight="700" fill="#0c1f4d" >Ctl n/N</text><text x="520" y="18" font-weight="700" fill="#0c1f4d">RR [95% CI]</text><text x="650" y="18" font-weight="700" fill="#0c1f4d">Wt%</text><line x1="8" x2="690" y1="24" y2="24" stroke="#0c1f4d"/><text x="8" y="47" fill="#0c1f4d">Trial A</text><text x="196" y="47" fill="#333">12/150</text><text x="248" y="47" fill="#333">20/148</text><line x1="352.6" x2="429.9" y1="44" y2="44" stroke="#0c1f4d" stroke-width="1.4"/><rect x="386.4" y="39.2" width="9.7" height="9.7" fill="#0c1f4d"/><text x="520" y="47" fill="#333">0.59 [0.30, 1.17]</text><text x="650" y="47" fill="#333">18.2</text><text x="8" y="75" fill="#0c1f4d">Trial B</text><text x="196" y="75" fill="#333">8/90</text><text x="248" y="75" fill="#333">15/92</text><line x1="340.6" x2="432.5" y1="72" y2="72" stroke="#0c1f4d" stroke-width="1.4"/><rect x="382.2" y="67.7" width="8.7" height="8.7" fill="#0c1f4d"/><text x="520" y="75" fill="#333">0.55 [0.24, 1.22]</text><text x="650" y="75" fill="#333">14.9</text><text x="8" y="103" fill="#0c1f4d">Trial C</text><text x="196" y="103" fill="#333">34/310</text><text x="248" y="103" fill="#333">30/305</text><line x1="400.8" x2="453.7" y1="100" y2="100" stroke="#0c1f4d" stroke-width="1.4"/><rect x="421.3" y="94.1" width="11.9" height="11.9" fill="#0c1f4d"/><text x="520" y="103" fill="#333">1.12 [0.70, 1.77]</text><text x="650" y="103" fill="#333">25.2</text><text x="8" y="131" fill="#0c1f4d">Trial D</text><text x="196" y="131" fill="#333">5/60</text><text x="248" y="131" fill="#333">6/58</text><line x1="344.4" x2="473.1" y1="128" y2="128" stroke="#0c1f4d" stroke-width="1.4"/><rect x="405.3" y="124.5" width="6.9" height="6.9" fill="#0c1f4d"/><text x="520" y="131" fill="#333">0.81 [0.26, 2.50]</text><text x="650" y="131" fill="#333">9.4</text><text x="8" y="159" fill="#0c1f4d">Trial E</text><text x="196" y="159" fill="#333">11/200</text><text x="248" y="159" fill="#333">31/198</text><line x1="324.0" x2="399.1" y1="156" y2="156" stroke="#0c1f4d" stroke-width="1.4"/><rect x="356.6" y="151.1" width="9.8" height="9.8" fill="#0c1f4d"/><text x="520" y="159" fill="#333">0.35 [0.18, 0.68]</text><text x="650" y="159" fill="#333">18.7</text><text x="8" y="187" fill="#0c1f4d">Trial F</text><text x="196" y="187" fill="#333">9/120</text><text x="248" y="187" fill="#333">10/125</text><line x1="368.2" x2="466.6" y1="184" y2="184" stroke="#0c1f4d" stroke-width="1.4"/><rect x="413.3" y="179.9" width="8.3" height="8.3" fill="#0c1f4d"/><text x="520" y="187" fill="#333">0.94 [0.39, 2.23]</text><text x="650" y="187" fill="#333">13.7</text><line x1="8" x2="690" y1="202" y2="202" stroke="#0c1f4d"/><text x="8" y="219" font-weight="700" fill="#0c1f4d">Random effects (DL)</text><polygon points="376.6,216 399.3,208 422.0,216 399.3,224" fill="#c8102e"/><text x="520" y="219" font-weight="700" fill="#c8102e">0.68 [0.46, 1.02]</text><text x="650" y="219" fill="#333">100</text><text x="8" y="243" fill="#0c1f4d">95% prediction interval</text><line x1="338.1" x2="460.4" y1="240" y2="240" stroke="#c8102e" stroke-width="2" stroke-dasharray="4 2"/><text x="520" y="243" fill="#c8102e">[0.23, 2.00]</text><line x1="421.1" x2="421.1" y1="30" y2="262" stroke="#555" stroke-dasharray="3 3"/><line x1="290" x2="500" y1="262" y2="262" stroke="#0c1f4d"/><line x1="290.0" x2="290.0" y1="262" y2="266" stroke="#0c1f4d"/><text x="290.0" y="276" text-anchor="middle" fill="#0c1f4d">0.1</text><line x1="342.2" x2="342.2" y1="262" y2="266" stroke="#0c1f4d"/><text x="342.2" y="276" text-anchor="middle" fill="#0c1f4d">0.25</text><line x1="381.6" x2="381.6" y1="262" y2="266" stroke="#0c1f4d"/><text x="381.6" y="276" text-anchor="middle" fill="#0c1f4d">0.5</text><line x1="421.1" x2="421.1" y1="262" y2="266" stroke="#0c1f4d"/><text x="421.1" y="276" text-anchor="middle" fill="#0c1f4d">1</text><line x1="460.5" x2="460.5" y1="262" y2="266" stroke="#0c1f4d"/><text x="460.5" y="276" text-anchor="middle" fill="#0c1f4d">2</text><line x1="500.0" x2="500.0" y1="262" y2="266" stroke="#0c1f4d"/><text x="500.0" y="276" text-anchor="middle" fill="#0c1f4d">4</text><text x="413.1" y="290" text-anchor="end" fill="#0c1f4d">← favours treatment</text><text x="429.1" y="290" fill="#0c1f4d">favours control →</text><text x="424.1" y="36" fill="#555" font-size="8">no effect</text></svg></div>
+<div class="cap">Fig 4.1 Forest plot: square size ∝ weight; diamond = pooled random-effects RR; dashed red line = 95% prediction interval.</div>
+<table><tr><th>Quantity</th><th>Value</th><th>How</th></tr>
+<tr><td>Q</td><td class="r">9.13 (df 5, p = 0.10)</td><td>Σ wᵢ(yᵢ − ȳ_FE)²</td></tr>
+<tr><td>τ² (DL)</td><td class="r">0.108  (τ = 0.33)</td><td>(Q − df) / C</td></tr>
+<tr><td>I²</td><td class="r">45%</td><td>(Q − df)/Q</td></tr>
+<tr><td>Fixed-effect RR</td><td class="r">0.72 [0.54, 0.95]</td><td>Common-effect</td></tr>
+<tr><td>Random-effects RR</td><td class="r">0.68 [0.46, 1.02]</td><td>Wald CI</td></tr>
+<tr><td>95% prediction interval</td><td class="r">[0.23, 2.00]</td><td>t(k−2) with τ² + SE²</td></tr></table>
+<h3>How to read it, line by line</h3>
+<ul><li><b>Direction:</b> pooled RR &lt; 1 → fewer infections with X.</li><li><b>Fixed vs random disagree on significance</b> (fixed CI excludes 1; random touches it). That's a flag: heterogeneity is changing the answer. Report it plainly; don't pick the nicer one.</li><li><b>Trial C</b> points the other way (RR &gt; 1) and has the biggest fixed-effect weight; random-effects cuts its weight from 36% to 25%.</li><li><b>Prediction interval</b> [0.23, 2.00] is wide: in a <i>new</i> setting the true effect might be a big benefit <i>or</i> harm. The CI for the mean alone would hide that.</li></ul>
+<div class="box mn"><span class="t">Mnemonic</span><p class="big">Q · τ² · I² · PI</p><p><b>Q</b> tests if there's more spread than chance. <b>τ²</b> = how much true effects vary (in log units). <b>I²</b> = % of the observed spread that's real, not chance. <b>PI</b> = where the next study's true effect likely falls.</p></div>
+<h3>Interpreting I² (Cochrane guidance, overlapping bands)</h3>
+<table><tr><th>I²</th><th>Rough reading</th></tr><tr><td>0–40%</td><td>might not be important</td></tr><tr><td>30–60%</td><td>may represent moderate heterogeneity</td></tr><tr><td>50–90%</td><td>may represent substantial heterogeneity</td></tr><tr><td>75–100%</td><td>considerable heterogeneity</td></tr></table>
+<p class="small">Bands deliberately overlap: interpret I² with its CI, the size and direction of effects, and the strength of evidence for heterogeneity (Q p-value). With few studies, Q is underpowered and I² is imprecise.</p>
+<div class="box trap"><span class="t">Reviewer trap</span><ul><li>"I² = 0 so studies are homogeneous." No: with k = 6 you simply can't tell.</li><li>Calling a result "significant" because the fixed-effect model says so while random-effects doesn't.</li><li>Pooling apples and oranges: different populations, doses or outcomes, just because the software allows it.</li><li>Rare events / zero cells: use Mantel-Haenszel or Peto (careful), and state the continuity-correction rule. Don't silently add 0.5.</li></ul></div>
+
+<div class="box hy"><span class="t">How to write this result</span><p>"Pooled across six trials (hypothetical), antibiotic X was associated with a lower risk of surgical-site infection (random-effects RR 0.68, 95% CI 0.46 to 1.02; I² = 45%; 95% prediction interval 0.23 to 2.00). The fixed-effect estimate was 0.72 (0.54 to 0.95). The interval includes no effect and trial results disagree, so the conclusion is uncertain."</p></div>
+<h3>Methods you will meet in software</h3>
+<table><tr><th>Choice</th><th>Options</th><th>Practical note</th></tr>
+<tr><td>τ² estimator</td><td>DerSimonian-Laird (DL) · REML · Paule-Mandel</td><td>DL is the old default; REML preferred in modern guidance for continuous data</td></tr>
+<tr><td>CI method</td><td>Wald · Hartung-Knapp-Sidik-Jonkman (HKSJ)</td><td>HKSJ is more honest with few studies; CI gets wider</td></tr>
+<tr><td>Binary pooling</td><td>Inverse variance · Mantel-Haenszel · Peto</td><td>MH better with sparse data</td></tr></table>
+
+<h2>4.4 When NOT to pool</h2>
+<ul><li>Clinical diversity you can't defend (different diseases, doses, outcome definitions).</li><li>Only 1 study per comparison (pooling needs ≥ 2).</li><li>Heterogeneity so extreme that an average is meaningless → narrative synthesis (SWiM), or explain with subgroups first.</li></ul>
+
+<h2>4.5 Doing it in software</h2>
+<div class="fix" style="font:8.8pt 'Special Elite'">
+# R (free) · package "meta"<br>
+library(meta)<br>
+m &lt;- metabin(event.e, n.e, event.c, n.c, studlab = study, data = d,<br>
+&nbsp;&nbsp;sm = "RR", method = "MH", method.tau = "REML",<br>
+&nbsp;&nbsp;hakn = TRUE, prediction = TRUE)<br>
+forest(m); summary(m)
+</div>
+<p>RevMan (free from Cochrane) or the Jamovi/MAJOR module are point-and-click alternatives. Whatever you use, <b>save the script/project</b> — reviewers may ask for your data.</p>
+<div class="box task"><span class="t">Hands-on · Day 4 deliverable</span><ol><li>Take the 6-study dataset above and reproduce Q, I², pooled RR in R or a spreadsheet.</li><li>Change Trial C's events to 25 vs 30. What happens to I², τ² and the fixed-vs-random difference?</li><li>For your own question: choose effect measure, model, τ² estimator and CI method; write the <i>Synthesis</i> section of the protocol.</li></ol></div>
+
+<div class="rev"><h2>⚡ Day 4 · Rapid Revision</h2><div class="cols">
+<h3>Formulas</h3><ul><li>w = 1/v (FE) · w = 1/(v+τ²) (RE)</li><li>I² = (Q − df)/Q</li><li>Pool ratios on <b>log</b> scale</li></ul>
+<h3>Choose</h3><ul><li>FE: one true effect</li><li>RE: effects vary — default for real life</li><li>Pre-specify; don't pick by I²</li></ul>
+<h3>Report</h3><ul><li>Pooled effect + 95% CI + <b>PI</b></li><li>τ², I², Q</li><li>Fixed vs random if they disagree</li></ul>
+<h3>Don't</h3><ul><li>Pool apples/oranges</li><li>Say "no heterogeneity" with k=6</li></ul>
+</div></div>
+
+<h2>Practice MCQs</h2>
+<div class="mcq"><div class="q">1. In an inverse-variance meta-analysis, a study gets more weight when:</div><div class="o">A. Its sample is small  B. Its variance is small  C. It's published first  D. It's positive</div><div class="a"><b>Answer B.</b> w = 1/variance.</div></div>
+<div class="mcq"><div class="q">2. Random-effects, compared with fixed-effect, generally:</div><div class="o">A. Narrows CI  B. Gives small studies relatively more weight  C. Ignores heterogeneity  D. Needs no τ²</div><div class="a"><b>Answer B.</b> Adding τ² to each variance flattens the weights.</div></div>
+<div class="mcq"><div class="q">3. I² measures:</div><div class="o">A. Publication bias  B. % of variability due to heterogeneity not chance  C. Effect size  D. Risk of bias</div><div class="a"><b>Answer B.</b></div></div>
+<div class="mcq"><div class="q">4. The 95% prediction interval answers:</div><div class="o">A. Where the pooled mean lies  B. Where a new study's true effect may lie  C. Whether bias exists  D. How many studies are missing</div><div class="a"><b>Answer B.</b></div></div>
+<div class="mcq"><div class="q">5. Pooled RR 0.68 [0.46, 1.02] (random) but 0.72 [0.54, 0.95] (fixed). Best statement:</div><div class="o">A. Fixed is right  B. Report both; heterogeneity affects the conclusion  C. Delete Trial C  D. Switch to OR</div><div class="a"><b>Answer B.</b> Pre-specified model reported; the other explored; no cherry-picking.</div></div>
+<div class="mcq"><div class="q">6. Odds ratio overstates risk ratio when:</div><div class="o">A. Event is rare  B. Event is common  C. k is large  D. Studies are RCTs</div><div class="a"><b>Answer B.</b></div></div>
+<div class="mcq"><div class="q">7. Which pooling method is often preferred for sparse binary data?</div><div class="o">A. Mantel-Haenszel  B. Meta-regression  C. Egger  D. Funnel</div><div class="a"><b>Answer A.</b> (Peto for very rare events, with caveats.)</div></div>
+<div class="mcq"><div class="q">8. Hartung-Knapp adjustment is mainly used to:</div><div class="o">A. Estimate τ²  B. Widen CI appropriately with few studies  C. Test bias  D. Rank treatments</div><div class="a"><b>Answer B.</b></div></div>
+</section>
+</body></html>

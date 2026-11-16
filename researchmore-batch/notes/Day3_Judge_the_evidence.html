@@ -1,0 +1,131 @@
+<!doctype html><html lang='en'><head><meta charset='utf-8'><title>Day 3 Notes</title><style>@font-face{font-family:'Caveat';font-style:normal;font-weight:600;src:url(../fonts/Caveat-normal-600.ttf) format('truetype');}
+@font-face{font-family:'Fraunces';font-style:italic;font-weight:600;src:url(../fonts/Fraunces-italic-600.ttf) format('truetype');}
+@font-face{font-family:'Fraunces';font-style:normal;font-weight:600;src:url(../fonts/Fraunces-normal-600.ttf) format('truetype');}
+@font-face{font-family:'Fraunces';font-style:normal;font-weight:800;src:url(../fonts/Fraunces-normal-800.ttf) format('truetype');}
+@font-face{font-family:'Special Elite';font-style:normal;font-weight:400;src:url(../fonts/SpecialElite-normal-400.ttf) format('truetype');}:root{--navy:#0c1f4d;--red:#c8102e;--cream:#f1eee7;--paper:#f7f5ef;--blue:#cdd8ea;--ink:#1b2238;--mute:#5b6479;--gold:#b8892b}
+*{box-sizing:border-box}
+html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{margin:0;background:var(--paper);color:var(--ink);font:10.2pt/1.5 'Inter',system-ui,sans-serif}
+@page{size:A4;margin:16mm 15mm 17mm}
+h1,h2,h3,.disp{font-family:'Fraunces',Georgia,serif;color:var(--navy);margin:0}
+h2{font-size:19pt;font-weight:800;margin:14pt 0 6pt;border-bottom:1.6pt solid var(--navy);padding-bottom:3pt;break-after:avoid}
+h3{font-size:12.5pt;font-weight:600;margin:11pt 0 3pt;break-after:avoid}
+h3::before{content:"§ ";color:var(--red)}
+p{margin:0 0 6pt}
+ul,ol{margin:2pt 0 7pt;padding-left:15pt}li{margin:1.5pt 0}
+b,strong{color:var(--navy)}
+.mono{font-family:'Special Elite',monospace}
+.hand{font-family:'Caveat',cursive;color:var(--red);font-size:13pt;line-height:1.1}
+.chap{page-break-before:always;break-before:page}
+.opener{background:var(--navy);color:#fff;margin:0 -15mm 10pt;padding:14mm 15mm 12mm;position:relative;overflow:hidden;min-height:92mm}
+.opener .no{font:800 92pt/0.8 Fraunces,serif;color:var(--red);position:absolute;right:15mm;top:10mm}
+.opener .kick{font:9pt 'Special Elite',monospace;letter-spacing:.18em;color:#cdd8ea;text-transform:uppercase}
+.opener h1{color:#fff;font-size:29pt;font-weight:800;line-height:1.05;margin:6pt 0 8pt;max-width:130mm}
+.opener p{color:#dfe6f3;max-width:140mm;font-size:10.5pt}
+.opener .hand{color:#ff9aa8;font-size:15pt;margin-top:6pt;display:block}
+.meta{display:flex;gap:6pt;margin:8pt 0 4pt;flex-wrap:wrap}
+.meta span{font:8.5pt 'Special Elite',monospace;border:1pt solid #8fa0c4;color:#e3e9f5;padding:2pt 7pt;border-radius:2pt}
+.box{border-radius:3pt;padding:7pt 10pt 6pt;margin:8pt 0;break-inside:avoid;position:relative}
+.box .t{display:inline-block;font:700 7.6pt 'Inter';letter-spacing:.14em;text-transform:uppercase;padding:2pt 7pt;border-radius:2pt;margin-bottom:4pt;color:#fff}
+.box p:last-child,.box ul:last-child{margin-bottom:2pt}
+.hy{background:#fdecee;border-left:4pt solid var(--red)}.hy .t{background:var(--red)}
+.trap{background:#fff;border:1.3pt dashed var(--navy)}.trap .t{background:var(--navy)}
+.mn{background:var(--blue);border-left:4pt solid var(--navy)}.mn .t{background:var(--navy)}
+.mn .big{font:800 15pt 'Fraunces';color:var(--red);letter-spacing:.04em}
+.pearl{background:#fbf3df;border-left:4pt solid var(--gold)}.pearl .t{background:var(--gold)}
+.defn{background:#fff;border:1pt solid #cfd6e6;border-left:4pt solid #3d66b8}.defn .t{background:#3d66b8}
+.task{background:#eef6ee;border:1.3pt solid #2f7d4f}.task .t{background:#2f7d4f}
+.fix{background:#fff;border:1pt solid #cfd6e6;border-radius:3pt;padding:7pt 10pt;margin:8pt 0;break-inside:avoid}
+table{border-collapse:collapse;width:100%;margin:7pt 0 9pt;font-size:9.1pt;break-inside:avoid}
+th{background:var(--navy);color:#fff;text-align:left;padding:4pt 6pt;font-weight:600;font-size:8.6pt;letter-spacing:.03em}
+td{padding:4pt 6pt;border-bottom:.8pt solid #cfd6e6;vertical-align:top}
+tr:nth-child(even) td{background:#f0ede5}
+td.r{color:var(--red);font-weight:600}
+.cap{font:8.4pt 'Special Elite',monospace;color:var(--mute);margin:-3pt 0 9pt}
+.fig{margin:8pt 0;text-align:center;break-inside:avoid}
+.fig svg{max-width:100%;height:auto}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10pt}
+.stamp{display:inline-block;border:1.6pt solid var(--red);color:var(--red);font:9pt 'Special Elite';padding:2pt 8pt;transform:rotate(-3deg);letter-spacing:.1em}
+.rev{background:var(--navy);color:#fff;padding:12pt 14pt;margin:6pt 0;border-radius:3pt}
+.rev h2{color:#fff;border-color:var(--red);margin-top:0}
+.rev h3{color:#fff}.rev b{color:#ffd0d6}.rev li{margin:2.5pt 0}
+.rev .cols{columns:2;column-gap:16pt}.rev .cols>*{break-inside:avoid}
+.mcq{break-inside:avoid;margin:7pt 0;padding:6pt 9pt;background:#fff;border:1pt solid #d5dbe8;border-radius:3pt}
+.mcq .q{font-weight:600;color:var(--navy);margin-bottom:3pt}.mcq .o{margin:1pt 0 1pt 8pt}
+.mcq .a{margin-top:4pt;padding-top:3pt;border-top:1pt dotted #aab4cc;font-size:9pt;color:#2f3b57}.mcq .a b{color:var(--red)}
+.toc li{margin:3pt 0}
+.cover{height:262mm;display:flex;flex-direction:column;justify-content:space-between;color:#fff;background:var(--navy);margin:0 -15mm;padding:18mm 18mm;page-break-after:always;position:relative}
+.cover h1{color:#fff;font-size:44pt;line-height:1.02;font-weight:800}
+.cover .red{color:#ff8da0}
+.cover .kick{font:10pt 'Special Elite';letter-spacing:.2em;color:#cdd8ea}
+.cover .hand{color:#ff9aa8;font-size:19pt}
+.cover .stampw{border:2pt solid #ff8da0;color:#ff8da0;display:inline-block;padding:4pt 12pt;font:11pt 'Special Elite';transform:rotate(-3deg)}
+.small{font-size:8.4pt;color:var(--mute)}
+.sl{break-inside:avoid;border:1pt solid #cfd6e6;background:#fff;border-radius:3pt;margin:7pt 0;padding:0}
+.sl .h{background:var(--blue);padding:4pt 9pt;font:600 10pt 'Fraunces';color:var(--navy);display:flex;justify-content:space-between}
+.sl .h i{font:8.4pt 'Special Elite';font-style:normal;color:var(--red)}
+.sl .b{padding:6pt 9pt}.sl .b ul{margin-bottom:3pt}
+.sl .say{border-left:3pt solid var(--red);padding:1pt 0 1pt 8pt;margin:5pt 0 2pt;font-style:italic;color:#2b3550}
+.sl .say::before{content:"SAY · ";font:700 7.6pt Inter;font-style:normal;letter-spacing:.14em;color:var(--red)}
+body>section.chap:first-child{break-before:auto;page-break-before:auto}
+</style></head><body><section class="chap">
+<div class="opener"><div class="no">3</div><div class="kick">Day 3 · Evidence</div><h1>Judge the evidence.</h1>
+<p>A trial being published doesn't make it trustworthy. Today you extract data cleanly and decide, domain by domain, how likely each result is to be wrong.</p>
+<div class="meta"><span>Data extraction</span><span>RoB 2</span><span>ROBINS-I</span><span>robvis</span></div>
+</div>
+
+<h2>3.1 Data extraction</h2>
+<ol><li>Build the form <b>before</b> extracting: study ID, design, setting, population, intervention details, comparator, outcome definitions, time points, <b>events/N per arm or mean/SD/N</b>, funding, conflicts.</li><li><b>Pilot</b> on 2–3 studies. Fix the form. Then extract.</li><li>Two reviewers independently (or one extracts, one verifies all). Compare. Resolve.</li><li>Keep a <b>source note</b>: table/page number for every number.</li></ol>
+<div class="box trap"><span class="t">Reviewer trap</span><ul><li><b>Multi-arm trials</b>: don't count the control group twice. Combine arms or split the shared group's N.</li><li><b>Multiple reports of one trial</b> → one study. Link them. Counting a trial twice inflates precision.</li><li>Intention-to-treat vs per-protocol: take ITT where reported, and state which.</li><li>Medians/IQR to mean/SD: estimates exist but are approximations. Flag them and run a sensitivity analysis.</li><li>Missing data: contact the author (two attempts). Do <b>not</b> impute without a documented method.</li></ul></div>
+<div class="box pearl"><span class="t">Clinical pearl</span><p>Extract the <b>same</b> outcome at the <b>same</b> time point. "Pain at discharge" and "pain at 6 weeks" are different outcomes. Pre-specify which you will pool.</p></div>
+
+<h2>3.2 Risk of bias vs. quality vs. reporting</h2>
+<table><tr><th>Concept</th><th>Question it asks</th></tr>
+<tr><td><b>Risk of bias</b></td><td>Could the <i>result</i> be systematically wrong because of how the study was designed or run?</td></tr>
+<tr><td>Quality of reporting</td><td>Did the authors describe what they did? (CONSORT)</td></tr>
+<tr><td>Precision</td><td>How wide is the confidence interval? (a random-error issue, not bias)</td></tr></table>
+<div class="box hy"><span class="t">High-yield</span><p><b>Bias = systematic error. Imprecision = random error.</b> A small, perfectly run RCT is unbiased but imprecise. A huge, badly run one is precise but biased.</p></div>
+
+<h2>3.3 RoB 2: randomised trials</h2>
+<p>RoB 2 is the current Cochrane tool. It judges a <b>specific result</b> (one outcome from one trial), not the trial as a whole, and sorts each of its <b>5 domains</b> into <b>Low risk · Some concerns · High risk</b> through signalling questions.</p>
+<table><tr><th>#</th><th>Domain</th><th>Ask</th><th>Red flag</th></tr>
+<tr><td>D1</td><td>Randomisation process</td><td>Was allocation random? concealed? baseline imbalances?</td><td>Alternate allocation; envelopes opened by staff</td></tr>
+<tr><td>D2</td><td>Deviations from intended interventions</td><td>Blinding of participants/carers? analysis appropriate (ITT)?</td><td>Open label with subjective outcome; per-protocol only</td></tr>
+<tr><td>D3</td><td>Missing outcome data</td><td>Complete? is missingness related to true value?</td><td>Dropout differs by arm</td></tr>
+<tr><td>D4</td><td>Measurement of the outcome</td><td>Appropriate method? assessors blinded?</td><td>Unblinded assessment of pain/satisfaction</td></tr>
+<tr><td>D5</td><td>Selection of the reported result</td><td>Pre-specified plan? chose from multiple analyses?</td><td>Outcome switched vs registry</td></tr></table>
+<div class="box mn"><span class="t">Mnemonic</span><p class="big">R · D · M · M · S</p><p><b>R</b>andomisation · <b>D</b>eviations · <b>M</b>issing data · <b>M</b>easurement · <b>S</b>elective reporting. Five domains; <b>overall = worst domain</b> (any High → High; otherwise any "Some concerns" → Some concerns).</p></div>
+<div class="fig"><svg viewBox="0 0 520 190" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif" font-size="9"><text x="161" y="24" text-anchor="middle" fill="#0c1f4d" font-size="7.6" font-weight="700">D1</text><text x="161" y="34" text-anchor="middle" fill="#0c1f4d" font-size="6.6">Randomisation</text><text x="223" y="24" text-anchor="middle" fill="#0c1f4d" font-size="7.6" font-weight="700">D2</text><text x="223" y="34" text-anchor="middle" fill="#0c1f4d" font-size="6.6">Deviations</text><text x="285" y="24" text-anchor="middle" fill="#0c1f4d" font-size="7.6" font-weight="700">D3</text><text x="285" y="34" text-anchor="middle" fill="#0c1f4d" font-size="6.6">Missing data</text><text x="347" y="24" text-anchor="middle" fill="#0c1f4d" font-size="7.6" font-weight="700">D4</text><text x="347" y="34" text-anchor="middle" fill="#0c1f4d" font-size="6.6">Measurement</text><text x="409" y="24" text-anchor="middle" fill="#0c1f4d" font-size="7.6" font-weight="700">D5</text><text x="409" y="34" text-anchor="middle" fill="#0c1f4d" font-size="6.6">Selection of result</text><text x="471" y="24" text-anchor="middle" fill="#0c1f4d" font-size="7.6" font-weight="700">Overall</text><text x="471" y="34" text-anchor="middle" fill="#0c1f4d" font-size="6.6"></text><text x="10" y="62" fill="#0c1f4d" font-weight="700">Trial A</text><circle cx="161" cy="58" r="11" fill="#2f9d57"/><text x="161" y="62" text-anchor="middle" fill="#fff" font-weight="700">+</text><circle cx="223" cy="58" r="11" fill="#2f9d57"/><text x="223" y="62" text-anchor="middle" fill="#fff" font-weight="700">+</text><circle cx="285" cy="58" r="11" fill="#2f9d57"/><text x="285" y="62" text-anchor="middle" fill="#fff" font-weight="700">+</text><circle cx="347" cy="58" r="11" fill="#2f9d57"/><text x="347" y="62" text-anchor="middle" fill="#fff" font-weight="700">+</text><circle cx="409" cy="58" r="11" fill="#e0a526"/><text x="409" y="62" text-anchor="middle" fill="#fff" font-weight="700">?</text><circle cx="471" cy="58" r="11" fill="#e0a526"/><text x="471" y="62" text-anchor="middle" fill="#fff" font-weight="700">?</text><text x="10" y="96" fill="#0c1f4d" font-weight="700">Trial B</text><circle cx="161" cy="92" r="11" fill="#e0a526"/><text x="161" y="96" text-anchor="middle" fill="#fff" font-weight="700">?</text><circle cx="223" cy="92" r="11" fill="#2f9d57"/><text x="223" y="96" text-anchor="middle" fill="#fff" font-weight="700">+</text><circle cx="285" cy="92" r="11" fill="#2f9d57"/><text x="285" y="96" text-anchor="middle" fill="#fff" font-weight="700">+</text><circle cx="347" cy="92" r="11" fill="#2f9d57"/><text x="347" y="96" text-anchor="middle" fill="#fff" font-weight="700">+</text><circle cx="409" cy="92" r="11" fill="#2f9d57"/><text x="409" y="96" text-anchor="middle" fill="#fff" font-weight="700">+</text><circle cx="471" cy="92" r="11" fill="#e0a526"/><text x="471" y="96" text-anchor="middle" fill="#fff" font-weight="700">?</text><text x="10" y="130" fill="#0c1f4d" font-weight="700">Trial C</text><circle cx="161" cy="126" r="11" fill="#2f9d57"/><text x="161" y="130" text-anchor="middle" fill="#fff" font-weight="700">+</text><circle cx="223" cy="126" r="11" fill="#e0a526"/><text x="223" y="130" text-anchor="middle" fill="#fff" font-weight="700">?</text><circle cx="285" cy="126" r="11" fill="#c8102e"/><text x="285" y="130" text-anchor="middle" fill="#fff" font-weight="700">−</text><circle cx="347" cy="126" r="11" fill="#2f9d57"/><text x="347" y="130" text-anchor="middle" fill="#fff" font-weight="700">+</text><circle cx="409" cy="126" r="11" fill="#e0a526"/><text x="409" y="130" text-anchor="middle" fill="#fff" font-weight="700">?</text><circle cx="471" cy="126" r="11" fill="#c8102e"/><text x="471" y="130" text-anchor="middle" fill="#fff" font-weight="700">−</text><text x="10" y="164" fill="#0c1f4d" font-weight="700">Trial D</text><circle cx="161" cy="160" r="11" fill="#2f9d57"/><text x="161" y="164" text-anchor="middle" fill="#fff" font-weight="700">+</text><circle cx="223" cy="160" r="11" fill="#2f9d57"/><text x="223" y="164" text-anchor="middle" fill="#fff" font-weight="700">+</text><circle cx="285" cy="160" r="11" fill="#2f9d57"/><text x="285" y="164" text-anchor="middle" fill="#fff" font-weight="700">+</text><circle cx="347" cy="160" r="11" fill="#e0a526"/><text x="347" y="164" text-anchor="middle" fill="#fff" font-weight="700">?</text><circle cx="409" cy="160" r="11" fill="#2f9d57"/><text x="409" y="164" text-anchor="middle" fill="#fff" font-weight="700">+</text><circle cx="471" cy="160" r="11" fill="#e0a526"/><text x="471" y="164" text-anchor="middle" fill="#fff" font-weight="700">?</text><text x="10" y="186" fill="#555" font-size="8">+ low risk   ? some concerns   − high risk  (illustrative traffic-light plot)</text></svg></div><div class="cap">Fig 3.1 Traffic-light plot (illustrative). Make these with robvis (free: R package or web app).</div>
+
+<h2>3.4 ROBINS-I: non-randomised studies</h2>
+<p>For cohort or case-control studies of interventions. It compares the study to an <b>ideal target randomised trial</b>. The big difference: <b>confounding is expected</b>.</p>
+<table><tr><th>Pre-intervention</th><th>At intervention</th><th>Post-intervention</th></tr>
+<tr><td>1 Confounding<br>2 Selection of participants</td><td>3 Classification of interventions</td><td>4 Deviations from intended interventions<br>5 Missing data<br>6 Measurement of outcomes<br>7 Selection of reported result</td></tr></table>
+<ul><li><b>7 domains.</b> Judgments: Low · Moderate · Serious · Critical (+ No information).</li><li>"Low risk" ≈ comparable to a well-done RCT, rarely achieved by an observational study.</li><li>Critical risk in any domain → usually excluded from synthesis.</li></ul>
+<table><tr><th></th><th>RoB 2</th><th>ROBINS-I</th></tr>
+<tr><td>Studies</td><td>RCTs</td><td>Non-randomised</td></tr>
+<tr><td>Domains</td><td class="r">5</td><td class="r">7</td></tr>
+<tr><td>Levels</td><td>Low / Some concerns / High</td><td>Low / Moderate / Serious / Critical</td></tr>
+<tr><td>Key threat</td><td>Randomisation, blinding, missing data</td><td>Confounding</td></tr>
+<tr><td>Judged at</td><td>Result level</td><td>Result level</td></tr></table>
+<div class="box trap"><span class="t">Reviewer trap</span><ul><li>Giving each study a single overall score from an old checklist and adding up points. Domain-based judgement is the standard.</li><li>Two reviewers must rate independently; report agreement and how disagreements were resolved.</li><li>Don't exclude trials just because they're high risk. Assess their influence in sensitivity analysis (Day 5).</li><li>Newcastle-Ottawa Scale (stars) is still seen in the literature for cohort/case-control; ROBINS-I is the Cochrane-favoured alternative; JBI tools exist for other designs. Name the tool in the protocol.</li></ul></div>
+
+<div class="box task"><span class="t">Hands-on · Day 3 deliverable</span><ol><li>Design your extraction form (≤ 25 columns). Pilot it on two papers.</li><li>Apply RoB 2 (or ROBINS-I) to one paper's primary outcome; write one sentence of support per domain.</li><li>Swap with a classmate: where did you disagree, and why?</li><li>Write the protocol's <i>Data extraction</i> and <i>Risk of bias</i> sections.</li></ol></div>
+
+<div class="rev"><h2>⚡ Day 3 · Rapid Revision</h2><div class="cols">
+<h3>Extraction</h3><ul><li>Form → pilot → dual extraction</li><li>One trial = one study</li><li>Don't double-count control arms</li></ul>
+<h3>Tools</h3><ul><li>RoB 2: <b>5</b> domains, 3 levels</li><li>ROBINS-I: <b>7</b> domains, 4 levels (+NI)</li><li>NOS / JBI: other designs</li></ul>
+<h3>Concepts</h3><ul><li>Bias ≠ imprecision</li><li>Overall RoB = worst domain</li><li>Judge the <b>result</b>, not the trial</li></ul>
+</div></div>
+
+<h2>Practice MCQs</h2>
+<div class="mcq"><div class="q">1. RoB 2 contains how many domains?</div><div class="o">A. 4  B. 5  C. 6  D. 7</div><div class="a"><b>Answer B.</b> Randomisation, deviations, missing data, measurement, selection of reported result.</div></div>
+<div class="mcq"><div class="q">2. ROBINS-I contains how many domains?</div><div class="o">A. 5  B. 6  C. 7  D. 9</div><div class="a"><b>Answer C.</b> It adds confounding, participant selection, intervention classification.</div></div>
+<div class="mcq"><div class="q">3. A trial reports pain outcome with unblinded assessors in an open-label design. Which domain is most affected?</div><div class="o">A. D1  B. D3  C. D4  D. D5</div><div class="a"><b>Answer C.</b> Measurement of the outcome (subjective, unblinded).</div></div>
+<div class="mcq"><div class="q">4. The primary outcome in the paper differs from the registry entry. Domain:</div><div class="o">A. D1  B. D2  C. D4  D. D5</div><div class="a"><b>Answer D.</b> Selection of the reported result.</div></div>
+<div class="mcq"><div class="q">5. Overall RoB 2 judgement when one domain is High and the rest Low:</div><div class="o">A. Low  B. Some concerns  C. High  D. Average</div><div class="a"><b>Answer C.</b> Worst-domain rule.</div></div>
+<div class="mcq"><div class="q">6. Which is a random-error issue rather than bias?</div><div class="o">A. Poor allocation concealment  B. Wide CI from small sample  C. Selective outcome reporting  D. Unblinded assessment</div><div class="a"><b>Answer B.</b> Imprecision, handled in GRADE, not RoB.</div></div>
+<div class="mcq"><div class="q">7. Three-arm trial (A, B, control). To include in two separate pairwise MAs without double counting, you should:</div><div class="o">A. Use full control in both  B. Split the control group's N  C. Drop control  D. Ignore it</div><div class="a"><b>Answer B.</b> Or combine arms if conceptually the same.</div></div>
+<div class="mcq"><div class="q">8. ROBINS-I's reference standard is:</div><div class="o">A. A perfect RCT of the same question  B. A cohort  C. A case series  D. Expert opinion</div><div class="a"><b>Answer A.</b> The "target trial" you'd ideally have run.</div></div>
+</section>
+</body></html>

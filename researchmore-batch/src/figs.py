@@ -3,26 +3,26 @@ N="#0c1f4d";R="#c8102e";B="#cdd8ea"
 J=json.load(open('../tools/worked_example.json'))
 def esc(s):return s.replace('&','&amp;')
 def forest():
-    W,H=640,330;x0,x1=290,500  # plot area in px for RR 0.1..4 (log)
+    W,H=700,330;x0,x1=290,500  # plot area in px for RR 0.1..4 (log)
     lo,hi=math.log(0.1),math.log(4)
     X=lambda rr:x0+(math.log(rr)-lo)/(hi-lo)*(x1-x0)
-    o=[f'<svg viewBox="0 0 {W} {H}" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif" font-size="9.5">']
+    o=[f'<svg viewBox="0 0 {W} {H}" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif" font-size="11.5">']
     o.append(f'<text x="8" y="18" font-weight="700" fill="{N}">Study (hypothetical)</text><text x="196" y="18" font-weight="700" fill="{N}">Tx n/N</text><text x="248" y="18" font-weight="700" fill="{N}" >Ctl n/N</text>')
-    o.append(f'<text x="520" y="18" font-weight="700" fill="{N}">RR [95% CI]</text><text x="604" y="18" font-weight="700" fill="{N}">Wt%</text>')
-    o.append(f'<line x1="8" x2="632" y1="24" y2="24" stroke="{N}"/>')
+    o.append(f'<text x="520" y="18" font-weight="700" fill="{N}">RR [95% CI]</text><text x="650" y="18" font-weight="700" fill="{N}">Wt%</text>')
+    o.append(f'<line x1="8" x2="690" y1="24" y2="24" stroke="{N}"/>')
     y=44
     for s in J['studies']:
         cx=X(s['rr']);sz=4+s['w_re']/3.2
         o.append(f'<text x="8" y="{y+3}" fill="{N}">{s["name"]}</text><text x="196" y="{y+3}" fill="#333">{s["ev_t"]}/{s["n_t"]}</text><text x="248" y="{y+3}" fill="#333">{s["ev_c"]}/{s["n_c"]}</text>')
         o.append(f'<line x1="{X(s["lo"]):.1f}" x2="{X(s["hi"]):.1f}" y1="{y}" y2="{y}" stroke="{N}" stroke-width="1.4"/>')
         o.append(f'<rect x="{cx-sz/2:.1f}" y="{y-sz/2:.1f}" width="{sz:.1f}" height="{sz:.1f}" fill="{N}"/>')
-        o.append(f'<text x="520" y="{y+3}" fill="#333">{s["rr"]:.2f} [{s["lo"]:.2f}, {s["hi"]:.2f}]</text><text x="604" y="{y+3}" fill="#333">{s["w_re"]:.1f}</text>')
+        o.append(f'<text x="520" y="{y+3}" fill="#333">{s["rr"]:.2f} [{s["lo"]:.2f}, {s["hi"]:.2f}]</text><text x="650" y="{y+3}" fill="#333">{s["w_re"]:.1f}</text>')
         y+=28
     y+=4;re=J['re'];pi=J['pi']
-    o.append(f'<line x1="8" x2="632" y1="{y-14}" y2="{y-14}" stroke="{N}"/>')
+    o.append(f'<line x1="8" x2="690" y1="{y-14}" y2="{y-14}" stroke="{N}"/>')
     o.append(f'<text x="8" y="{y+3}" font-weight="700" fill="{N}">Random effects (DL)</text>')
     o.append(f'<polygon points="{X(re["lo"]):.1f},{y} {X(re["rr"]):.1f},{y-8} {X(re["hi"]):.1f},{y} {X(re["rr"]):.1f},{y+8}" fill="{R}"/>')
-    o.append(f'<text x="520" y="{y+3}" font-weight="700" fill="{R}">{re["rr"]:.2f} [{re["lo"]:.2f}, {re["hi"]:.2f}]</text><text x="604" y="{y+3}" fill="#333">100</text>')
+    o.append(f'<text x="520" y="{y+3}" font-weight="700" fill="{R}">{re["rr"]:.2f} [{re["lo"]:.2f}, {re["hi"]:.2f}]</text><text x="650" y="{y+3}" fill="#333">100</text>')
     y+=24
     o.append(f'<text x="8" y="{y+3}" fill="{N}">95% prediction interval</text><line x1="{X(pi["lo"]):.1f}" x2="{X(pi["hi"]):.1f}" y1="{y}" y2="{y}" stroke="{R}" stroke-width="2" stroke-dasharray="4 2"/>')
     o.append(f'<text x="520" y="{y+3}" fill="{R}">[{pi["lo"]:.2f}, {pi["hi"]:.2f}]</text>')

@@ -2,7 +2,7 @@
 <div class="opener"><div class="no">4</div><div class="kick">Day 4 · Analysis</div><h1>Pool it.</h1>
 <p>A meta-analysis is a weighted average of study results, plus an honest account of how much those results disagree.</p>
 <div class="meta"><span>Effect sizes</span><span>Weights</span><span>Forest plot</span><span>I² · τ² · PI</span></div>
-<span class="hand">knowing when NOT to pool is a skill.</span></div>
+</div>
 
 <h2>4.1 The idea in one line</h2>
 <div class="box defn"><span class="t">Definition</span><p><b>Pooled effect = Σ(wᵢ × yᵢ) / Σwᵢ</b>, where yᵢ is each study's effect (log RR, MD, …) and wᵢ is its weight. Inverse-variance weight: <b>wᵢ = 1 / vᵢ</b>, so precise studies count more. Variance vᵢ = SE².</p></div>
@@ -39,6 +39,7 @@
 <p class="small">Bands deliberately overlap: interpret I² with its CI, the size and direction of effects, and the strength of evidence for heterogeneity (Q p-value). With few studies, Q is underpowered and I² is imprecise.</p>
 <div class="box trap"><span class="t">Reviewer trap</span><ul><li>"I² = 0 so studies are homogeneous." No: with k = 6 you simply can't tell.</li><li>Calling a result "significant" because the fixed-effect model says so while random-effects doesn't.</li><li>Pooling apples and oranges: different populations, doses or outcomes, just because the software allows it.</li><li>Rare events / zero cells: use Mantel-Haenszel or Peto (careful), and state the continuity-correction rule. Don't silently add 0.5.</li></ul></div>
 
+<div class="box hy"><span class="t">How to write this result</span><p>"Pooled across six trials (hypothetical), antibiotic X was associated with a lower risk of surgical-site infection (random-effects RR {{RERR}}, 95% CI {{RELO}} to {{REHI}}; I² = {{I2}}%; 95% prediction interval {{PILO}} to {{PIHI}}). The fixed-effect estimate was {{FERR}} ({{FELO}} to {{FEHI}}). The interval includes no effect and trial results disagree, so the conclusion is uncertain."</p></div>
 <h3>Methods you will meet in software</h3>
 <table><tr><th>Choice</th><th>Options</th><th>Practical note</th></tr>
 <tr><td>τ² estimator</td><td>DerSimonian-Laird (DL) · REML · Paule-Mandel</td><td>DL is the old default; REML preferred in modern guidance for continuous data</td></tr>

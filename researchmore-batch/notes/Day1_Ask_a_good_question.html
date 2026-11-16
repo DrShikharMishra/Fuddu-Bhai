@@ -1,0 +1,157 @@
+<!doctype html><html lang='en'><head><meta charset='utf-8'><title>Day 1 Notes</title><style>@font-face{font-family:'Caveat';font-style:normal;font-weight:600;src:url(../fonts/Caveat-normal-600.ttf) format('truetype');}
+@font-face{font-family:'Fraunces';font-style:italic;font-weight:600;src:url(../fonts/Fraunces-italic-600.ttf) format('truetype');}
+@font-face{font-family:'Fraunces';font-style:normal;font-weight:600;src:url(../fonts/Fraunces-normal-600.ttf) format('truetype');}
+@font-face{font-family:'Fraunces';font-style:normal;font-weight:800;src:url(../fonts/Fraunces-normal-800.ttf) format('truetype');}
+@font-face{font-family:'Special Elite';font-style:normal;font-weight:400;src:url(../fonts/SpecialElite-normal-400.ttf) format('truetype');}:root{--navy:#0c1f4d;--red:#c8102e;--cream:#f1eee7;--paper:#f7f5ef;--blue:#cdd8ea;--ink:#1b2238;--mute:#5b6479;--gold:#b8892b}
+*{box-sizing:border-box}
+html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{margin:0;background:var(--paper);color:var(--ink);font:10.2pt/1.5 'Inter',system-ui,sans-serif}
+@page{size:A4;margin:16mm 15mm 17mm}
+h1,h2,h3,.disp{font-family:'Fraunces',Georgia,serif;color:var(--navy);margin:0}
+h2{font-size:19pt;font-weight:800;margin:14pt 0 6pt;border-bottom:1.6pt solid var(--navy);padding-bottom:3pt;break-after:avoid}
+h3{font-size:12.5pt;font-weight:600;margin:11pt 0 3pt;break-after:avoid}
+h3::before{content:"§ ";color:var(--red)}
+p{margin:0 0 6pt}
+ul,ol{margin:2pt 0 7pt;padding-left:15pt}li{margin:1.5pt 0}
+b,strong{color:var(--navy)}
+.mono{font-family:'Special Elite',monospace}
+.hand{font-family:'Caveat',cursive;color:var(--red);font-size:13pt;line-height:1.1}
+.chap{page-break-before:always;break-before:page}
+.opener{background:var(--navy);color:#fff;margin:0 -15mm 10pt;padding:14mm 15mm 12mm;position:relative;overflow:hidden;min-height:92mm}
+.opener .no{font:800 92pt/0.8 Fraunces,serif;color:var(--red);position:absolute;right:15mm;top:10mm}
+.opener .kick{font:9pt 'Special Elite',monospace;letter-spacing:.18em;color:#cdd8ea;text-transform:uppercase}
+.opener h1{color:#fff;font-size:29pt;font-weight:800;line-height:1.05;margin:6pt 0 8pt;max-width:130mm}
+.opener p{color:#dfe6f3;max-width:140mm;font-size:10.5pt}
+.opener .hand{color:#ff9aa8;font-size:15pt;margin-top:6pt;display:block}
+.meta{display:flex;gap:6pt;margin:8pt 0 4pt;flex-wrap:wrap}
+.meta span{font:8.5pt 'Special Elite',monospace;border:1pt solid #8fa0c4;color:#e3e9f5;padding:2pt 7pt;border-radius:2pt}
+.box{border-radius:3pt;padding:7pt 10pt 6pt;margin:8pt 0;break-inside:avoid;position:relative}
+.box .t{display:inline-block;font:700 7.6pt 'Inter';letter-spacing:.14em;text-transform:uppercase;padding:2pt 7pt;border-radius:2pt;margin-bottom:4pt;color:#fff}
+.box p:last-child,.box ul:last-child{margin-bottom:2pt}
+.hy{background:#fdecee;border-left:4pt solid var(--red)}.hy .t{background:var(--red)}
+.trap{background:#fff;border:1.3pt dashed var(--navy)}.trap .t{background:var(--navy)}
+.mn{background:var(--blue);border-left:4pt solid var(--navy)}.mn .t{background:var(--navy)}
+.mn .big{font:800 15pt 'Fraunces';color:var(--red);letter-spacing:.04em}
+.pearl{background:#fbf3df;border-left:4pt solid var(--gold)}.pearl .t{background:var(--gold)}
+.defn{background:#fff;border:1pt solid #cfd6e6;border-left:4pt solid #3d66b8}.defn .t{background:#3d66b8}
+.task{background:#eef6ee;border:1.3pt solid #2f7d4f}.task .t{background:#2f7d4f}
+.fix{background:#fff;border:1pt solid #cfd6e6;border-radius:3pt;padding:7pt 10pt;margin:8pt 0;break-inside:avoid}
+table{border-collapse:collapse;width:100%;margin:7pt 0 9pt;font-size:9.1pt;break-inside:avoid}
+th{background:var(--navy);color:#fff;text-align:left;padding:4pt 6pt;font-weight:600;font-size:8.6pt;letter-spacing:.03em}
+td{padding:4pt 6pt;border-bottom:.8pt solid #cfd6e6;vertical-align:top}
+tr:nth-child(even) td{background:#f0ede5}
+td.r{color:var(--red);font-weight:600}
+.cap{font:8.4pt 'Special Elite',monospace;color:var(--mute);margin:-3pt 0 9pt}
+.fig{margin:8pt 0;text-align:center;break-inside:avoid}
+.fig svg{max-width:100%;height:auto}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10pt}
+.stamp{display:inline-block;border:1.6pt solid var(--red);color:var(--red);font:9pt 'Special Elite';padding:2pt 8pt;transform:rotate(-3deg);letter-spacing:.1em}
+.rev{background:var(--navy);color:#fff;padding:12pt 14pt;margin:6pt 0;border-radius:3pt}
+.rev h2{color:#fff;border-color:var(--red);margin-top:0}
+.rev h3{color:#fff}.rev b{color:#ffd0d6}.rev li{margin:2.5pt 0}
+.rev .cols{columns:2;column-gap:16pt}.rev .cols>*{break-inside:avoid}
+.mcq{break-inside:avoid;margin:7pt 0;padding:6pt 9pt;background:#fff;border:1pt solid #d5dbe8;border-radius:3pt}
+.mcq .q{font-weight:600;color:var(--navy);margin-bottom:3pt}.mcq .o{margin:1pt 0 1pt 8pt}
+.mcq .a{margin-top:4pt;padding-top:3pt;border-top:1pt dotted #aab4cc;font-size:9pt;color:#2f3b57}.mcq .a b{color:var(--red)}
+.toc li{margin:3pt 0}
+.cover{height:262mm;display:flex;flex-direction:column;justify-content:space-between;color:#fff;background:var(--navy);margin:0 -15mm;padding:18mm 18mm;page-break-after:always;position:relative}
+.cover h1{color:#fff;font-size:44pt;line-height:1.02;font-weight:800}
+.cover .red{color:#ff8da0}
+.cover .kick{font:10pt 'Special Elite';letter-spacing:.2em;color:#cdd8ea}
+.cover .hand{color:#ff9aa8;font-size:19pt}
+.cover .stampw{border:2pt solid #ff8da0;color:#ff8da0;display:inline-block;padding:4pt 12pt;font:11pt 'Special Elite';transform:rotate(-3deg)}
+.small{font-size:8.4pt;color:var(--mute)}
+.sl{break-inside:avoid;border:1pt solid #cfd6e6;background:#fff;border-radius:3pt;margin:7pt 0;padding:0}
+.sl .h{background:var(--blue);padding:4pt 9pt;font:600 10pt 'Fraunces';color:var(--navy);display:flex;justify-content:space-between}
+.sl .h i{font:8.4pt 'Special Elite';font-style:normal;color:var(--red)}
+.sl .b{padding:6pt 9pt}.sl .b ul{margin-bottom:3pt}
+.sl .say{border-left:3pt solid var(--red);padding:1pt 0 1pt 8pt;margin:5pt 0 2pt;font-style:italic;color:#2b3550}
+.sl .say::before{content:"SAY · ";font:700 7.6pt Inter;font-style:normal;letter-spacing:.14em;color:var(--red)}
+body>section.chap:first-child{break-before:auto;page-break-before:auto}
+</style></head><body><section class="chap">
+<div class="opener"><div class="no">1</div><div class="kick">Day 1 · Protocol</div><h1>Ask a good question.</h1>
+<p>Every review that fails, fails here. A vague question gives a vague search, a vague pool and a vague paper. Spend today making the question sharp enough to hurt.</p>
+<div class="meta"><span>PICO</span><span>Eligibility</span><span>PRISMA-P</span><span>PROSPERO</span></div>
+</div>
+
+<h2>1.1 What are we actually doing?</h2>
+<table><tr><th>Design</th><th>What it is</th><th>Output</th><th>Use when</th></tr>
+<tr><td><b>Narrative review</b></td><td>Author picks and summarises papers; no fixed method</td><td>Opinion with citations</td><td>Teaching, background. Not evidence.</td></tr>
+<tr><td><b>Systematic review (SR)</b></td><td>Pre-specified question, reproducible search, 2 reviewers, critical appraisal</td><td>Structured synthesis</td><td>Always the foundation</td></tr>
+<tr><td><b>Meta-analysis (MA)</b></td><td>Statistical pooling of results <i>inside</i> an SR</td><td>One pooled estimate + CI</td><td>Studies are similar enough to combine</td></tr>
+<tr><td><b>Network MA (NMA)</b></td><td>MA of ≥3 treatments at once using direct + indirect evidence</td><td>Every pairwise effect + ranking</td><td>Many options, few head-to-head trials</td></tr>
+<tr><td><b>Scoping review</b></td><td>Maps what exists; no pooling, no RoB needed</td><td>Evidence map</td><td>Broad, exploratory questions</td></tr></table>
+<div class="box hy"><span class="t">High-yield</span><p><b>Every MA should sit inside an SR. Not every SR needs an MA.</b> A meta-analysis without a systematic search is just arithmetic on a convenient sample of papers.</p></div>
+
+<h3>Where it sits in the evidence hierarchy</h3>
+<p>Single case → case series → case-control → cohort → RCT → <b>SR/MA of RCTs</b> (top). Garbage-in applies: a pooled estimate from biased trials is a precise wrong answer. That is why Days 3 and 5 exist.</p>
+
+<h2>1.2 The question: PICO and its cousins</h2>
+<div class="fig"><svg viewBox="0 0 520 110" xmlns="http://www.w3.org/2000/svg" font-family="Fraunces,serif"><rect x="8" y="8" width="118" height="92" fill="#fff" stroke="#0c1f4d" stroke-width="1.6"/><text x="67" y="62" text-anchor="middle" font-size="46" font-weight="800" fill="#c8102e">P</text><text x="67" y="90" text-anchor="middle" font-size="12" fill="#0c1f4d" font-weight="600">Population</text><rect x="136" y="8" width="118" height="92" fill="#fff" stroke="#0c1f4d" stroke-width="1.6"/><text x="195" y="62" text-anchor="middle" font-size="46" font-weight="800" fill="#c8102e">I</text><text x="195" y="90" text-anchor="middle" font-size="12" fill="#0c1f4d" font-weight="600">Intervention</text><rect x="264" y="8" width="118" height="92" fill="#fff" stroke="#0c1f4d" stroke-width="1.6"/><text x="323" y="62" text-anchor="middle" font-size="46" font-weight="800" fill="#c8102e">C</text><text x="323" y="90" text-anchor="middle" font-size="12" fill="#0c1f4d" font-weight="600">Comparator</text><rect x="392" y="8" width="118" height="92" fill="#fff" stroke="#0c1f4d" stroke-width="1.6"/><text x="451" y="62" text-anchor="middle" font-size="46" font-weight="800" fill="#c8102e">O</text><text x="451" y="90" text-anchor="middle" font-size="12" fill="#0c1f4d" font-weight="600">Outcome</text></svg></div>
+<table><tr><th>Framework</th><th>Letters</th><th>Question type</th></tr>
+<tr><td><b>PICO</b></td><td>Population · Intervention · Comparator · Outcome</td><td>Therapy / most clinical questions</td></tr>
+<tr><td>PICOS / PICOTS</td><td>+ Study design · + Timing · + Setting</td><td>Tighter eligibility</td></tr>
+<tr><td>PECO</td><td>Exposure instead of Intervention</td><td>Risk factors, aetiology (observational)</td></tr>
+<tr><td>PIRD / PIT</td><td>Index test · Reference standard · Diagnosis</td><td>Diagnostic accuracy</td></tr>
+<tr><td>PCC</td><td>Population · Concept · Context</td><td>Scoping reviews</td></tr>
+<tr><td>SPIDER</td><td>Sample · Phenomenon · Design · Evaluation · Research type</td><td>Qualitative evidence</td></tr></table>
+
+<div class="box mn"><span class="t">Mnemonic</span><p class="big">FINER</p><p>Good question = <b>F</b>easible · <b>I</b>nteresting · <b>N</b>ovel · <b>E</b>thical · <b>R</b>elevant. Add one check: <b>has someone already done it?</b> Search PROSPERO and PubMed for "systematic review" + your topic <i>before</i> you invest a month.</p></div>
+
+<h3>Bad question → good question</h3>
+<table><tr><th>Bad</th><th>Why it fails</th><th>Sharpened</th></tr>
+<tr><td>"Is laparoscopy better than open surgery?"</td><td>For what? Better how? In whom?</td><td><b>P</b> adults with acute appendicitis · <b>I</b> laparoscopic appendicectomy · <b>C</b> open appendicectomy · <b>O</b> 30-day surgical-site infection (primary), length of stay, conversion (secondary) · <b>S</b> RCTs</td></tr>
+<tr><td>"Does exercise help the heart?"</td><td>"Exercise", "help" and "heart" are all undefined</td><td><b>P</b> adults post-MI · <b>I</b> supervised cardiac rehab ≥8 wks · <b>C</b> usual care · <b>O</b> all-cause mortality at 12 months</td></tr></table>
+<div class="box trap"><span class="t">Reviewer trap</span><ul><li><b>Outcome = "outcomes"</b>. Name the primary outcome, the measure and the time point. Switching primary outcome after seeing results is outcome-switching: the cardinal sin.</li><li>Population too broad ("all patients") → heterogeneity you can never explain. Too narrow → 2 studies.</li><li>Comparator left vague: "standard care" varies by country and decade. Define it.</li></ul></div>
+
+<h2>1.3 Eligibility criteria</h2>
+<p>Inclusion and exclusion criteria are the <b>fence round your review</b>. Write them before searching. Each rule needs a reason a reviewer can accept.</p>
+<table><tr><th>Domain</th><th>Example inclusion</th><th>Example exclusion</th><th>Justify</th></tr>
+<tr><td>Design</td><td>Parallel-group RCTs</td><td>Case reports, editorials</td><td>Causal question</td></tr>
+<tr><td>Population</td><td>Adults ≥18, confirmed diagnosis</td><td>Paediatric, pregnant</td><td>Different biology</td></tr>
+<tr><td>Intervention</td><td>Defined dose/technique</td><td>Co-interventions that muddy effect</td><td>Isolates exposure</td></tr>
+<tr><td>Outcome</td><td>Reports primary outcome at ≥1 time point</td><td>No usable data</td><td>Poolability</td></tr>
+<tr><td>Other</td><td>Any language, any date*</td><td>Duplicate publications</td><td>*Restrict only with a reason</td></tr></table>
+<div class="box pearl"><span class="t">Clinical pearl</span><p>A language restriction ("English only") is the commonest unforced error. Excluding non-English trials can shift effect estimates and it must be listed as a limitation.</p></div>
+
+<h2>1.4 Choosing the effect measure now, not later</h2>
+<table><tr><th>Outcome type</th><th>Measure</th><th>Remember</th></tr>
+<tr><td>Dichotomous (infection yes/no)</td><td>RR · OR · RD</td><td>RR/OR pooled on log scale; RD for absolute impact</td></tr>
+<tr><td>Continuous, same scale</td><td>Mean difference (MD)</td><td>Needs same units</td></tr>
+<tr><td>Continuous, different scales</td><td>Standardised MD (Hedges' g)</td><td>Unit-free; harder to interpret</td></tr>
+<tr><td>Time-to-event</td><td>Hazard ratio (HR)</td><td>Pool log HR with its SE</td></tr></table>
+
+<h2>1.5 The protocol and PRISMA-P</h2>
+<div class="box defn"><span class="t">Definition</span><p><b>Protocol</b> = the written plan, fixed <i>before</i> you screen, stating question, eligibility, search, methods of appraisal, synthesis and what you will do if the data are awkward. <b>PRISMA-P</b> (2015) is the 17-item checklist for what a protocol must contain.</p></div>
+<p><b>Why bother?</b> It stops you choosing methods after peeking at results, it exposes duplicate work, and journals and reviewers increasingly ask for it.</p>
+<table><tr><th>Protocol section</th><th>What goes in it</th></tr>
+<tr><td>Administrative</td><td>Title ("systematic review"/"meta-analysis"), registration, authors and roles, amendments, funding</td></tr>
+<tr><td>Introduction</td><td>Rationale, objectives in PICO form</td></tr>
+<tr><td>Methods: eligibility</td><td>PICOS, years, languages, report status</td></tr>
+<tr><td>Methods: search</td><td>Databases, registers, grey sources, draft strategy</td></tr>
+<tr><td>Methods: study records</td><td>Management software, selection process (2 reviewers), data extraction items</td></tr>
+<tr><td>Methods: appraisal</td><td>RoB tool, how judgements are used</td></tr>
+<tr><td>Methods: synthesis</td><td>Effect measure, model, heterogeneity, subgroups, sensitivity, publication bias, certainty (GRADE)</td></tr></table>
+<h3>Registering on PROSPERO</h3>
+<ul><li>PROSPERO is a free international registry of systematic reviews with a health-related outcome, maintained by the Centre for Reviews and Dissemination, University of York.</li><li>Register <b>before you start screening</b>; it is meant to record plans, not completed work. Registration is a record, not peer review or an endorsement.</li><li>Needs: a title, review question, search plan, eligibility, primary outcome, RoB method, synthesis plan. Keep these identical to your protocol.</li><li>Not eligible (typically scoping reviews, narrative reviews)? A public time-stamped protocol on OSF Registries is the fallback.</li></ul>
+<div class="box trap"><span class="t">Reviewer trap</span><p><b>Registration after results is theatre.</b> If methods changed, say so in a "deviations from protocol" paragraph and update the registration. Honest change is fine. Hidden change is misconduct.</p></div>
+
+<div class="box task"><span class="t">Hands-on · Day 1 deliverable</span><ol><li>Write your topic as a single PICO sentence + one primary outcome with time point.</li><li>Search PROSPERO + PubMed for existing reviews; paste the 3 closest and write one line each on how yours differs.</li><li>Fill the eligibility table (above) with a reason in every row.</li><li>Draft the protocol headings from PRISMA-P and write Introduction + Objectives (150–250 words).</li></ol></div>
+
+<div class="rev"><h2>⚡ Day 1 · Rapid Revision</h2><div class="cols">
+<h3>Core</h3><ul><li>SR = method. MA = statistics inside an SR. NMA = many treatments at once.</li><li>PICO(S) → PECO / PCC / SPIDER by question type.</li><li>Protocol first. PRISMA-P = 17 items. Register before screening.</li></ul>
+<h3>Traps</h3><ul><li>Vague outcome / outcome switching</li><li>Language restriction without reason</li><li>Registering after results</li></ul>
+<h3>Numbers</h3><ul><li>2 reviewers, always</li><li>PRISMA-P: <b>17</b></li><li>Primary outcome: <b>1</b></li></ul>
+</div></div>
+
+<h2>Practice MCQs</h2>
+<div class="mcq"><div class="q">1. Which element of PICO is most often left vague, leading to outcome switching?</div><div class="o">A. Population  B. Intervention  C. Comparator  D. Outcome</div><div class="a"><b>Answer D.</b> Undefined outcomes (what, how measured, at what time) let authors choose the "best-looking" one later.</div></div>
+<div class="mcq"><div class="q">2. The best time to register a systematic review is:</div><div class="o">A. After data extraction  B. After analysis  C. Before screening begins  D. At manuscript submission</div><div class="a"><b>Answer C.</b> Registration records the plan; doing it after results defeats the purpose.</div></div>
+<div class="mcq"><div class="q">3. PRISMA-P is a reporting guideline for:</div><div class="o">A. The completed review  B. The review protocol  C. Search strategies  D. Network meta-analyses</div><div class="a"><b>Answer B.</b> PRISMA 2020 = completed review; PRISMA-S = searches; PRISMA-NMA = network reviews.</div></div>
+<div class="mcq"><div class="q">4. A question about harms of an environmental exposure in cohort studies is best framed as:</div><div class="o">A. PICO  B. PECO  C. SPIDER  D. PCC</div><div class="a"><b>Answer B.</b> Exposure replaces Intervention when you do not assign it.</div></div>
+<div class="mcq"><div class="q">5. A meta-analysis without a systematic search is best described as:</div><div class="o">A. Acceptable if studies are RCTs  B. A narrative review with maths  C. A scoping review  D. An NMA</div><div class="a"><b>Answer B.</b> Selective inclusion biases the pooled estimate however good the statistics.</div></div>
+<div class="mcq"><div class="q">6. Which restriction needs the strongest justification?</div><div class="o">A. Parallel-group RCTs only  B. Adults only  C. English-language only  D. Confirmed diagnosis</div><div class="a"><b>Answer C.</b> Language limits can bias estimates and are rarely driven by the question.</div></div>
+<div class="mcq"><div class="q">7. PROSPERO accepts registration of:</div><div class="o">A. Any literature review  B. Systematic reviews with a health-related outcome  C. Completed papers only  D. Primary RCTs</div><div class="a"><b>Answer B.</b> It is a registry of SRs, not trials (trials go to CTRI/ClinicalTrials.gov).</div></div>
+<div class="mcq"><div class="q">8. Pooled log-RR is back-transformed because RR is:</div><div class="o">A. Skewed multiplicative  B. Always normal  C. Unit-dependent  D. Absolute</div><div class="a"><b>Answer A.</b> Ratios are symmetric on the log scale; pool there, report on the natural scale.</div></div>
+</section>
+</body></html>

@@ -1,0 +1,169 @@
+<!doctype html><html lang='en'><head><meta charset='utf-8'><title>Day 6 Notes</title><style>@font-face{font-family:'Caveat';font-style:normal;font-weight:600;src:url(../fonts/Caveat-normal-600.ttf) format('truetype');}
+@font-face{font-family:'Fraunces';font-style:italic;font-weight:600;src:url(../fonts/Fraunces-italic-600.ttf) format('truetype');}
+@font-face{font-family:'Fraunces';font-style:normal;font-weight:600;src:url(../fonts/Fraunces-normal-600.ttf) format('truetype');}
+@font-face{font-family:'Fraunces';font-style:normal;font-weight:800;src:url(../fonts/Fraunces-normal-800.ttf) format('truetype');}
+@font-face{font-family:'Special Elite';font-style:normal;font-weight:400;src:url(../fonts/SpecialElite-normal-400.ttf) format('truetype');}:root{--navy:#0c1f4d;--red:#c8102e;--cream:#f1eee7;--paper:#f7f5ef;--blue:#cdd8ea;--ink:#1b2238;--mute:#5b6479;--gold:#b8892b}
+*{box-sizing:border-box}
+html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{margin:0;background:var(--paper);color:var(--ink);font:10.2pt/1.5 'Inter',system-ui,sans-serif}
+@page{size:A4;margin:16mm 15mm 17mm}
+h1,h2,h3,.disp{font-family:'Fraunces',Georgia,serif;color:var(--navy);margin:0}
+h2{font-size:19pt;font-weight:800;margin:14pt 0 6pt;border-bottom:1.6pt solid var(--navy);padding-bottom:3pt;break-after:avoid}
+h3{font-size:12.5pt;font-weight:600;margin:11pt 0 3pt;break-after:avoid}
+h3::before{content:"§ ";color:var(--red)}
+p{margin:0 0 6pt}
+ul,ol{margin:2pt 0 7pt;padding-left:15pt}li{margin:1.5pt 0}
+b,strong{color:var(--navy)}
+.mono{font-family:'Special Elite',monospace}
+.hand{font-family:'Caveat',cursive;color:var(--red);font-size:13pt;line-height:1.1}
+.chap{page-break-before:always;break-before:page}
+.opener{background:var(--navy);color:#fff;margin:0 -15mm 10pt;padding:14mm 15mm 12mm;position:relative;overflow:hidden;min-height:92mm}
+.opener .no{font:800 92pt/0.8 Fraunces,serif;color:var(--red);position:absolute;right:15mm;top:10mm}
+.opener .kick{font:9pt 'Special Elite',monospace;letter-spacing:.18em;color:#cdd8ea;text-transform:uppercase}
+.opener h1{color:#fff;font-size:29pt;font-weight:800;line-height:1.05;margin:6pt 0 8pt;max-width:130mm}
+.opener p{color:#dfe6f3;max-width:140mm;font-size:10.5pt}
+.opener .hand{color:#ff9aa8;font-size:15pt;margin-top:6pt;display:block}
+.meta{display:flex;gap:6pt;margin:8pt 0 4pt;flex-wrap:wrap}
+.meta span{font:8.5pt 'Special Elite',monospace;border:1pt solid #8fa0c4;color:#e3e9f5;padding:2pt 7pt;border-radius:2pt}
+.box{border-radius:3pt;padding:7pt 10pt 6pt;margin:8pt 0;break-inside:avoid;position:relative}
+.box .t{display:inline-block;font:700 7.6pt 'Inter';letter-spacing:.14em;text-transform:uppercase;padding:2pt 7pt;border-radius:2pt;margin-bottom:4pt;color:#fff}
+.box p:last-child,.box ul:last-child{margin-bottom:2pt}
+.hy{background:#fdecee;border-left:4pt solid var(--red)}.hy .t{background:var(--red)}
+.trap{background:#fff;border:1.3pt dashed var(--navy)}.trap .t{background:var(--navy)}
+.mn{background:var(--blue);border-left:4pt solid var(--navy)}.mn .t{background:var(--navy)}
+.mn .big{font:800 15pt 'Fraunces';color:var(--red);letter-spacing:.04em}
+.pearl{background:#fbf3df;border-left:4pt solid var(--gold)}.pearl .t{background:var(--gold)}
+.defn{background:#fff;border:1pt solid #cfd6e6;border-left:4pt solid #3d66b8}.defn .t{background:#3d66b8}
+.task{background:#eef6ee;border:1.3pt solid #2f7d4f}.task .t{background:#2f7d4f}
+.fix{background:#fff;border:1pt solid #cfd6e6;border-radius:3pt;padding:7pt 10pt;margin:8pt 0;break-inside:avoid}
+table{border-collapse:collapse;width:100%;margin:7pt 0 9pt;font-size:9.1pt;break-inside:avoid}
+th{background:var(--navy);color:#fff;text-align:left;padding:4pt 6pt;font-weight:600;font-size:8.6pt;letter-spacing:.03em}
+td{padding:4pt 6pt;border-bottom:.8pt solid #cfd6e6;vertical-align:top}
+tr:nth-child(even) td{background:#f0ede5}
+td.r{color:var(--red);font-weight:600}
+.cap{font:8.4pt 'Special Elite',monospace;color:var(--mute);margin:-3pt 0 9pt}
+.fig{margin:8pt 0;text-align:center;break-inside:avoid}
+.fig svg{max-width:100%;height:auto}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10pt}
+.stamp{display:inline-block;border:1.6pt solid var(--red);color:var(--red);font:9pt 'Special Elite';padding:2pt 8pt;transform:rotate(-3deg);letter-spacing:.1em}
+.rev{background:var(--navy);color:#fff;padding:12pt 14pt;margin:6pt 0;border-radius:3pt}
+.rev h2{color:#fff;border-color:var(--red);margin-top:0}
+.rev h3{color:#fff}.rev b{color:#ffd0d6}.rev li{margin:2.5pt 0}
+.rev .cols{columns:2;column-gap:16pt}.rev .cols>*{break-inside:avoid}
+.mcq{break-inside:avoid;margin:7pt 0;padding:6pt 9pt;background:#fff;border:1pt solid #d5dbe8;border-radius:3pt}
+.mcq .q{font-weight:600;color:var(--navy);margin-bottom:3pt}.mcq .o{margin:1pt 0 1pt 8pt}
+.mcq .a{margin-top:4pt;padding-top:3pt;border-top:1pt dotted #aab4cc;font-size:9pt;color:#2f3b57}.mcq .a b{color:var(--red)}
+.toc li{margin:3pt 0}
+.cover{height:262mm;display:flex;flex-direction:column;justify-content:space-between;color:#fff;background:var(--navy);margin:0 -15mm;padding:18mm 18mm;page-break-after:always;position:relative}
+.cover h1{color:#fff;font-size:44pt;line-height:1.02;font-weight:800}
+.cover .red{color:#ff8da0}
+.cover .kick{font:10pt 'Special Elite';letter-spacing:.2em;color:#cdd8ea}
+.cover .hand{color:#ff9aa8;font-size:19pt}
+.cover .stampw{border:2pt solid #ff8da0;color:#ff8da0;display:inline-block;padding:4pt 12pt;font:11pt 'Special Elite';transform:rotate(-3deg)}
+.small{font-size:8.4pt;color:var(--mute)}
+.sl{break-inside:avoid;border:1pt solid #cfd6e6;background:#fff;border-radius:3pt;margin:7pt 0;padding:0}
+.sl .h{background:var(--blue);padding:4pt 9pt;font:600 10pt 'Fraunces';color:var(--navy);display:flex;justify-content:space-between}
+.sl .h i{font:8.4pt 'Special Elite';font-style:normal;color:var(--red)}
+.sl .b{padding:6pt 9pt}.sl .b ul{margin-bottom:3pt}
+.sl .say{border-left:3pt solid var(--red);padding:1pt 0 1pt 8pt;margin:5pt 0 2pt;font-style:italic;color:#2b3550}
+.sl .say::before{content:"SAY · ";font:700 7.6pt Inter;font-style:normal;letter-spacing:.14em;color:var(--red)}
+body>section.chap:first-child{break-before:auto;page-break-before:auto}
+</style></head><body><section class="chap">
+<div class="opener"><div class="no">6</div><div class="kick">Day 6 · Analysis</div><h1>Go network.</h1>
+<p>Pairwise MA answers "A vs B". Real clinicians face A, B, C, D and a placebo, with trials that never met each other. NMA uses the web of comparisons to rank them, if the web is honest.</p>
+<div class="meta"><span>Geometry</span><span>Transitivity</span><span>Consistency</span><span>League table</span><span>CINeMA</span></div>
+</div>
+
+<h2>6.1 The core idea</h2>
+<div class="fig"><svg viewBox="0 0 420 250" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif" font-size="10"><line x1="210" y1="125" x2="80" y2="50" stroke="#0c1f4d" stroke-width="9.1"/><line x1="210" y1="125" x2="340" y2="50" stroke="#0c1f4d" stroke-width="6.4"/><line x1="210" y1="125" x2="80" y2="200" stroke="#0c1f4d" stroke-width="4.6"/><line x1="210" y1="125" x2="340" y2="200" stroke="#0c1f4d" stroke-width="2.8"/><line x1="80" y1="50" x2="340" y2="50" stroke="#0c1f4d" stroke-width="3.7"/><line x1="80" y1="200" x2="340" y2="200" stroke="#0c1f4d" stroke-width="1.9"/><line x1="80" y1="50" x2="80" y2="200" stroke="#c8102e" stroke-width="2" stroke-dasharray="6 4"/><circle cx="210" cy="125" r="26" fill="#fff" stroke="#0c1f4d" stroke-width="2"/><text x="210" y="129" text-anchor="middle" fill="#0c1f4d" font-weight="700">Placebo</text><circle cx="80" cy="50" r="20" fill="#fff" stroke="#0c1f4d" stroke-width="2"/><text x="80" y="54" text-anchor="middle" fill="#0c1f4d" font-weight="700">A</text><circle cx="340" cy="50" r="20" fill="#fff" stroke="#0c1f4d" stroke-width="2"/><text x="340" y="54" text-anchor="middle" fill="#0c1f4d" font-weight="700">B</text><circle cx="80" cy="200" r="20" fill="#fff" stroke="#0c1f4d" stroke-width="2"/><text x="80" y="204" text-anchor="middle" fill="#0c1f4d" font-weight="700">C</text><circle cx="340" cy="200" r="20" fill="#fff" stroke="#0c1f4d" stroke-width="2"/><text x="340" y="204" text-anchor="middle" fill="#0c1f4d" font-weight="700">D</text><text x="30" y="128" fill="#c8102e" font-size="9">A vs C: no direct trial</text><text x="8" y="244" fill="#555" font-size="8.5">Line thickness = number of trials. Dashed red = indirect evidence only.</text></svg></div>
+<div class="box defn"><span class="t">Definition</span><p><b>Direct evidence</b> = trials that compare A with B head to head. <b>Indirect evidence</b> = A vs B inferred through a common comparator: <b>d(A,B) = d(A,Pl) − d(B,Pl)</b>. <b>Mixed (network) estimate</b> = weighted combination of both.</p></div>
+<ul><li>Network gains precision and allows comparisons nobody trialled.</li><li>It adds <b>assumptions</b>. That's where reviewers attack.</li></ul>
+<div class="box hy"><span class="t">High-yield</span><p><b>Pairwise first, network last.</b> If your pairwise MAs are messy, the network will be messier. Build the geometry from the same included studies you've already extracted.</p></div>
+
+<h2>6.2 Geometry and vocabulary</h2>
+<table><tr><th>Term</th><th>Meaning</th></tr>
+<tr><td>Node</td><td>One treatment (or defined treatment class)</td></tr>
+<tr><td>Edge</td><td>Direct comparison made in ≥ 1 trial</td></tr>
+<tr><td>Multi-arm trial</td><td>3+ arms; contributes correlated comparisons: software must handle it</td></tr>
+<tr><td>Closed loop</td><td>Both direct and indirect evidence for a comparison</td></tr>
+<tr><td>Connected network</td><td>Every node is reachable. Disconnected networks cannot be analysed together</td></tr>
+<tr><td>Reference</td><td>Common comparator (placebo / standard care); results often relative to it</td></tr></table>
+<div class="box trap"><span class="t">Reviewer trap</span><ul><li><b>Node definition ("lumping vs splitting")</b>: is "statin" one node or six doses/types? Define in the protocol, before looking at results.</li><li>Including a treatment that is never used in the clinical decision you care about. Network must be a <i>decision set</i>.</li><li>Showing the plot with equal-thickness lines. Size nodes by participants, edges by number of trials.</li></ul></div>
+
+<h2>6.3 Assumption 1: Transitivity</h2>
+<div class="box defn"><span class="t">Definition</span><p><b>Transitivity</b>: studies comparing A–Pl and B–Pl are similar enough in <b>effect modifiers</b> (age, severity, baseline risk, dose, duration, setting) that an indirect A-vs-B comparison is valid. It's a clinical judgement about study characteristics; you assess it <i>before</i> looking at statistics.</p></div>
+<ul><li>Tabulate effect-modifier distributions per comparison (a "transitivity table").</li><li>If A–Pl trials are in severe disease and B–Pl trials in mild disease, the indirect A vs B is confounded by severity.</li><li>Nothing substitutes for judgement. Statistical tests can't prove it.</li></ul>
+
+<h2>6.4 Assumption 2: Consistency (coherence)</h2>
+<p>Where direct and indirect evidence both exist, they should <b>agree</b>. Disagreement = <b>inconsistency / incoherence</b>.</p>
+<table><tr><th>Level</th><th>Method</th><th>Question</th></tr>
+<tr><td>Global</td><td>Design-by-treatment interaction test</td><td>Anywhere in the network, is there inconsistency?</td></tr>
+<tr><td>Local</td><td>Node-splitting (SIDE) / loop inconsistency</td><td>For this comparison, direct vs indirect: do they differ?</td></tr></table>
+<div class="box mn"><span class="t">Mnemonic</span><p class="big">T before C</p><p><b>T</b>ransitivity is the <i>assumption</i> (judge by thinking). <b>C</b>onsistency is the <i>testable consequence</i> (check by statistics). If transitivity fails, consistency tests may or may not catch it.</p></div>
+<div class="box trap"><span class="t">Reviewer trap</span><p>"Test for inconsistency not significant → no inconsistency." Same lesson as I²: tests are underpowered. Present node-split estimates, not just p-values, and take clinical context into account.</p></div>
+
+<h2>6.5 Heterogeneity in a network</h2>
+<p>Most NMA models estimate a <b>common τ²</b> for all comparisons (an assumption). Heterogeneity within each pairwise comparison should still be examined (Day 4 skills). Network meta-regression can adjust for an effect modifier; needs enough trials.</p>
+
+<h2>6.6 Frequentist vs Bayesian</h2>
+<table><tr><th></th><th>Frequentist</th><th>Bayesian</th></tr>
+<tr><td>Typical tools</td><td>R <b>netmeta</b>, Stata <i>network</i> suite</td><td>R <b>gemtc / BUGSnet</b> (JAGS/Stan)</td></tr>
+<tr><td>Output</td><td>Estimate, CI, P-score</td><td>Posterior median, 95% CrI, SUCRA, probabilities</td></tr>
+<tr><td>Strength</td><td>Fast, transparent, fewer settings</td><td>Natural ranking probabilities, flexible models</td></tr>
+<tr><td>Risk</td><td>Awkward with sparse data</td><td>Priors / convergence must be reported</td></tr></table>
+<p><b>Both are acceptable.</b> What matters is that the model, priors, convergence diagnostics (Bayesian) and software are reported. For beginners: <b>MetaInsight</b> (a free browser app built on R) runs frequentist and Bayesian NMA without coding and is ideal for teaching.</p>
+
+<h2>6.7 League tables and rankings</h2>
+<table><tr><th>Output</th><th>What it shows</th></tr>
+<tr><td><b>League table</b></td><td>Every pairwise effect (with CI/CrI) in one matrix. <b>The primary result.</b></td></tr>
+<tr><td><b>Forest plot vs reference</b></td><td>All treatments vs placebo</td></tr>
+<tr><td><b>SUCRA / P-score</b></td><td>0–100%: average rank, higher = more likely better. <b>Not an effect size.</b></td></tr>
+<tr><td>Rankogram</td><td>Probability of each treatment being 1st, 2nd, …</td></tr></table>
+<div class="box hy"><span class="t">High-yield</span><p><b>Rankings must always appear next to the estimates and their certainty.</b> A treatment can rank first on a trivial effect with a CI covering benefit and harm. SUCRA of 90% in a sparse, imprecise network is noise with a nice number on it.</p></div>
+<div class="box trap"><span class="t">Reviewer trap</span><ul><li>"Treatment X is the best" written from SUCRA alone.</li><li>Ranking drugs that have few trials with other drugs that have many.</li><li>No statement of the clinical importance threshold. "Different" is not "better".</li></ul></div>
+
+<h2>6.8 Worked example · hypothetical network</h2>
+<div class="box trap"><span class="t">Hypothetical dataset</span><p>Ten invented two-arm trials of treatments <b>A, B, C</b> versus <b>placebo</b>. Outcome: pain score (0–10) at 6 weeks, <b>mean difference</b> (negative favours the first-named treatment). Estimates were computed by script: weighted least squares on the contrast data, with a DerSimonian-Laird-type τ². Trials: A–Pl ×3, B–Pl ×3, C–Pl ×2, A–B ×1, B–C ×1. Two closed loops: A–B–Pl and B–C–Pl.</p></div>
+<table><tr><th>Quantity</th><th>Value</th></tr><tr><td>Network heterogeneity</td><td class="r">Q = 1.57 on 7 df · τ² = 0.000 · I² = 0%</td></tr>
+<tr><td>A vs placebo</td><td class='r'>MD -1.17 [-1.53, -0.82]</td></tr><tr><td>B vs placebo</td><td class='r'>MD -0.76 [-1.11, -0.42]</td></tr><tr><td>C vs placebo</td><td class='r'>MD -0.23 [-0.69, 0.22]</td></tr></table>
+<h3>League table (row vs column, MD with 95% CI)</h3>
+<table><tr><th></th><th>A</th><th>B</th><th>C</th><th>Placebo</th></tr><tr><td><b>A</b></td><td>—</td><td>-0.41 [-0.85, 0.03]</td><td>-0.94 [-1.51, -0.38]</td><td>-1.17 [-1.53, -0.82]</td></tr><tr><td><b>B</b></td><td>0.41 [-0.03, 0.85]</td><td>—</td><td>-0.53 [-1.04, -0.02]</td><td>-0.76 [-1.11, -0.42]</td></tr><tr><td><b>C</b></td><td>0.94 [0.38, 1.51]</td><td>0.53 [0.02, 1.04]</td><td>—</td><td>-0.23 [-0.69, 0.22]</td></tr><tr><td><b>Placebo</b></td><td>1.17 [0.82, 1.53]</td><td>0.76 [0.42, 1.11]</td><td>0.23 [-0.22, 0.69]</td><td>—</td></tr></table>
+<div class="cap">Negative favours the row treatment. Example: A vs B = -0.41 [-0.85, 0.03], so the data are compatible with no difference.</div>
+<h3>P-scores</h3>
+<table><tr><th>Treatment</th><th>P-score</th><th>Reading</th></tr><tr><td>A</td><td class='r'>99%</td><td>Highest probability of being best; interval vs B includes 0</td></tr><tr><td>B</td><td class='r'>67%</td><td>Intermediate</td></tr><tr><td>C</td><td class='r'>29%</td><td>Interval vs placebo includes 0</td></tr><tr><td>Placebo</td><td class='r'>5%</td><td>Reference</td></tr></table>
+<h3>Node-split check: A vs B</h3>
+<table><tr><th>Source</th><th>MD (95% CI)</th></tr><tr><td>Direct (1 trial)</td><td class="r">-0.50 [-1.28, 0.28]</td></tr><tr><td>Indirect (via placebo)</td><td class="r">-0.37 [-0.91, 0.17]</td></tr><tr><td>Difference</td><td class="r">-0.13 (p = 0.79)</td></tr></table>
+<div class="box hy"><span class="t">How to write this up</span><ul><li><b>A</b> gave the largest improvement versus placebo (MD -1.17), B was intermediate, and C was not clearly different from placebo (CI includes 0).</li><li><b>A is ranked first (P-score 99%)</b>, but A versus B is -0.41 [-0.85, 0.03]: the data do not separate them. A ranking is not an effect size.</li><li>No evidence of inconsistency in the A–B–Placebo loop, but with a single direct trial the test is underpowered; certainty still needs CINeMA.</li></ul></div>
+<h2>6.9 CINeMA: confidence in network estimates</h2>
+<p>CINeMA (Confidence in Network Meta-Analysis) is a free web app that rates <b>each network estimate</b> using <b>6 domains</b>, then gives High / Moderate / Low / Very low.</p>
+<table><tr><th>#</th><th>Domain</th><th>Idea</th></tr>
+<tr><td>1</td><td>Within-study bias</td><td>RoB of studies that contribute to the estimate (weighted by contribution)</td></tr>
+<tr><td>2</td><td>Reporting bias</td><td>Missing or selectively reported results</td></tr>
+<tr><td>3</td><td>Indirectness</td><td>Studies' P/I/C/O vs your target question</td></tr>
+<tr><td>4</td><td>Imprecision</td><td>CI vs a clinically meaningful range</td></tr>
+<tr><td>5</td><td>Heterogeneity</td><td>Prediction interval vs clinical thresholds</td></tr>
+<tr><td>6</td><td>Incoherence</td><td>Direct vs indirect disagreement (node-split), plus overall consistency</td></tr></table>
+<div class="box mn"><span class="t">Mnemonic</span><p class="big">W·R·I·I·H·I</p><p><b>W</b>ithin-study bias · <b>R</b>eporting bias · <b>I</b>ndirectness · <b>I</b>mprecision · <b>H</b>eterogeneity · <b>I</b>ncoherence. Six boxes: tick each for no concerns / some / major.</p></div>
+<p class="small">Alternative: GRADE extended to NMA (Puhan et al. four-step approach). Cite whichever you use; CINeMA is the most practical for beginners because it is stepwise and software-supported.</p>
+<table><tr><th>Question</th><th>Pairwise</th><th>Network</th></tr><tr><td>Reporting</td><td>PRISMA 2020</td><td>PRISMA-NMA (adds geometry, inconsistency, rankings)</td></tr><tr><td>Certainty</td><td>GRADE</td><td>CINeMA or GRADE-NMA</td></tr><tr><td>Key assumption</td><td>Similarity</td><td>Transitivity + consistency</td></tr><tr><td>Main output</td><td>Forest plot</td><td>League table + rankings with certainty</td></tr></table>
+
+<div class="box task"><span class="t">Hands-on · Day 6 deliverable</span><ol><li>Sketch your network on paper: nodes, edges, and where direct evidence is missing.</li><li>Build a transitivity table: 3 likely effect modifiers × each comparison.</li><li>Explore MetaInsight with its demo data: find the league table, the ranking and the node-split result.</li><li>Draft the NMA section of your protocol: node definition, models, consistency checks, ranking presentation, certainty method.</li></ol></div>
+
+<div class="rev"><h2>⚡ Day 6 · Rapid Revision</h2><div class="cols">
+<h3>Logic</h3><ul><li>Indirect: d(AB) = d(A,Pl) − d(B,Pl)</li><li>Mixed = direct + indirect</li></ul>
+<h3>Assumptions</h3><ul><li><b>Transitivity</b> (clinical, before analysis)</li><li><b>Consistency</b> (global + node-split)</li></ul>
+<h3>Outputs</h3><ul><li>League table = main</li><li>SUCRA/P-score: <b>never alone</b></li></ul>
+<h3>Certainty</h3><ul><li>CINeMA: <b>6</b> domains</li><li>PRISMA-NMA for reporting</li></ul>
+</div></div>
+
+<h2>Practice MCQs</h2>
+<div class="mcq"><div class="q">1. In an NMA, the indirect comparison A vs B via placebo is:</div><div class="o">A. d(A,Pl) + d(B,Pl)  B. d(A,Pl) − d(B,Pl)  C. d(A,Pl) × d(B,Pl)  D. Average of both</div><div class="a"><b>Answer B.</b></div></div>
+<div class="mcq"><div class="q">2. The assumption that effect modifiers are balanced across comparisons is:</div><div class="o">A. Consistency  B. Transitivity  C. Heterogeneity  D. Imprecision</div><div class="a"><b>Answer B.</b></div></div>
+<div class="mcq"><div class="q">3. Node-splitting evaluates:</div><div class="o">A. Publication bias  B. Local inconsistency  C. RoB  D. SUCRA</div><div class="a"><b>Answer B.</b></div></div>
+<div class="mcq"><div class="q">4. SUCRA of 92% means treatment X:</div><div class="o">A. Reduces events by 92%  B. Has high probability of ranking near the top, not the size of effect  C. Is proven superior  D. Has no inconsistency</div><div class="a"><b>Answer B.</b></div></div>
+<div class="mcq"><div class="q">5. Number of CINeMA domains:</div><div class="o">A. 4  B. 5  C. 6  D. 8</div><div class="a"><b>Answer C.</b></div></div>
+<div class="mcq"><div class="q">6. Which design cannot be analysed as a single network?</div><div class="o">A. Star-shaped  B. Loop  C. Disconnected  D. Multi-arm</div><div class="a"><b>Answer C.</b></div></div>
+<div class="mcq"><div class="q">7. Primary result of an NMA to show first:</div><div class="o">A. Ranking plot  B. League table with certainty  C. Funnel  D. P-value</div><div class="a"><b>Answer B.</b></div></div>
+<div class="mcq"><div class="q">8. Reporting guideline extension for NMAs:</div><div class="o">A. PRISMA-P  B. PRISMA-NMA  C. PRISMA-S  D. CONSORT</div><div class="a"><b>Answer B.</b></div></div>
+</section>
+</body></html>

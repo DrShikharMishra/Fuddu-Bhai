@@ -63,3 +63,4 @@ td.r{color:var(--red);font-weight:600}
 .sl .b{padding:6pt 9pt}.sl .b ul{margin-bottom:3pt}
 .sl .say{border-left:3pt solid var(--red);padding:1pt 0 1pt 8pt;margin:5pt 0 2pt;font-style:italic;color:#2b3550}
 .sl .say::before{content:"SAY · ";font:700 7.6pt Inter;font-style:normal;letter-spacing:.14em;color:var(--red)}
+body>section.chap:first-child{break-before:auto;page-break-before:auto}

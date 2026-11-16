@@ -1,0 +1,142 @@
+<!doctype html><html lang='en'><head><meta charset='utf-8'><title>Day 7 Notes</title><style>@font-face{font-family:'Caveat';font-style:normal;font-weight:600;src:url(../fonts/Caveat-normal-600.ttf) format('truetype');}
+@font-face{font-family:'Fraunces';font-style:italic;font-weight:600;src:url(../fonts/Fraunces-italic-600.ttf) format('truetype');}
+@font-face{font-family:'Fraunces';font-style:normal;font-weight:600;src:url(../fonts/Fraunces-normal-600.ttf) format('truetype');}
+@font-face{font-family:'Fraunces';font-style:normal;font-weight:800;src:url(../fonts/Fraunces-normal-800.ttf) format('truetype');}
+@font-face{font-family:'Special Elite';font-style:normal;font-weight:400;src:url(../fonts/SpecialElite-normal-400.ttf) format('truetype');}:root{--navy:#0c1f4d;--red:#c8102e;--cream:#f1eee7;--paper:#f7f5ef;--blue:#cdd8ea;--ink:#1b2238;--mute:#5b6479;--gold:#b8892b}
+*{box-sizing:border-box}
+html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{margin:0;background:var(--paper);color:var(--ink);font:10.2pt/1.5 'Inter',system-ui,sans-serif}
+@page{size:A4;margin:16mm 15mm 17mm}
+h1,h2,h3,.disp{font-family:'Fraunces',Georgia,serif;color:var(--navy);margin:0}
+h2{font-size:19pt;font-weight:800;margin:14pt 0 6pt;border-bottom:1.6pt solid var(--navy);padding-bottom:3pt;break-after:avoid}
+h3{font-size:12.5pt;font-weight:600;margin:11pt 0 3pt;break-after:avoid}
+h3::before{content:"§ ";color:var(--red)}
+p{margin:0 0 6pt}
+ul,ol{margin:2pt 0 7pt;padding-left:15pt}li{margin:1.5pt 0}
+b,strong{color:var(--navy)}
+.mono{font-family:'Special Elite',monospace}
+.hand{font-family:'Caveat',cursive;color:var(--red);font-size:13pt;line-height:1.1}
+.chap{page-break-before:always;break-before:page}
+.opener{background:var(--navy);color:#fff;margin:0 -15mm 10pt;padding:14mm 15mm 12mm;position:relative;overflow:hidden;min-height:92mm}
+.opener .no{font:800 92pt/0.8 Fraunces,serif;color:var(--red);position:absolute;right:15mm;top:10mm}
+.opener .kick{font:9pt 'Special Elite',monospace;letter-spacing:.18em;color:#cdd8ea;text-transform:uppercase}
+.opener h1{color:#fff;font-size:29pt;font-weight:800;line-height:1.05;margin:6pt 0 8pt;max-width:130mm}
+.opener p{color:#dfe6f3;max-width:140mm;font-size:10.5pt}
+.opener .hand{color:#ff9aa8;font-size:15pt;margin-top:6pt;display:block}
+.meta{display:flex;gap:6pt;margin:8pt 0 4pt;flex-wrap:wrap}
+.meta span{font:8.5pt 'Special Elite',monospace;border:1pt solid #8fa0c4;color:#e3e9f5;padding:2pt 7pt;border-radius:2pt}
+.box{border-radius:3pt;padding:7pt 10pt 6pt;margin:8pt 0;break-inside:avoid;position:relative}
+.box .t{display:inline-block;font:700 7.6pt 'Inter';letter-spacing:.14em;text-transform:uppercase;padding:2pt 7pt;border-radius:2pt;margin-bottom:4pt;color:#fff}
+.box p:last-child,.box ul:last-child{margin-bottom:2pt}
+.hy{background:#fdecee;border-left:4pt solid var(--red)}.hy .t{background:var(--red)}
+.trap{background:#fff;border:1.3pt dashed var(--navy)}.trap .t{background:var(--navy)}
+.mn{background:var(--blue);border-left:4pt solid var(--navy)}.mn .t{background:var(--navy)}
+.mn .big{font:800 15pt 'Fraunces';color:var(--red);letter-spacing:.04em}
+.pearl{background:#fbf3df;border-left:4pt solid var(--gold)}.pearl .t{background:var(--gold)}
+.defn{background:#fff;border:1pt solid #cfd6e6;border-left:4pt solid #3d66b8}.defn .t{background:#3d66b8}
+.task{background:#eef6ee;border:1.3pt solid #2f7d4f}.task .t{background:#2f7d4f}
+.fix{background:#fff;border:1pt solid #cfd6e6;border-radius:3pt;padding:7pt 10pt;margin:8pt 0;break-inside:avoid}
+table{border-collapse:collapse;width:100%;margin:7pt 0 9pt;font-size:9.1pt;break-inside:avoid}
+th{background:var(--navy);color:#fff;text-align:left;padding:4pt 6pt;font-weight:600;font-size:8.6pt;letter-spacing:.03em}
+td{padding:4pt 6pt;border-bottom:.8pt solid #cfd6e6;vertical-align:top}
+tr:nth-child(even) td{background:#f0ede5}
+td.r{color:var(--red);font-weight:600}
+.cap{font:8.4pt 'Special Elite',monospace;color:var(--mute);margin:-3pt 0 9pt}
+.fig{margin:8pt 0;text-align:center;break-inside:avoid}
+.fig svg{max-width:100%;height:auto}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10pt}
+.stamp{display:inline-block;border:1.6pt solid var(--red);color:var(--red);font:9pt 'Special Elite';padding:2pt 8pt;transform:rotate(-3deg);letter-spacing:.1em}
+.rev{background:var(--navy);color:#fff;padding:12pt 14pt;margin:6pt 0;border-radius:3pt}
+.rev h2{color:#fff;border-color:var(--red);margin-top:0}
+.rev h3{color:#fff}.rev b{color:#ffd0d6}.rev li{margin:2.5pt 0}
+.rev .cols{columns:2;column-gap:16pt}.rev .cols>*{break-inside:avoid}
+.mcq{break-inside:avoid;margin:7pt 0;padding:6pt 9pt;background:#fff;border:1pt solid #d5dbe8;border-radius:3pt}
+.mcq .q{font-weight:600;color:var(--navy);margin-bottom:3pt}.mcq .o{margin:1pt 0 1pt 8pt}
+.mcq .a{margin-top:4pt;padding-top:3pt;border-top:1pt dotted #aab4cc;font-size:9pt;color:#2f3b57}.mcq .a b{color:var(--red)}
+.toc li{margin:3pt 0}
+.cover{height:262mm;display:flex;flex-direction:column;justify-content:space-between;color:#fff;background:var(--navy);margin:0 -15mm;padding:18mm 18mm;page-break-after:always;position:relative}
+.cover h1{color:#fff;font-size:44pt;line-height:1.02;font-weight:800}
+.cover .red{color:#ff8da0}
+.cover .kick{font:10pt 'Special Elite';letter-spacing:.2em;color:#cdd8ea}
+.cover .hand{color:#ff9aa8;font-size:19pt}
+.cover .stampw{border:2pt solid #ff8da0;color:#ff8da0;display:inline-block;padding:4pt 12pt;font:11pt 'Special Elite';transform:rotate(-3deg)}
+.small{font-size:8.4pt;color:var(--mute)}
+.sl{break-inside:avoid;border:1pt solid #cfd6e6;background:#fff;border-radius:3pt;margin:7pt 0;padding:0}
+.sl .h{background:var(--blue);padding:4pt 9pt;font:600 10pt 'Fraunces';color:var(--navy);display:flex;justify-content:space-between}
+.sl .h i{font:8.4pt 'Special Elite';font-style:normal;color:var(--red)}
+.sl .b{padding:6pt 9pt}.sl .b ul{margin-bottom:3pt}
+.sl .say{border-left:3pt solid var(--red);padding:1pt 0 1pt 8pt;margin:5pt 0 2pt;font-style:italic;color:#2b3550}
+.sl .say::before{content:"SAY · ";font:700 7.6pt Inter;font-style:normal;letter-spacing:.14em;color:var(--red)}
+body>section.chap:first-child{break-before:auto;page-break-before:auto}
+</style></head><body><section class="chap">
+<div class="opener"><div class="no">7</div><div class="kick">Day 7 · Report</div><h1>Write it up.</h1>
+<p>Everything you did is invisible unless you report it. Today you meet PRISMA (all of it), assemble the capstone protocol and learn what reviewers will actually say.</p>
+<div class="meta"><span>PRISMA 2020</span><span>PRISMA-NMA</span><span>PRISMA-P</span><span>AMSTAR 2</span><span>Capstone</span></div>
+</div>
+
+<h2>7.1 The PRISMA family</h2>
+<table><tr><th>Guideline</th><th>For</th><th>Size</th><th>Use at</th></tr>
+<tr><td><b>PRISMA-P</b></td><td>Review <b>protocol</b></td><td>17 items</td><td>Before screening: <b>your capstone</b></td></tr>
+<tr><td><b>PRISMA 2020</b></td><td>Completed SR (± MA)</td><td>27 items + 12-item abstract checklist + flow diagram</td><td>Manuscript</td></tr>
+<tr><td><b>PRISMA-NMA</b></td><td>Network meta-analyses</td><td>32 items</td><td>Manuscript; adds geometry, inconsistency, ranking</td></tr>
+<tr><td><b>PRISMA-S</b></td><td>Search reporting</td><td>16 items</td><td>Search section/appendix</td></tr></table>
+<div class="box hy"><span class="t">High-yield</span><p>Know which letter does what. <b>P</b>rotocol · <b>S</b>earch · <b>NMA</b> · none = main report. Journals ask for the checklist with <b>page numbers</b> against each item.</p></div>
+
+<h2>7.2 Structure of the final report</h2>
+<table><tr><th>Section</th><th>Must include</th></tr>
+<tr><td>Title</td><td>"Systematic review and meta-analysis / network meta-analysis" in the title</td></tr>
+<tr><td>Abstract</td><td>Structured per PRISMA 2020 abstract: objectives, eligibility, sources, RoB, synthesis, results, limitations, funding, registration</td></tr>
+<tr><td>Introduction</td><td>Rationale; objectives in PICO form</td></tr>
+<tr><td>Methods</td><td>Registration + protocol + <b>deviations</b>; eligibility; sources + dates; full strategy; selection; extraction; RoB; effect measures; synthesis; heterogeneity; sensitivity; reporting bias; certainty</td></tr>
+<tr><td>Results</td><td>Flow diagram; characteristics table; RoB; <b>forest plots</b>; heterogeneity; sensitivity; certainty / SoF; for NMA: network plot, league table, ranks with CINeMA</td></tr>
+<tr><td>Discussion</td><td>Summary; comparison with other evidence; <b>limitations</b> of evidence <i>and</i> review; implications for practice and research</td></tr>
+<tr><td>Other</td><td>Registration number, funding, competing interests, <b>data/code availability</b></td></tr></table>
+<h3>Writing rules for the Results and Discussion</h3>
+<ul><li>Results report; the Discussion interprets. Don't mix.</li><li>Report <b>every</b> pre-specified analysis, including null and unflattering ones.</li><li>Use <b>certainty language</b> that matches GRADE/CINeMA: "may reduce" for low, "probably reduces" for moderate.</li><li>Avoid "proves", "no effect" (use "no clear evidence of an effect" when the CI includes meaningful benefit and harm).</li></ul>
+<div class="box trap"><span class="t">Reviewer trap</span><ul><li>Conclusion stronger than the certainty rating.</li><li>No "deviations from protocol" statement even though methods changed.</li><li>Only reporting what's significant. Selective reporting inside a review about selective reporting.</li><li>Missing limitations of the <i>review</i> itself (language, database coverage, few studies).</li></ul></div>
+
+<h2>7.3 Appraising a published review: AMSTAR 2</h2>
+<p><b>AMSTAR 2</b> (16 items) lets you judge another review. Critical items include: protocol registered before the review; adequate search; justified exclusions; RoB assessed; appropriate pooling; RoB considered when interpreting; publication bias assessed. Overall confidence: High / Moderate / Low / Critically low.</p>
+
+<h2>7.4 The capstone: your protocol (template)</h2>
+<div class="fix"><p class="mono" style="font-size:9pt">PROTOCOL · SR / MA / NMA</p><ol style="font-size:9.3pt">
+<li><b>Title</b> — "[Intervention] vs [comparator] for [outcome] in [population]: a systematic review and meta-analysis (protocol)".</li>
+<li><b>Registration</b> — PROSPERO ID (or OSF link); authors and roles; amendments log; funding; competing interests.</li>
+<li><b>Background and rationale</b> — what is known, what is missing, why an SR now (≈250 words).</li>
+<li><b>Objectives</b> — PICO sentence.</li>
+<li><b>Eligibility</b> — table: P, I, C, O (primary + secondary + time point), S, language, dates.</li>
+<li><b>Information sources</b> — databases (MEDLINE, Embase, CENTRAL…), registries, grey literature, citation chasing; planned search date; full draft strategy in appendix.</li>
+<li><b>Selection process</b> — dedup tool, 2 independent reviewers, Rayyan, conflict resolution, pilot, flow diagram.</li>
+<li><b>Data extraction</b> — items, form, pilot, 2 reviewers, author contact, handling multi-arm and multiple reports.</li>
+<li><b>Risk of bias</b> — RoB 2 / ROBINS-I; independent; how judgements feed synthesis.</li>
+<li><b>Effect measures</b> — RR/OR/MD/SMD/HR; handling zero events; medians-to-means.</li>
+<li><b>Synthesis</b> — random-effects, τ² estimator, CI method, software; criteria for pooling; narrative if not pooled.</li>
+<li><b>Heterogeneity / subgroups / sensitivity</b> — pre-specified list, with direction and reason.</li>
+<li><b>Reporting bias</b> — funnel/Egger only if ≥ 10 studies; registry comparison.</li>
+<li><b>NMA only</b> — node definition, transitivity assessment, model (freq/Bayes), consistency checks, ranking presentation, CINeMA.</li>
+<li><b>Certainty</b> — GRADE (or CINeMA) per outcome; SoF outcomes listed.</li>
+<li><b>Timeline and dissemination</b> — milestones, planned journal type, data sharing.</li></ol></div>
+<div class="box pearl"><span class="t">Clinical pearl</span><p><b>Run a pre-mortem.</b> Ask a friend to read your protocol and write the reviewer comment they would give. If three comments repeat — fix the protocol, not your defence.</p></div>
+
+<h2>7.5 Authorship, ethics, honesty</h2>
+<ul><li>Authorship follows <b>ICMJE</b> criteria: substantial contribution, drafting/revising, approval, accountability. Writing a paper for someone else's name doesn't qualify them as author.</li><li>SRs of published data usually don't need ethics committee review, but check your institution's rule and state it.</li><li>Disclose any AI-assisted tools you used and keep human responsibility for every claim and number. Do not let a tool invent citations.</li><li>Avoid predatory journals: check indexing (e.g. PubMed/Scopus coverage) and peer-review practice.</li></ul>
+
+<div class="box task"><span class="t">Hands-on · Day 7 deliverable (capstone)</span><ol><li>Assemble all your Day 1–6 sections into the template above, in one document.</li><li>Complete the PRISMA-P checklist with section/page references.</li><li>Submit the PROSPERO form (or OSF registration) using your own text.</li><li>Bring it to live Q&amp;A for feedback; revise.</li></ol></div>
+
+<div class="rev"><h2>⚡ Day 7 · Rapid Revision</h2><div class="cols">
+<h3>Checklists</h3><ul><li>PRISMA-P <b>17</b> · PRISMA 2020 <b>27</b> (+12 abstract) · PRISMA-NMA <b>32</b> · PRISMA-S <b>16</b> · AMSTAR 2 <b>16</b></li></ul>
+<h3>Write</h3><ul><li>Match language to certainty</li><li>Report all pre-specified analyses</li><li>Deviations stated</li></ul>
+<h3>Capstone</h3><ul><li>Protocol written <b>by you</b></li><li>Registered before screening</li><li>Peer-test it</li></ul>
+</div></div>
+
+<h2>Practice MCQs</h2>
+<div class="mcq"><div class="q">1. The reporting guideline for protocols is:</div><div class="o">A. PRISMA 2020  B. PRISMA-P  C. PRISMA-S  D. CONSORT</div><div class="a"><b>Answer B.</b></div></div>
+<div class="mcq"><div class="q">2. PRISMA 2020 main checklist has how many items?</div><div class="o">A. 17  B. 27  C. 32  D. 16</div><div class="a"><b>Answer B.</b> (27; 17 = PRISMA-P; 32 = PRISMA-NMA; 16 = PRISMA-S / AMSTAR 2.)</div></div>
+<div class="mcq"><div class="q">3. PRISMA-NMA is distinctive because it adds items on:</div><div class="o">A. Network geometry, inconsistency and ranking  B. Blinding  C. Randomisation  D. Costs</div><div class="a"><b>Answer A.</b></div></div>
+<div class="mcq"><div class="q">4. A CI of 0.7–1.4 with an observed 'no difference' should be written as:</div><div class="o">A. "Proves no effect"  B. "No clear evidence of an effect"  C. "Treatment is useless"  D. "Significant"</div><div class="a"><b>Answer B.</b></div></div>
+<div class="mcq"><div class="q">5. Methods changed after registration. You should:</div><div class="o">A. Hide it  B. Report deviations and update registration  C. Delete protocol  D. Withdraw</div><div class="a"><b>Answer B.</b></div></div>
+<div class="mcq"><div class="q">6. AMSTAR 2 is used to:</div><div class="o">A. Report an SR  B. Appraise confidence in an existing SR  C. Search databases  D. Rank drugs</div><div class="a"><b>Answer B.</b></div></div>
+<div class="mcq"><div class="q">7. Which section should interpret findings?</div><div class="o">A. Methods  B. Results  C. Discussion  D. Abstract only</div><div class="a"><b>Answer C.</b></div></div>
+<div class="mcq"><div class="q">8. Moderate-certainty evidence is best worded as:</div><div class="o">A. "Probably reduces"  B. "Definitely reduces"  C. "May reduce"  D. "Unknown"</div><div class="a"><b>Answer A.</b> Low = "may"; very low = "uncertain".</div></div>
+</section>
+</body></html>
